@@ -1,0 +1,89 @@
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+body {
+  overflow-x: hidden;
+}
+
+#wrapper {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+
+/* Only use side bar when using big screen */
+@media(min-width:768px) {
+  .navbar-default {
+  height: 70px;
+  }
+
+  .navbar-default .navbar-brand{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.4em;
+  }
+
+  .sidebar .sidebar-header{
+    display: visible;
+    text-align: center;
+    font-size: 1.4em;
+    height: 70px;
+    padding: 20px;
+    background-color: #337ab7;
+    color: white;
+    margin: 0px 0px;
+  }
+
+  #wrapper.toggled {
+  padding-left: 250px;
+  }
+
+  #sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
+
+  #wrapper {
+    padding-left: 0;
+  }
+  #wrapper.toggled {
+    padding-left: 250px;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    background-color: #f8f8f8;
+    width: 250px;
+  }
+  #page-content-wrapper {
+    padding: 20px;
+    position: relative;
+  }
+}
+
+/* Small screen */
+@media screen and (max-width:767px) {
+
+  .sidebar .sidebar-header {
+  display: none;
+  }
+
+}
+
