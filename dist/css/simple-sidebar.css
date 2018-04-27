@@ -18,6 +18,29 @@ body {
 
 /* Only use side bar when using big screen */
 @media(min-width:768px) {
+
+  .navbar-header {
+    height: inherit;
+  }
+
+  #wrapper .btn-sidebar{
+   text-align: center;
+    background-color: #337ab7;
+    color: white;
+    margin-top: 12px;
+    margin-left: 15px;
+
+    visibility: visible;
+  }
+
+  #wrapper .btn-sidebar:hover{
+   background-color: #65a0d4;
+  }
+
+  #wrapper.toggled .btn-sidebar {
+    visibility: hidden;
+  }
+
   .navbar-default {
   height: 70px;
   }
@@ -40,7 +63,7 @@ body {
   }
 
   #wrapper.toggled {
-  padding-left: 250px;
+  padding-left: 200px;
   }
 
   #sidebar-wrapper {
@@ -57,20 +80,19 @@ body {
     transition: all 0.5s ease;
   }
 
-  #wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
-  }
-
   #wrapper {
     padding-left: 0;
   }
-  #wrapper.toggled {
-    padding-left: 250px;
+
+
+  #wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -200px;
   }
+
   #wrapper.toggled #sidebar-wrapper {
     background-color: #f8f8f8;
-    width: 250px;
+    width: 200px;
   }
   #page-content-wrapper {
     padding: 20px;

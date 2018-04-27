@@ -38,7 +38,7 @@
 
 <body>
 
-    <div id="wrapper">
+    <div id="wrapper" class="toggled">
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -49,7 +49,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Lin大帶你搶銀行</a>
+                <button type="button" class="btn btn-primary btn-sidebar btn-lg" id="menu-show">
+                    <i class="fa  fa-navicon"></i>
+                </button>
+                <a  href="index.html">Lin大帶你搶銀行</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -94,6 +97,10 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+
+                            <li>
+                                <a href="#menu-hide"  id="menu-hide">隱藏選單</a> 
+                            </li>
                         </ul>
                         <!-- /.sidebar -->
                     </div>
@@ -102,8 +109,10 @@
             </div>    
         </nav>
         <!-- /.navbar-static-side -->
-
+        
         <div id="page-content-wrapper">
+
+
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
@@ -120,10 +129,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>                                 
-
-
+                                    <div class="huge">26</div>                                
                                 </div>
                             </div>
                         </div>
@@ -205,7 +211,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
@@ -669,9 +675,13 @@
 
     <!-- Side Bar  JavaScript -->
     <script>
-    $("#menu-toggle").click(function(e) {
+    $("#menu-hide").click(function(e) {
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+        $("#wrapper").removeClass("toggled");
+    });
+    $("#menu-show").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").addClass("toggled");
     });
     </script>
 </body>
