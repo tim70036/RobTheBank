@@ -27,9 +27,9 @@ body {
    text-align: center;
     background-color: #337ab7;
     color: white;
-    margin-top: 12px;
-    margin-left: 15px;
-
+    position: relative;
+    left: 15px;
+    top: 13px;
     visibility: visible;
   }
 
