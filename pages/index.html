@@ -65,11 +65,11 @@
                             </li>
                             <!-- 首頁 -->
                             <li>
-                                <a href="#" id="main" class="sidebar-link"><i class="fa fa-home fa-fw"></i> 首頁 </a>
+                                <a id="main" class="sidebar-link"><i class="fa fa-home fa-fw"></i> 首頁 </a>
                             </li>
                             <!-- 帳號管理 -->
                             <li>
-                                <a href="#" id="account" class="sidebar-link"><i class="fa fa-user fa-fw"></i> 帳號管理 </a>
+                                <a id="account" class="sidebar-link"><i class="fa fa-user fa-fw"></i> 帳號管理 </a>
                             </li>
                             <!-- 交易日誌 -->
                             <li>
@@ -150,17 +150,34 @@
 
     <!-- Side Bar Link  JavaScript -->
     <script type="text/javascript">
+    /* Load new page when user click */
     $(".sidebar-link").on("click", function(){
         $(this).blur();
+        var tarElement = $(this);
         var requestTarget = $(this).attr("id")+".html" ;
-        console.log("hear");
+
         $.ajax({
         type: 'GET',
             url: requestTarget,
             // data: postedData,
             dataType: 'text',
             success: function(response){
+
+                /* Removing active effect */
+                $("ul li .active").removeClass('active');
+
+                /* Load target page */
                 $("#page-content-wrapper").html(response);
+
+                /* Adding active effect */
+                var parElement = tarElement.addClass('active').parent();
+                while (true) {
+                    if (parElement.is('li')) {
+                        parElement = parElement.parent().addClass('in').parent();
+                    } else {
+                        break;
+                    }
+                }
             },
             fail: function(response){
                 console.log(response);
