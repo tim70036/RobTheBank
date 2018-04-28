@@ -24,6 +24,7 @@ body {
   }
 
   #wrapper .btn-sidebar{
+    visibility: visible;
    text-align: center;
     background-color: #337ab7;
     color: white;
@@ -85,10 +86,7 @@ body {
   }
 
 
-  #wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -200px;
-  }
+ 
 
   #wrapper.toggled #sidebar-wrapper {
     background-color: #f8f8f8;
@@ -98,14 +96,22 @@ body {
     padding: 20px;
     position: relative;
   }
+
+  #wrapper.toggled #page-content-wrapper {
+    position: relative;
+    margin-right: 0;
+  }
 }
 
 /* Small screen */
 @media screen and (max-width:767px) {
+
+  #wrapper .btn-sidebar {
+    visibility: hidden;
+  }
 
   .sidebar .sidebar-header {
   display: none;
   }
 
 }
-
