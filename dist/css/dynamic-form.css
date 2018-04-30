@@ -28,7 +28,7 @@
 }
 
 #singlebutton{
-  width:100%;
+/*  width:100%;*/
   margin-top:20px;
 }
 
@@ -38,6 +38,6 @@
   margin-bottom:40px;
 }
 
-.dynamic-element{
-  margin-bottom:0px;
+.form-horizontal .dynamic-element {
+  margin: 0px;
 }
