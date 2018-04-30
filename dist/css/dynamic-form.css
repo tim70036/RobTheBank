@@ -8,12 +8,24 @@
   background-color: #ececec;
 }
 
-.add-one{
+/*.add-one{
   color:green;
   text-align:center;
   font-weigth:bolder;
   cursor:pointer;
   margin-top:10px;
+}*/
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .delete{
@@ -39,5 +51,5 @@
 }
 
 .form-horizontal .dynamic-element {
-  margin: 0px;
+  margin: 40px;
 }

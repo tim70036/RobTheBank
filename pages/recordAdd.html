@@ -9,8 +9,8 @@
 		<div class="form-group dynamic-element" style="display:none">
 		    <label class="control-label" for="date">Date</label>
 	        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-	        <label>Text area</label>
-            <textarea class="form-control" rows="3"></textarea>
+	        <label>成交明細</label>
+            <textarea class="form-control" name="transaction" rows="3"></textarea>
 		</div>
 		<!-- END OF HIDDEN ELEMENT -->
 
@@ -28,12 +28,14 @@
 		            <!-- Button -->
 		            <div class="form-group">
 		                <div class="row">
-		                    <div class="col-md-12">
-		                        <p class="add-one">新增交易</p>
+		                	<div class="center">
+		                        <button type="button" class="add-one btn btn-success">新增交易</button>
 		                    </div>
+		                </div>
+		                <!-- /.row -->
+		                <div class="row">
 		                    <!-- /.col-md-12 -->
-		                    <div class="col-md-10"></div>
-		                    <div class="col-md-2">
+		                    <div class="center">
 		                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">確認提交</button>
 		                    </div>
 		                    <!-- /.col-md-6 -->
@@ -55,23 +57,6 @@
 <script src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="../vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js"></script>
 <link rel="stylesheet" href="../vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
-<!-- Datepicker Init -->
-<script>
-
-	 $(document).ready(function(){
-	 	console.log("date init");
-	     $('input[name="date"]').datepicker({
-		    format: "yyyy-mm-dd",
-		    autoclose: true,
-		    orientation: "bottom auto",
-		    //startDate: "today",
-		    clearBtn: true,
-		    //calendarWeeks: true,
-		    todayHighlight: true,
-		    language: 'zh-TW'
-			});
-    })
-</script>
 
 <script type="text/javascript">
 var clickNum = 0;
@@ -92,10 +77,10 @@ $('.add-one').click(function(){
 			});
 
   // Set name for radio button
-  // clickNum = clickNum + 1;
-  // console.log('buyOrSell'+clickNum);
-  // $('.dynamic-element').last().find("input[name='notSetRadios']").attr('name','buyOrSell'+clickNum)
-
+   clickNum = clickNum + 1;
+   //console.log('buyOrSell'+clickNum);
+   $('.dynamic-element').last().find("input[name='date']").attr('name','date'+clickNum);
+   $('.dynamic-element').last().find("textarea[name='transaction']").attr('name','transaction'+clickNum);
   attach_delete();
 });
 
