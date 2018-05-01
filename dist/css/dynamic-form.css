@@ -50,6 +50,22 @@
   margin-bottom:40px;
 }
 
-.form-horizontal .dynamic-element {
-  margin: 40px;
+.form-horizontal .form-element {
+  margin: 40px 100px;
+}
+
+@media(max-width:767px) {
+
+  .form-horizontal .form-element {
+  margin: 30px 60px;
+  }
+
+}
+
+.form-horizontal .mid-input {
+  width: 50%;
+}
+
+.form-horizontal .large-input {
+  width: 60%;
 }

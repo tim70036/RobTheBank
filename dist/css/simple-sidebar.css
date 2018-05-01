@@ -104,7 +104,7 @@ body {
 }
 
 /* Small screen */
-@media screen and (max-width:767px) {
+@media(max-width:767px) {
 
   #wrapper .btn-sidebar {
     visibility: hidden;
