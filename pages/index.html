@@ -19,7 +19,11 @@
 
     <!-- Custom CSS -->
     <link href="../dist/css/main.css" rel="stylesheet">
+    <link href="../dist/css/logo.css" rel="stylesheet">
     <link href="../dist/css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="../dist/css/magnific-popup.css">
 
     <!-- Morris Charts CSS -->
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
@@ -52,8 +56,8 @@
                 <button type="button" class="btn btn-primary btn-sidebar btn-lg" id="menu-show">
                     <i class="fa  fa-navicon"></i>
                 </button>
-                <a  href="index.html">Lin大帶你搶銀行</a>
             </div>
+
             <!-- /.navbar-header -->
 
             <div id="sidebar-wrapper">
@@ -106,7 +110,15 @@
                     </div>
                 </div>
                 <!-- /.sidebar-collapse -->
-            </div>    
+            </div>
+
+            <!-- Logo -->
+            <div class="center">
+                <a href="index.html" id="logo">Rob The Bank</a>
+            </div>  
+
+            <a class="login-link" href="login.html">Login</a> 
+
         </nav>
         <!-- /.navbar-static-side -->
 <!-- -------------------------------------------------------------------------- -->
@@ -132,6 +144,9 @@
     <script src="../vendor/raphael/raphael.min.js"></script>
     <script src="../vendor/morrisjs/morris.min.js"></script>
     <script src="../data/morris-data.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="../dist/js/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
@@ -187,6 +202,19 @@
     /* Load main page when load index.html */
     $("#main").click()
     </script>
+
+
+    <!-- Popup initialization  JavaScript -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+          $('.login-link').magnificPopup({
+                type: 'ajax',
+                cursor: 'mfp-ajax-cur', // CSS class that will be added to body during the loading (adds "progress" cursor)
+                tError: '<a href="%url%">The content</a> could not be loaded.' //  Error message, can contain %curr% and %total% tags if gallery is enabled
+            });
+    });
+    </script>
+
 </body>
 
 </html>

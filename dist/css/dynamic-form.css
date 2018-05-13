@@ -8,26 +8,6 @@
   background-color: #ececec;
 }
 
-/*.add-one{
-  color:green;
-  text-align:center;
-  font-weigth:bolder;
-  cursor:pointer;
-  margin-top:10px;
-}*/
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.end {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
 .delete{
   color:white;
   background-color:rgb(231, 76, 60);
@@ -40,7 +20,6 @@
 }
 
 #singlebutton{
-/*  width:100%;*/
   margin-top:20px;
 }
 

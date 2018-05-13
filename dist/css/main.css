@@ -9,18 +9,22 @@ body {
 #wrapper {
   width: 100%;
 }
-/*#page-wrapper {
-  padding: 0 15px;
-  min-height: 568px;
-  background-color: white;
+
+
+.card-login {
+  font-size: 1.1em;
+  position: relative;
+  background: #FFF;
+  padding: 35px;
+  width:auto;
+  max-width: 400px;
+  margin: 0 auto; 
 }
-@media (min-width: 768px) {
-  #page-wrapper {
-    position: inherit;
-    padding: 0 30px;
-    border-left: 1px solid #e7e7e7;
-  }
-}*/
+
+.card-register {
+  max-width: 40rem;
+}
+
 .navbar-top-links {
   margin-right: 0;
 }
