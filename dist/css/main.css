@@ -12,6 +12,7 @@ body {
 
 
 .card-login {
+  border-radius: 10px;
   font-size: 1.1em;
   position: relative;
   background: #FFF;
@@ -19,10 +20,6 @@ body {
   width:auto;
   max-width: 400px;
   margin: 0 auto; 
-}
-
-.card-register {
-  max-width: 40rem;
 }
 
 .navbar-top-links {
