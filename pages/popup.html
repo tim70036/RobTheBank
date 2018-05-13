@@ -8,6 +8,10 @@
 
     <script type="text/javascript">
     var fadeDelay = 200;
+
+    /* Load the html content from server with animation */
+    /* First fade out the card, and load the content, lastly, fade the card in */
+    /* Use call back to prevent asynchronous */
     function LoadRegister(){
         $('.card').fadeOut(fadeDelay, function(){
                 $('.card-content').load('register.html', function(){
