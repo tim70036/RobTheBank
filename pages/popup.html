@@ -7,12 +7,20 @@
 
 
     <script type="text/javascript">
-
+    var fadeDelay = 200;
     function LoadRegister(){
-        $('.card-content').load('register.html');
+        $('.card').fadeOut(fadeDelay, function(){
+                $('.card-content').load('register.html', function(){
+                    $('.card').fadeIn(fadeDelay);
+                });
+        });
     }
     function LoadLogin(){
-        $('.card-content').load('login.html')
+        $('.card').fadeOut(fadeDelay, function(){
+                $('.card-content').load('login.html', function(){
+                    $('.card').fadeIn(fadeDelay);
+                });
+        });
     }
     /* Load login page first when popup shows */
     LoadLogin();
