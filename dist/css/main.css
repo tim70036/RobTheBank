@@ -22,6 +22,12 @@ body {
   margin: 0 auto; 
 }
 
+.card-body{
+  margin-top: 20px;
+}
+.btn.disabled{
+  cursor: progress;
+}
 .navbar-top-links {
   margin-right: 0;
 }

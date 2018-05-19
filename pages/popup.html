@@ -7,25 +7,38 @@
 
 
     <script type="text/javascript">
+
+    /* Global var */
     var fadeDelay = 200;
+    var confirmAccount = ''; // used for confirming account(set in register, use in confirm)
 
     /* Load the html content from server with animation */
     /* First fade out the card, and load the content, lastly, fade the card in */
     /* Use call back to prevent asynchronous */
     function LoadRegister(){
         $('.card').fadeOut(fadeDelay, function(){
-                $('.card-content').load('register.html', function(){
+                $('.card-content').load('register.php', function(){
                     $('.card').fadeIn(fadeDelay);
                 });
         });
     }
+
+    function LoadConfirm(){
+        $('.card').fadeOut(fadeDelay, function(){
+                $('.card-content').load('confirm.php', function(){
+                    $('.card').fadeIn(fadeDelay);
+                });
+        });
+    }
+
     function LoadLogin(){
         $('.card').fadeOut(fadeDelay, function(){
-                $('.card-content').load('login.html', function(){
+                $('.card-content').load('login.php', function(){
                     $('.card').fadeIn(fadeDelay);
                 });
         });
     }
+
     /* Load login page first when popup shows */
     LoadLogin();
     </script>
