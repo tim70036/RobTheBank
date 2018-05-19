@@ -1,45 +1,3 @@
-<?php
-use AWSCognitoApp\AWSCognitoWrapper;
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    require_once('credentials.php');
-    require_once('../vendor/autoload.php');
-    require_once('AWSCognitoWrapper.php');
-    
-    $wrapper = new AWSCognitoWrapper();
-    $wrapper->initialize();
-
-    try
-    {
-        $account = filter_input(INPUT_POST, 'account');
-        $confirmation = filter_input(INPUT_POST, 'confirmation');
-        
-        /* Checking */
-        if(!$account) throw new Exception("Invalid Account!");
-        if(!$confirmation) throw new Exception("Invalid Confirmation Code!");
-
-        /* Register through AWS */
-        $error = $wrapper->confirmSignup($account, $confirmation);
-        if(empty($error)) 
-        {
-            echo 'succeed'; // Let front end check whether it is success
-            exit;
-        }
-        else 
-        {
-            throw new Exception($error);
-        }
-
-    }
-    catch(Exception $e)
-    {
-        echo $e->getMessage();
-        exit;
-    }
-}
-
-?>
-
 <!-- Confirm content for popup.html -->
 <div class="card-header" style="text-align: center; font-size: 1.4em;">認證碼</div>
 <div class="card-body">
@@ -51,6 +9,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
         <!-- Fill by JS -->
         <input type='hidden' id="confirm-account" name='account' value="">
+
+        <!-- For backend to recognize type of form -->
+        <input type='hidden' name='ProcessType' value='confirm'>
 
         <!-- Show Alert message if any error happended in AJAX -->
         <div class="alert alert-danger" id="alert-message" style="display: none;">
@@ -79,14 +40,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $("#confirm-form").submit(function(e) {
 
         // Make sure that btn can't be click again and alert is hided
-        $("#submit-btn").addClass("disabled")
-        $("#alert-message").fadeOut(200); 
+        $("#submit-btn").addClass("disabled");
+        $("#alert-message").fadeOut(200);
 
-        var url = "confirm.php"; // the script where you handle the form input.
-
+        var Url = "memberControl.php"; // the script where you handle the form input.
         $.ajax({
                type: "POST",
-               url: url,
+               url: Url,
                data: $("#confirm-form").serialize(), // serializes the form's elements.
                success: function(data)
                {
@@ -100,6 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     {
                         $("#response").html(data); // show response from the php script. used for error
                         $("#alert-message").fadeIn(550);
+                        $("#submit-btn").removeClass("disabled");
                     }   
                }
              });

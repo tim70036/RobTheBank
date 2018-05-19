@@ -1,50 +1,3 @@
-<?php
-use AWSCognitoApp\AWSCognitoWrapper;
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-    require_once('credentials.php');
-    require_once('../vendor/autoload.php');
-    require_once('AWSCognitoWrapper.php');
-    
-    $wrapper = new AWSCognitoWrapper();
-    $wrapper->initialize();
-
-    try
-    {
-        $account = filter_input(INPUT_POST, 'account');
-        $password = filter_input(INPUT_POST, 'password');
-        $password2 = filter_input(INPUT_POST, 'password2');
-        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-
-        /* Checking */
-        if(!$account) throw new Exception("Invalid Account!");
-        if(!$password) throw new Exception("Invalid Password!");
-        if(!$email) throw new Exception("Invalid Email!");
-        if(strcmp($password, $password2) != 0) throw new Exception("Please Confirm Password!");
-
-        /* Register through AWS */
-        $error = $wrapper->signup($account, $email, $password);
-        if(empty($error)) 
-        {
-            echo "succeed"; // Let front end check whether it is success
-            exit;
-        }
-        else 
-        {
-            throw new Exception($error);
-        }
-
-    }
-    catch(Exception $e)
-    {
-        echo $e->getMessage();
-        exit;
-    }
-}
-
-?>
-
-
 <!-- Register content for popup.html -->
 <div class="card-header" style="text-align: center; font-size: 1.4em;">註冊</div>
 <div class="card-body">
@@ -66,6 +19,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <input class="form-control" name='password2' id="InputPassword2" type="password" placeholder="請再輸入相同密碼">
         </div>
 
+        <!-- For backend to recognize type of form -->
+        <input type='hidden' name='ProcessType' value='register'>
+
         <!-- Show Alert message if any error happended in AJAX -->
         <div class="alert alert-danger" id="alert-message" style="display: none;">
             <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
@@ -86,19 +42,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     
     // Invoke function when submit
     $("#register-form").submit(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
 
         // Make sure that btn can't be click again and alert is hided
-        $("#submit-btn").addClass("disabled")
+        $("#submit-btn").addClass("disabled");
         $("#alert-message").fadeOut(200);
 
         // Record the account for confirm
-        confirmAccount = $("#InputAccount1").val(); 
-
-        var url = "register.php"; // the script where you handle the form input.
+        confirmAccount = $("#InputAccount1").val();
         
+        var Url = "memberControl.php"; // the script where you handle the form input.
         $.ajax({
                type: "POST",
-               url: url,
+               url: Url,
                data: $("#register-form").serialize(), // serializes the form's elements.
                success: function(data)
                {
@@ -112,10 +68,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     {
                         $("#response").html(data); // show response from the php script. used for error
                         $("#alert-message").fadeIn(550);
+                        $("#submit-btn").removeClass("disabled");
                     }   
                }
              });
-
-        e.preventDefault(); // avoid to execute the actual submit of the form.
     });
 </script>

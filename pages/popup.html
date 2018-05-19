@@ -17,7 +17,7 @@
     /* Use call back to prevent asynchronous */
     function LoadRegister(){
         $('.card').fadeOut(fadeDelay, function(){
-                $('.card-content').load('register.php', function(){
+                $('.card-content').load('register.html', function(){
                     $('.card').fadeIn(fadeDelay);
                 });
         });
@@ -25,7 +25,7 @@
 
     function LoadConfirm(){
         $('.card').fadeOut(fadeDelay, function(){
-                $('.card-content').load('confirm.php', function(){
+                $('.card-content').load('confirm.html', function(){
                     $('.card').fadeIn(fadeDelay);
                 });
         });
@@ -33,7 +33,7 @@
 
     function LoadLogin(){
         $('.card').fadeOut(fadeDelay, function(){
-                $('.card-content').load('login.php', function(){
+                $('.card-content').load('login.html', function(){
                     $('.card').fadeIn(fadeDelay);
                 });
         });

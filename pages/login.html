@@ -1,0 +1,74 @@
+<!-- Login content for popup.html -->
+<div class="card-header" style="text-align: center; font-size: 1.4em;">登入</div>
+<div class="card-body">
+    <form method="post" id="login-form" action="login.php">
+        <div class="form-group">
+            <label for="InputAccount1">帳號</label>
+            <input class="form-control" name='account' id="InputAccount1" type="text" aria-describedby="accountHelp" placeholder="請輸入帳號">
+        </div>
+        <div class="form-group">
+            <label for="InputPassword1">密碼</label>
+            <input class="form-control" name='password' autocomplete="off" id="InputPassword1" type="password" placeholder="請輸入密碼">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" id="remember-checkbox" type="checkbox"> 記住密碼 </label>
+            </div>
+        </div>
+
+        <!-- For backend to recognize type of form -->
+        <input type='hidden' name='ProcessType' value='login'>
+
+        <!-- Show Alert message if any error happended in AJAX -->
+        <div class="alert alert-danger" id="alert-message" style="display: none;">
+            <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
+        </div>
+
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">登入</button>
+    </form>
+
+    <!-- Change to another content -->
+    <div class="text-center" style="margin-top: 10px;">
+        <a class="d-block small mt-3" onclick="LoadRegister()" style="margin: 0px 10px;">註冊帳號</a>
+        <a class="d-block small" href="forgot-password.html" style="margin: 0px 10px;">忘記密碼?</a>
+    </div>
+</div>
+<!-- /.card-body -->
+
+
+<!-- No redirect, so send form by using AJAX -->
+<script type="text/javascript">
+    
+    // Invoke function when submit
+    $("#login-form").submit(function(e) {
+
+        // Make sure that btn can't be click again and alert is hided
+        $("#submit-btn").addClass("disabled");
+        $("#alert-message").fadeOut(200);
+        
+        var Url = "memberControl.php"; // the script where you handle the form input.
+        $.ajax({
+               type: "POST",
+               url: Url,
+               data: $("#login-form").serialize(), // serializes the form's elements.
+               success: function(data)
+               {
+                    // If register succeed, load confirm content to popup (popup.html)
+                    if(data == "succeed")
+                    {
+                        window.location.replace('index.html');
+                    }
+                    // Else show alert
+                    else
+                    {
+                        $("#response").html(data); // show response from the php script. used for error
+                        $("#alert-message").fadeIn(550);
+                        $("#submit-btn").removeClass("disabled");
+                    }   
+               }
+             });
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+    });
+</script>
