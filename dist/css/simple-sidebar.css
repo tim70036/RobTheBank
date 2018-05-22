@@ -41,8 +41,10 @@ body {
   }
 
   #wrapper .btn-sidebar:hover{
-   background-color: #555;
-   color: white;
+    
+    font-weight: 650;
+    background-color: #555;
+    color: white;
   }
 
   #wrapper.toggled .btn-sidebar {

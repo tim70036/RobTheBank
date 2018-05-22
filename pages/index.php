@@ -1,3 +1,19 @@
+<?php
+require_once('credentials.php');
+require_once('../vendor/autoload.php');
+require_once('AWSCognitoWrapper.php');
+
+use AWSCognitoApp\AWSCognitoWrapper;
+
+$wrapper = new AWSCognitoWrapper();
+$wrapper->initialize();
+
+$isLogin = true;
+if(!$wrapper->isAuthenticated()) 
+    $isLogin = false;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,9 +138,24 @@
             
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class=""> <a class="navbar-btn popup-link" href="popup.php?page=register">註冊</a> </li>
-                    <li class=""> <a class="navbar-btn popup-link" href="popup.php?page=login">登入</a> </li>
-                    <!-- <li class="navbar-btn"> <a id="logout" href="#">Logout</a> </li> -->
+<?php
+
+    $loginHTML =  <<<HTML
+                    <li id="item-register"> <a class="navbar-btn popup-link" href="popup.php?page=register"><i class="fa fa-user-plus fa-fw"></i>註冊</a> </li>
+                    <li id="item-login"> <a class="navbar-btn popup-link" href="popup.php?page=login"><i class="fa fa-sign-in fa-fw"></i>登入</a> </li>
+HTML;
+
+    $logoutHTML = <<<HTML
+                    <li id="item-logout"> <a class="navbar-btn" id="logout" href="#"><i class="fa fa-sign-out fa-fw"></i>登出</a>
+HTML;
+
+
+    if($isLogin)
+        echo $logoutHTML;
+    else 
+        echo $loginHTML;
+?>
+
                 </ul>
             </div>
         </nav>

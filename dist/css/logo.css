@@ -56,22 +56,40 @@
 {
   text-align: center;
   margin-right: 20px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .navbar-btn {
-    padding: 10px 18px !important;
+    padding: 6px 14px !important;
     margin-left: 15px;
     border: 2px solid #e3e3e3;
     border-radius: 4px;
 }
 
-
-.navbar-right a:hover {
-    border: 2.5px solid #337ab7;
-    color: #337ab7 !important;
-    font-weight: 700;
+.navbar-right #item-register a:hover{
+    border: 2.2px solid #5bc0de;
+    color: #5bc0de !important;
+    font-weight: 650;
 }
+
+.navbar-right #item-login a:hover {
+    border: 2.2px solid #007bff;
+    color: #007bff !important;
+    font-weight: 650;
+}
+
+.navbar-right #item-logout a:hover {
+    border: 2.2px solid #dc3545;
+    color: #dc3545 !important;
+    font-weight: 650;
+}
+
+/*.navbar-right a:hover {
+
+    background-color: #555 !important;
+    color: white !important;
+    font-weight: 650;
+}*/
 
 
 
