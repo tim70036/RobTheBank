@@ -24,8 +24,10 @@ body {
   }
 
   #wrapper .btn-sidebar{
+
+    z-index: 1000; /*covered by nav brand */
     visibility: visible;
-   text-align: center;
+    text-align: center;
     background-color: #337ab7;
     color: white;
     position: relative;
@@ -44,12 +46,6 @@ body {
 
   .navbar-default {
   height: 70px;
-  }
-
-  .navbar-default .navbar-brand{
-    margin-top: 10px;
-    text-align: center;
-    font-size: 1.4em;
   }
 
   .sidebar .sidebar-header{

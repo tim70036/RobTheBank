@@ -54,10 +54,10 @@
                data: $("#login-form").serialize(), // serializes the form's elements.
                success: function(data)
                {
-                    // If register succeed, load confirm content to popup (popup.html)
+                    // If login succeed, refesh page to index
                     if(data == "succeed")
                     {
-                        window.location.replace('index.html');
+                        window.location.replace('index.php');
                     }
                     // Else show alert
                     else

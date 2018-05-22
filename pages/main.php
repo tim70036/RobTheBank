@@ -1,3 +1,19 @@
+<?php
+require_once('credentials.php');
+require_once('../vendor/autoload.php');
+require_once('AWSCognitoWrapper.php');
+
+use AWSCognitoApp\AWSCognitoWrapper;
+
+$wrapper = new AWSCognitoWrapper();
+$wrapper->initialize();
+
+if(!$wrapper->isAuthenticated()) {
+    readfile("./notlogin.html");   
+    exit;
+}
+?>
+
 <!-- main.html -->
 <div class="row">
     <div class="col-lg-12">

@@ -46,7 +46,7 @@
     <div id="wrapper" class="toggled">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -57,8 +57,15 @@
                 <button type="button" class="btn btn-primary btn-sidebar btn-lg" id="menu-show">
                     <i class="fa  fa-navicon"></i>
                 </button>
+
+
             </div>
 
+            <!-- Logo -->
+            <div class="navbar-brand">
+                <a href="index.php" id="logo">Rob The Bank</a>
+            </div>  
+            
             <!-- /.navbar-header -->
 
             <div id="sidebar-wrapper">
@@ -113,13 +120,12 @@
                 <!-- /.sidebar-collapse -->
             </div>
 
-            <!-- Logo -->
-            <div class="center">
-                <a href="index.html" id="logo">Rob The Bank</a>
-            </div>  
+            
 
-            <a class="popup-link" href="popup.html">Login</a> 
-
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a class="popup-link" href="popup.html">Login</a> </li>
+                <li> <a id="logout" href="#">Logout</a> </li>
+            </ul>
         </nav>
         <!-- /.navbar-static-side -->
 <!-- -------------------------------------------------------------------------- -->
@@ -170,7 +176,7 @@
     $(".sidebar-link").on("click", function(){
         $(this).blur();
         var tarElement = $(this);
-        var requestTarget = $(this).attr("id")+".html" ;
+        var requestTarget = $(this).attr("id")+".php" ;
 
         $.ajax({
         type: 'GET',
@@ -216,6 +222,33 @@
                 tError: '<a href="%url%">The content</a> could not be loaded.' //  Error message, can contain %curr% and %total% tags if gallery is enabled
             });
     });
+    </script>
+
+    <!-- Logout link  JavaScript -->
+    <script type="text/javascript">
+        $("#logout").on("click", function(){
+
+            var Url = "memberControl.php"; // the script where you handle the form input.
+            $.ajax({
+                   type: "POST",
+                   url: Url,
+                   data: { 'ProcessType' : 'logout'},
+                   success: function(data)
+                   {
+                        // If logout succeed, refesh page to index
+                        if(data == "succeed")
+                        {
+                            window.location.replace('index.php');
+                        }
+                        // Else show alert
+                        else
+                        {
+                            alert('logout failed');
+                        }   
+                   }
+                 });
+
+        });
     </script>
 
 </body>

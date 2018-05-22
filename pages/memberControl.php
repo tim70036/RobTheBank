@@ -9,6 +9,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
     $wrapper = new AWSCognitoWrapper();
     $wrapper->initialize();
 
+    $error = '';
+
     try
     {
         if($_POST['ProcessType'] === 'register')
@@ -26,17 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
 
             /* Register through AWS */
             $error = $wrapper->signup($account, $email, $password);
-            if(empty($error)) 
-            {
-                echo "succeed"; // Let front end check whether it is success
-                exit;
-            }
-            else 
-            {
-                throw new Exception($error);
-            }
         }
-
         else if($_POST['ProcessType'] === 'confirm')
         {
             $account = filter_input(INPUT_POST, 'account');
@@ -48,17 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
 
             /* Register through AWS */
             $error = $wrapper->confirmSignup($account, $confirmation);
-            if(empty($error)) 
-            {
-                echo 'succeed'; // Let front end check whether it is success
-                exit;
-            }
-            else 
-            {
-                throw new Exception($error);
-            }
         }
-
         else if($_POST['ProcessType'] === 'login')
         {
             $account = filter_input(INPUT_POST, 'account');
@@ -70,15 +52,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
 
             /* Login through AWS */
             $error = $wrapper->authenticate($account, $password);
-            if(empty($error)) 
-            {
-                echo "succeed";
-                exit;
-            }
-            else 
-            {
-                throw new Exception($error);
-            }
+        }
+        else if($_POST['ProcessType'] === 'logout')
+        {
+            $wrapper->logout();
+        }
+
+        /* Check whether it is success*/
+        if(empty($error)) 
+        {
+            echo "succeed"; // Let front end check whether it is success
+            exit;
+        }
+        else 
+        {
+            throw new Exception($error);
         }
     }
     catch(Exception $e)
