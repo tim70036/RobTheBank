@@ -58,14 +58,12 @@
                     <i class="fa  fa-navicon"></i>
                 </button>
 
-
+                 <!-- Logo -->
+                <a href="index.php" id="logo">Rob The Bank</a>
             </div>
 
-            <!-- Logo -->
-            <div class="navbar-brand">
-                <a href="index.php" id="logo">Rob The Bank</a>
-            </div>  
-            
+           
+
             <!-- /.navbar-header -->
 
             <div id="sidebar-wrapper">
@@ -121,11 +119,13 @@
             </div>
 
             
-
-            <ul class="nav navbar-nav navbar-right">
-                <li> <a class="popup-link" href="popup.html">Login</a> </li>
-                <li> <a id="logout" href="#">Logout</a> </li>
-            </ul>
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=""> <a class="navbar-btn popup-link" href="popup.php?page=register">註冊</a> </li>
+                    <li class=""> <a class="navbar-btn popup-link" href="popup.php?page=login">登入</a> </li>
+                    <!-- <li class="navbar-btn"> <a id="logout" href="#">Logout</a> </li> -->
+                </ul>
+            </div>
         </nav>
         <!-- /.navbar-static-side -->
 <!-- -------------------------------------------------------------------------- -->

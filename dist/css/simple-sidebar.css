@@ -20,28 +20,33 @@ body {
 @media(min-width:768px) {
 
   .navbar-header {
+    margin-left: 30px;
     height: inherit;
   }
 
   #wrapper .btn-sidebar{
 
     z-index: 1000; /*covered by nav brand */
-    visibility: visible;
+    display: inline;
     text-align: center;
-    background-color: #337ab7;
-    color: white;
     position: relative;
-    left: 15px;
-    top: 13px;
-    visibility: visible;
+
+    background-color: inherit;
+    color: #1a1a1a;
+    border: 2px solid #e3e3e3;
+
+    margin-right: 30px;
+    margin-bottom: 20px;
+
   }
 
   #wrapper .btn-sidebar:hover{
-   background-color: #65a0d4;
+   background-color: #555;
+   color: white;
   }
 
   #wrapper.toggled .btn-sidebar {
-    visibility: hidden;
+    display: none;
   }
 
   .navbar-default {
@@ -110,4 +115,7 @@ body {
   display: none;
   }
 
+  #menu-hide{
+    display: none;
+  }
 }

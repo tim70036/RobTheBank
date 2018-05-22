@@ -1,3 +1,17 @@
+<?php
+    /* Determine load which content by query value */
+    $loadMethod = "LoadLogin()";
+
+    if(isset($_GET["page"]))
+    {
+        if($_GET["page"] === "register")
+            $loadMethod = "LoadRegister()";
+        else
+            $loadMethod = "LoadLogin()";
+    }
+
+?>
+
 <div class="card mx-auto mt-5 card-login">
     <!-- Page content will be load inside card-content -->
     <div class="card-content">
@@ -39,7 +53,10 @@
         });
     }
 
-    /* Load login page first when popup shows */
-    LoadLogin();
+
+    /* Load page by checking demanding page in url query */
+    <?php echo $loadMethod; ?>
+    
+    
     </script>
 </div>

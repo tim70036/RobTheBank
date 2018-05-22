@@ -9,10 +9,72 @@
   font-size: 46px;
   font-weight: 700;
   letter-spacing: -3px;
-  line-height: 1;
   text-shadow: #EDEDED 3px 2px 0;
-  position: relative;
+  
 }
+
+
+
+@media(max-width:767px){
+
+  .navbar-header{
+    padding-top: 10px;
+  }
+
+  #logo {
+    font-size: 35px;
+  }
+
+}
+
+@media(max-width:355px){
+
+  .navbar-toggle{
+    margin-top: 5px;
+  }
+
+  #logo {
+    font-size: 28px;
+  }
+
+}
+
+
+
+
+
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.navbar-right
+{
+  text-align: center;
+  margin-right: 20px;
+  margin-top: 5px;
+}
+
+.navbar-btn {
+    padding: 10px 18px !important;
+    margin-left: 15px;
+    border: 2px solid #e3e3e3;
+    border-radius: 4px;
+}
+
+
+.navbar-right a:hover {
+    border: 2.5px solid #337ab7;
+    color: #337ab7 !important;
+    font-weight: 700;
+}
+
+
+
 
 .center {
   margin-top: 10px;
