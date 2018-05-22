@@ -29,7 +29,10 @@ body {
   cursor: progress;
 }
 
-
+a.disabled {
+    cursor: progress;
+    pointer-events: none;
+}
 
 
 

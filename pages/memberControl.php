@@ -41,6 +41,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
             /* Register through AWS */
             $error = $wrapper->confirmSignup($account, $confirmation);
         }
+        else if($_POST['ProcessType'] === 'resendConfirm')
+        {
+            $account = filter_input(INPUT_POST, 'account');
+
+            /* Checking */
+            if(!$account) throw new Exception("Invalid Account!");
+
+            $error = $wrapper->resendConfirmCode($account);
+        }
         else if($_POST['ProcessType'] === 'login')
         {
             $account = filter_input(INPUT_POST, 'account');

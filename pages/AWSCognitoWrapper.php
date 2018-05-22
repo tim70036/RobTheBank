@@ -83,6 +83,20 @@ class AWSCognitoWrapper
         return '';
     }
 
+    public function resendConfirmCode(string $username)
+    {
+        try {
+            $result = $this->client->resendConfirmationCode([
+                'ClientId' => $this->client_id,
+                'Username' => $username
+            ]);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+        return '';
+    }
+
     public function confirmSignup(string $username, string $code)
     {
         try {

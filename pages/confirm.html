@@ -1,5 +1,5 @@
 <!-- Confirm content for popup.html -->
-<div class="card-header" style="text-align: center; font-size: 1.4em;">認證碼</div>
+<div class="card-header" style="text-align: center; font-size: 1.4em;">確認信箱</div>
 <div class="card-body">
     <form method="post" id="confirm-form" action="confirm.php">
         <div class="form-group">
@@ -15,7 +15,12 @@
 
         <!-- Show Alert message if any error happended in AJAX -->
         <div class="alert alert-danger" id="alert-message" style="display: none;">
-            <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
+            <strong>Error: </strong> <span id="alert-response"> Indicates a dangerous or potentially negative action. </span>
+        </div>
+
+        <!-- Show Alert message if any error happended in AJAX -->
+        <div class="alert alert-info" id="success-message" style="display: none;">
+            <strong>Success: </strong> <span id="success-response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
         <button type="submit" id="submit-btn" class="btn btn-primary btn-block">確認</button>
@@ -23,8 +28,7 @@
 
     <!-- Change to another content -->
     <div class="text-center" style="margin-top: 10px;">
-        <a class="d-block small mt-3" onclick="LoadRegister()" style="margin: 0px 10px;">註冊帳號</a>
-        <a class="d-block small" href="forgot-password.html" style="margin: 0px 10px;">忘記密碼?</a>
+        <a id="resend-btn" class="d-block small" href="#" style="margin: 0px 10px;">沒收到認證碼？重送認證碼</a>
     </div>
 </div>
 <!-- /.card-body -->
@@ -38,9 +42,11 @@
 
     // Invoke function when submit
     $("#confirm-form").submit(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
 
         // Make sure that btn can't be click again and alert is hided
         $("#submit-btn").addClass("disabled");
+        $("#success-message").fadeOut(200);
         $("#alert-message").fadeOut(200);
 
         var Url = "memberControl.php"; // the script where you handle the form input.
@@ -58,13 +64,51 @@
                     // Else show alert
                     else
                     {
-                        $("#response").html(data); // show response from the php script. used for error
+                        $("#alert-response").html(data); // show response from the php script. used for error
                         $("#alert-message").fadeIn(550);
                         $("#submit-btn").removeClass("disabled");
                     }   
                }
              });
 
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+        
     });
+
+
+
+    $('#resend-btn').click(function(e){
+        e.preventDefault();
+
+        // Make sure that btn can't be click again and alert is hided
+        $("#resend-btn").addClass("disabled").html("重新傳送認證碼中...");
+        $("#alert-message").fadeOut(200);
+        $("#success-message").fadeOut(200);
+
+        // Set the account value from global var(generated when registering)
+        var Url = "memberControl.php"; // the script where you handle the form input.
+        $.ajax({
+               type: "POST",
+               url: Url,
+               data: {"ProcessType" : "resendConfirm", "account" : confirmAccount},
+               success: function(data)
+               {
+                    // If confirmation succeed, show message
+                    if(data == "succeed")
+                    {
+                        $("#success-response").html("Resend sucessfully, please check your email"); // show response from the php script. used for error
+                        $("#success-message").fadeIn(550);
+                        $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼");
+                    }
+                    // Else show alert
+                    else
+                    {
+                        $("#alert-response").html(data); // show response from the php script. used for error
+                        $("#alert-message").fadeIn(550);
+                        $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼");
+                    }   
+               }
+             });
+    });
+
+
 </script>
