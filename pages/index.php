@@ -56,6 +56,7 @@
                 </button>
                 <button type="button" class="btn btn-primary btn-sidebar btn-lg" id="menu-show">
                     <i class="fa  fa-navicon"></i>
+                    選單
                 </button>
 
                  <!-- Logo -->
