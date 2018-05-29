@@ -42,11 +42,17 @@ if(!$wrapper->isAuthenticated())
     <!-- Magnific Popup core CSS file -->
     <link rel="stylesheet" href="../dist/css/magnific-popup.css">
 
-    <!-- Morris Charts CSS -->
-    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+    <!-- Timepicker CSS file -->
+    <link rel="stylesheet" href="../dist/css/jquery.timepicker.min.css">
+    
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Charting Library -->
+    <script type="text/javascript" src="charting_library/charting_library.min.js"></script>
+    <script type="text/javascript" src="../datafeeds/udf/dist/polyfills.js"></script>
+    <script type="text/javascript" src="../datafeeds/udf/dist/bundle.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,7 +112,7 @@ if(!$wrapper->isAuthenticated())
                                         <a href="#" id="recordAdd" class="sidebar-link">建立日誌</a>
                                     </li>
                                     <li>
-                                        <a href="#" id="recordHis" class="sidebar-link">歷史回顧</a>
+                                        <a href="#" id="recordSubmit" class="sidebar-link">歷史回顧</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -163,12 +169,14 @@ HTML;
 <!-- -------------------------------------------------------------------------- -->
         <!-- Content Start -->
         <div id="page-content-wrapper">
-
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
+
+    
+
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
@@ -179,13 +187,11 @@ HTML;
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- Morris Charts JavaScript -->
-    <script src="../vendor/raphael/raphael.min.js"></script>
-    <script src="../vendor/morrisjs/morris.min.js"></script>
-    <script src="../data/morris-data.js"></script>
-
     <!-- Magnific Popup core JS file -->
     <script src="../dist/js/jquery.magnific-popup.min.js"></script>
+
+    <!-- Timepicker JS file -->
+    <script src="../dist/js/jquery.timepicker.js"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
@@ -214,15 +220,17 @@ HTML;
         type: 'GET',
             url: requestTarget,
             // data: postedData,
-            dataType: 'text',
+            dataType: 'html',
             success: function(response){
 
                 /* Removing active effect */
                 $("ul li .active").removeClass('active');
 
+                //console.log(response);
+
                 /* Load target page */
                 $("#page-content-wrapper").html(response);
-
+                //$("#page-content-wrapper").load(response);
                 /* Adding active effect */
                 var parElement = tarElement.addClass('active').parent();
                 while (true) {

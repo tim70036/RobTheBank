@@ -23,11 +23,12 @@
 
   #logo {
     font-size: 35px;
+    margin-left: -10px;
   }
 
 }
 
-@media(max-width:355px){
+@media(max-width:410px){
 
   .navbar-toggle{
     margin-top: 5px;
@@ -35,10 +36,19 @@
 
   #logo {
     font-size: 28px;
+    margin-left: -30px;
   }
 
 }
 
+@media(max-width:350px){
+
+
+  #logo {
+    margin-left: -60px;
+  }
+
+}
 
 
 

@@ -22,41 +22,25 @@ if(!$wrapper->isAuthenticated()) {
 	<div class="col-lg-12">
 
 	    <!-- HIDDEN DYNAMIC ELEMENT TO BE CLONED -->
-		<div class="form-group dynamic-element form-element form-trans" style="display:none">
-			<button type="button" class="btn btn-danger delete" style="">X</button>
-				<!-- Date -->
-				<div class="row">
-					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
-					    <label for="date">日期</label>
-				        <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>
-		        	</div>
-		        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
-		        		<label for="date">時間</label>
-				        <input class="form-control timepicker" id="time"  name="time" placeholder="YYYY-MM-DD" type="text"/>
-		        	</div>
-		        	<div class="col-xs-0 col-sm-0 col-md-0 col-lg-4">
-		        	</div>
-		        </div>
-		        <!-- Type -->
-		        <div class="row row-margin-top">
-		        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				        <label>交易類型</label>
-			            <div class="form-radio">
-			            	<input class="radio-btn" type="radio" name="notSetRadios" value="buy" checked="checked">買進
-			            	<input class="radio-btn" type="radio" name="notSetRadios" value="sell">賣出
-			        	</div>
-			        </div>
-
-
-	            </div>
-	            <!-- Transaction -->
-		        <div class="row row-margin-top">
-		        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				        <label>成交價格</label>
-			            <input class="form-control" type="number" min="0" step="0.01"/>
-			        </div>
-	            </div>
-
+		<div class="form-group dynamic-element form-element" style="display:none">
+			<!-- Date -->
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+				    <label for="date">日期</label>
+			        <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>
+	        	</div>
+	        	<div class="col-xs-0 col-sm-1 col-md-5 col-lg-6"></div>
+	        	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+	        		<button type="button" class="btn btn-danger delete" style="margin-top:27px;">刪除此筆交易</button>
+	        	</div>
+	        </div>
+	        <!-- Transaction -->
+	        <div class="row">
+	        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			        <label>成交明細</label>
+		            <textarea class="form-control" name="transaction" rows="5"></textarea>
+            	</div>
+            </div>
 		</div>
 		<!-- END OF HIDDEN ELEMENT -->
 
@@ -70,8 +54,14 @@ if(!$wrapper->isAuthenticated()) {
 		            <div class="form-element">
 		            	<div class="row">
 		            		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-					            <label>股票代碼</label>
-					            <input class="form-control" id="stock-id" name="stock-id" placeholder="e.g. 1234" type="text"/>
+					            <label>券商格式選擇</label>
+					            <select class="form-control">
+					                <option>凱基</option>
+					                <option>日盛</option>
+					                <option>群益</option>
+					                <option>麥當勞</option>
+					                <option>肯德基</option>
+					            </select>
 				        	</div>
 				        	<!-- /.col-lg-6 -->
 			            </div>
@@ -123,7 +113,7 @@ if(!$wrapper->isAuthenticated()) {
 var clickNum = 0;
 $('.add-one').click(function(){
   // Clone the hidden element and shows it
-  $('.dynamic-element').first().clone().appendTo('.dynamic-stuff').fadeIn(400);
+  $('.dynamic-element').first().clone().appendTo('.dynamic-stuff').show();
 
   // Init date picker
   $('input[name="date"]').datepicker({
@@ -135,28 +125,13 @@ $('.add-one').click(function(){
 		    //calendarWeeks: true,
 		    todayHighlight: true,
 		    language: 'zh-TW'
-  });
-
-
-
-  $('.timepicker').timepicker({
-  	    timeFormat: 'HH:mm',
-	    interval: 1,
-	    minTime: '9:00',
-	    maxTime: '13:30',
-	    defaultTime: '9',
-	    startTime: '10:00',
-	    dropdown: true,
-	    scrollbar: true
-
-  });
+			});
 
 	// Set name for each field, so that server can parse data one by one
 	clickNum = clickNum + 1;
 	//console.log('buyOrSell'+clickNum);
 	$('.dynamic-element').last().find("input[name='date']").attr('name','date'+clickNum);
-	$('.dynamic-element').last().find("input[name='time']").attr('name','time'+clickNum);
-	$('.dynamic-element').last().find("input[name='notSetRadios']").attr('name','buyOrSell'+clickNum);
+	$('.dynamic-element').last().find("textarea[name='transaction']").attr('name','transaction'+clickNum);
   	attach_delete();
 });
 
@@ -167,7 +142,6 @@ function attach_delete(){
   $('.delete').off();
   $('.delete').click(function(){
     console.log("click");
-    $(this).closest('.form-group').fadeOut(400);
     $(this).closest('.form-group').remove();
   });
 }

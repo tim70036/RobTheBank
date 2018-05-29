@@ -9,13 +9,20 @@
 }
 
 .delete{
-  color:white;
-  background-color:rgb(231, 76, 60);
+  float: right;
+/*  //color:rgb(231, 76, 60) !important;
+  background-color:inherit !important;*/
   text-align:center;
-  margin-top:6px;
-  font-weight:700;
+
+  margin-top:-12px;
+  margin-right: -21px;
+  
+  font-weight: 800 !important;
+  font-size: 18px;
+  
   border-radius:5px;
-  min-width:20px;
+  border: 0px;
+  min-width:10px;
   cursor:pointer;
 }
 
@@ -29,14 +36,35 @@
   margin-bottom:40px;
 }
 
+.form-horizontal .form-trans {
+  border: #4d4d4d 2px solid;
+  color: #ffffff;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+}
+
 .form-horizontal .form-element {
-  margin: 40px 100px;
+  
+  padding: 20px 30px;
+  margin: 40px 120px;
 }
 
 @media(max-width:767px) {
 
   .form-horizontal .form-element {
   margin: 30px 60px;
+  }
+
+}
+
+@media(max-width:600px) {
+
+  .form-horizontal .form-element {
+  margin: 30px 30px;
+  }
+
+  .delete{
+    content: "刪除";
   }
 
 }
