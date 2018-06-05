@@ -1,17 +1,5 @@
 <?php
-require_once('credentials.php');
-require_once('../vendor/autoload.php');
-require_once('AWSCognitoWrapper.php');
-
-use AWSCognitoApp\AWSCognitoWrapper;
-
-$wrapper = new AWSCognitoWrapper();
-$wrapper->initialize();
-
-if(!$wrapper->isAuthenticated()) {
-    readfile("./notlogin.html");   
-    exit;
-}
+require_once('authenticate.php');
 ?>
 
 <!-- main.html -->

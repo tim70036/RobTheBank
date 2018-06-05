@@ -10,8 +10,6 @@
 
 .delete{
   float: right;
-/*  //color:rgb(231, 76, 60) !important;
-  background-color:inherit !important;*/
   text-align:center;
 
   margin-top:-12px;
@@ -37,9 +35,9 @@
 }
 
 .form-horizontal .form-trans {
-  border: #4d4d4d 2px solid;
+  border: #404040 2px solid;
   color: #ffffff;
-  background-color: #4d4d4d;
+  background-color: #404040;
   border-radius: 10px;
 }
 
