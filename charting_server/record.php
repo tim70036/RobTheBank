@@ -1,5 +1,8 @@
 <?php
 
+# Include some util functions
+require_once('util.php');
+
 # Save chart
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -35,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 		mysqli_query($connection, "SET NAMES utf8");
 
+		# Check if error occurred
 		if (mysqli_connect_errno())
 		{
 			throw new Exception("Failed to connect to MySQL: " . mysqli_connect_error());
@@ -54,19 +58,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			// print $chartRecord;
 
 			# Return successful response
-			print "succeed";
+			http_response_code(200);
 		}
 		else
 		{
 			throw new Exception("Error: " . $sql . "<br>" . $connection->error);
-			
 		}
+
+		# Close connection
 		$connection->close();
 
 	}
 	catch(Exception $e)
 	{
+		http_response_code(500);
 		echo $e->getMessage();
+		exit;
 	}
 }
 

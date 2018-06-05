@@ -10,6 +10,11 @@ body {
   width: 100%;
 }
 
+.word-wrap{
+  word-wrap: break-word; 
+  overflow-wrap: break-word;
+}
+
 
 .card-login {
   border-radius: 10px;

@@ -237,19 +237,21 @@ function tail()
                    type: "POST",
                    url: Url,
                    data: { 'ProcessType' : 'logout'},
+                   // Redirect if success
                    success: function(data)
                    {
-                        // If logout succeed, refesh page to index
-                        if(data == "succeed")
-                        {
-                            window.location.replace('index.php');
-                        }
-                        // Else show alert
-                        else
-                        {
-                            alert('logout failed');
-                        }   
-                   }
+                        window.location.replace('index.php'); 
+                   },
+                   // Alert if error
+                   error: function(result) 
+                   {
+                        //console.log(result);
+                        var message = "status : " + result["status"] + " " + result["statusText"] + "\\n";
+                        message = message + "error : " + result["responseText"] + "\\n";
+
+                        alert(message + "Logout failed...");
+                        window.location.replace('index.php'); 
+                    }
                  });
 
         });

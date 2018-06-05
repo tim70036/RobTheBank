@@ -6,6 +6,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
     require_once('../vendor/autoload.php');
     require_once('AWSCognitoWrapper.php');
     
+    # Include some util functions
+    require_once('util.php');
+
     $wrapper = new AWSCognitoWrapper();
     $wrapper->initialize();
 
@@ -70,7 +73,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
         /* Check whether it is success*/
         if(empty($error)) 
         {
-            echo "succeed"; // Let front end check whether it is success
+            /* Return successful code */
+            http_response_code(200);
             exit;
         }
         else 
@@ -80,6 +84,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
     }
     catch(Exception $e)
     {
+        /* Set error code */
+        http_response_code(500);
         echo $e->getMessage();
         exit;
     }

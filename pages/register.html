@@ -12,7 +12,7 @@
         </div>
         <div class="form-group">
             <label for="InputPassword1">密碼</label>
-            <input class="form-control" name='password' id="InputPassword1" type="password" placeholder="請輸入密碼">
+            <input class="form-control" name='password' id="InputPassword1" type="password" placeholder="密碼必須 > 6 個字元">
         </div>
         <div class="form-group">
             <label for="InputPassword2">確認密碼</label>
@@ -23,7 +23,7 @@
         <input type='hidden' name='ProcessType' value='register'>
 
         <!-- Show Alert message if any error happended in AJAX -->
-        <div class="alert alert-danger" id="alert-message" style="display: none;">
+        <div class="alert alert-danger word-wrap" id="alert-message" style="display: none;">
             <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
@@ -56,21 +56,21 @@
                type: "POST",
                url: Url,
                data: $("#register-form").serialize(), // serializes the form's elements.
+               // Load content if success
                success: function(data)
                {
-                    // If register succeed, load confirm content to popup (popup.html)
-                    if(data == "succeed")
-                    {
-                        LoadConfirm();
-                    }
-                    // Else show alert
-                    else
-                    {
-                        $("#response").html(data); // show response from the php script. used for error
-                        $("#alert-message").fadeIn(550);
-                        $("#submit-btn").removeClass("disabled");
-                    }   
-               }
+                    LoadConfirm();
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    console.log(result);
+                    var message = result["responseText"];
+
+                    $("#response").html(message); // show response from the php script. used for error
+                    $("#alert-message").fadeIn(550);
+                    $("#submit-btn").removeClass("disabled");
+                }
              });
     });
 </script>

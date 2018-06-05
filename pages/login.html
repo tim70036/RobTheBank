@@ -21,7 +21,7 @@
         <input type='hidden' name='ProcessType' value='login'>
 
         <!-- Show Alert message if any error happended in AJAX -->
-        <div class="alert alert-danger" id="alert-message" style="display: none;">
+        <div class="alert alert-danger word-wrap" id="alert-message" style="display: none;">
             <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
@@ -52,21 +52,21 @@
                type: "POST",
                url: Url,
                data: $("#login-form").serialize(), // serializes the form's elements.
+               // Redirect if success
                success: function(data)
                {
-                    // If login succeed, refesh page to index
-                    if(data == "succeed")
-                    {
-                        window.location.replace('index.php');
-                    }
-                    // Else show alert
-                    else
-                    {
-                        $("#response").html(data); // show response from the php script. used for error
-                        $("#alert-message").fadeIn(550);
-                        $("#submit-btn").removeClass("disabled");
-                    }   
-               }
+                    window.location.replace('index.php');
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    //console.log(result);
+                    var message = result["responseText"];
+
+                    $("#response").html(message); // show response from the php script. used for error
+                    $("#alert-message").fadeIn(550);
+                    $("#submit-btn").removeClass("disabled");
+                }
              });
 
         e.preventDefault(); // avoid to execute the actual submit of the form.

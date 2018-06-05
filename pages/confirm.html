@@ -14,12 +14,12 @@
         <input type='hidden' name='ProcessType' value='confirm'>
 
         <!-- Show Alert message if any error happended in AJAX -->
-        <div class="alert alert-danger" id="alert-message" style="display: none;">
+        <div class="alert alert-danger word-wrap" id="alert-message" style="display: none;">
             <strong>Error: </strong> <span id="alert-response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
         <!-- Show Alert message if any error happended in AJAX -->
-        <div class="alert alert-info" id="success-message" style="display: none;">
+        <div class="alert alert-info word-wrap" id="success-message" style="display: none;">
             <strong>Success: </strong> <span id="success-response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
@@ -54,21 +54,22 @@
                type: "POST",
                url: Url,
                data: $("#confirm-form").serialize(), // serializes the form's elements.
+               // Load content if success
                success: function(data)
                {
                     // If confirmation succeed, load login content to popup (popup.html)
-                    if(data == "succeed")
-                    {
-                        LoadLogin();
-                    }
-                    // Else show alert
-                    else
-                    {
-                        $("#alert-response").html(data); // show response from the php script. used for error
-                        $("#alert-message").fadeIn(550);
-                        $("#submit-btn").removeClass("disabled");
-                    }   
-               }
+                    LoadLogin();
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    //console.log(result);
+                    var message = "認證錯誤...";
+
+                    $("#alert-response").html(message); // show response from the php script. used for error
+                    $("#alert-message").fadeIn(550);
+                    $("#submit-btn").removeClass("disabled");
+                }
              });
 
         
@@ -90,23 +91,25 @@
                type: "POST",
                url: Url,
                data: {"ProcessType" : "resendConfirm", "account" : confirmAccount},
+               // Redirect if success
                success: function(data)
                {
                     // If confirmation succeed, show message
-                    if(data == "succeed")
-                    {
-                        $("#success-response").html("Resend sucessfully, please check your email"); // show response from the php script. used for error
-                        $("#success-message").fadeIn(550);
-                        $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼");
-                    }
-                    // Else show alert
-                    else
-                    {
-                        $("#alert-response").html(data); // show response from the php script. used for error
-                        $("#alert-message").fadeIn(550);
-                        $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼");
-                    }   
-               }
+                    $("#success-response").html("Resend sucessfully, please check your email"); // show response from the php script. used for error
+                    $("#success-message").fadeIn(550);
+                    $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼"); 
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    //console.log(result);
+                    var message = "status : " + result["status"] + " " + result["status"] + "\n";
+                    message = message + "error : " + result["responseText"] + "\n";
+
+                    $("#alert-response").html(message); // show response from the php script. used for error
+                    $("#alert-message").fadeIn(550);
+                    $("#resend-btn").removeClass("disabled").html("沒收到認證碼？重送認證碼");
+                }
              });
     });
 

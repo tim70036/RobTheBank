@@ -39,8 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$dateObj = DateTime::createFromFormat('d.m.Y H:i', "10.10.2010 " . $timeStr);
 		    if ( !($dateObj !== false && $dateObj && $dateObj->format('G') == intval($timeStr)) )
 		    {
-	         	//return false;
-				echo 'invalid';
+		    	# Set it to the start time of trading session, if it is invalid time
 				$timeStr = "09:00";
 		    }
 
@@ -81,6 +80,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <script type="text/javascript" src="../dist/js/summernote-zh-TW.js"></script>
 <link href="../dist/css/summernote/summernote.css" rel="stylesheet">
 
+<!-- Container -->
 <div class="container">
 	<div class="row">
 		<div class="col-lg-7">
@@ -94,6 +94,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		</div>
 	</div>
 </div>
+
+<!-- Widge setting -->
 <script type="text/javascript">
 
     var widget = window.tvWidget = new TradingView.widget({
@@ -118,6 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         locale: "zh_TW"
     });
 
+    /* Call method after the chart is ready */
     widget.onChartReady(function(){
 
     	var chart = widget.chart();
@@ -178,6 +181,7 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
 			postData.push(transRecord);
 			postData.push($("#record-form").serializeArray());
 			widget.save(function(state){
+				//console.log(state);
 				postData.push(state);
 			});
 			
@@ -190,20 +194,20 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
                contentType: "application/json; charset=utf-8",
                url: '/charting_server/record.php',
                data: postData, // The data
+               // Redirect if success
                success: function(data)
                {
-                    // If save record successfully
-                    if(data == "succeed")
-                    {
-                        window.location.replace('index.php');
-                    }
-                    // Else show alert
-                    else
-                    {
-                    	console.log(data);
-                    	$("#save-btn").removeClass("disabled");
-                    }   
-               }
+                    window.location.replace('index.php');
+               },
+               // Alert if error
+               error: function(result) 
+               {
+               		//console.log(result);
+               		var message = "status : " + result["status"] + " " + result["statusText"] + "\\n";
+               		message = message + "error : " + result["responseText"] + "\\n";
+			    	alert(message + "Please try later...");
+			    	$("#save-btn").removeClass("disabled");
+			  	}
              });
 
 		});
