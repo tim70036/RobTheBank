@@ -3,12 +3,13 @@
 # Include some util functions
 require_once('util.php');
 
-# Save chart
+# Save chart and record
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	
 	try
 	{
+		# Get JSON from this special place
 		$json = file_get_contents('php://input');
 		
 		# Decode JSON string to array

@@ -74,34 +74,96 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 <script type="text/javascript" src="charting_library/charting_library.min.js"></script>
 <script type="text/javascript" src="../datafeeds/udf/dist/polyfills.js"></script>
 <script type="text/javascript" src="../datafeeds/udf/dist/bundle.js"></script>
+<link href="../dist/css/chart.css" rel="stylesheet">
 
 <!-- Summernote Plugin -->
 <script type="text/javascript" src="../dist/js/summernote.js"></script>
 <script type="text/javascript" src="../dist/js/summernote-zh-TW.js"></script>
 <link href="../dist/css/summernote/summernote.css" rel="stylesheet">
 
-<!-- Container -->
-<div class="container">
-	<div class="row">
-		<div class="col-lg-7">
-			<div id="tv_chart_container"></div>
-		</div>
-		<div class="col-lg-5">
-			<form id="record-form" method="post">
-				<textarea id="summernote" name="editordata"></textarea>
-			</form>
-			<button id="save-btn" name="singlebutton" class="btn btn-primary">確認提交</button>
-		</div>
+<!-- Datatable Library -->
+<link rel="stylesheet" type="text/css" href="../dist/css/datatable/datatables.css">
+<link rel="stylesheet" type="text/css" href="../dist/css/datatable/responsive.dataTables.css">
+<script type="text/javascript" charset="utf8" src="../dist/js/datatable/datatables.js"></script>
+<script type="text/javascript" charset="utf8" src="../dist/js/datatable/dataTables.responsive.js"></script>
+
+<!-- Trans Record Table -->
+<div class="row">
+	<div class="col-lg-12" >
+		<caption> <h3> 交易明細 </h3> </caption>
+		<table id="record-table" class="display" style="width:100%">
+		    <thead>
+		        <tr>
+		        	<th>時間</th>
+		            <th>單類</th>
+		            <th>張數</th>
+		            <th>價格</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+
+		<?php
+		# Print out Data
+		foreach($dataArray as $data)
+		{
+			$time = $data['timestamp'];
+			$type = $data['type'];
+			$amount = $data['amount'];
+			$price = $data['price'];
+
+			$time = date('Y-m-d H:i',$time);
+			$type = ($type === "buy") ? "買進" : "賣出";
+
+			echo "
+				<tr>
+					<td> $time </td>
+		            <td> $type </td>
+		            <td> $amount </td>
+		            <td> $price </td>
+		        </tr>
+				"; 
+		}
+
+		?>
+
+		    </tbody>
+		</table>
 	</div>
 </div>
+
+<div class="row" style="margin-top: 50px;">
+	<div class="col-lg-8" >
+		<div id="tv_chart_container"></div>
+	</div>
+	<!-- /. col 8 -->
+	<div class="col-lg-4">
+		<div class="row">
+			<div class="col-lg-12">
+				<form id="record-form" method="post">
+					<textarea id="summernote" name="editordata"></textarea>
+				</form>
+			</div>
+		</div>
+		<!-- /. row -->
+		<div class="row">
+			<div class="col-lg-12 center">
+				<button id="save-btn" name="singlebutton" class="btn btn-primary">確認提交</button>
+			</div>
+		</div>
+		<!-- /. row -->
+	</div>
+	<!-- /. col 4 -->
+</div>
+<!-- /. row -->
 
 <!-- Widge setting -->
 <script type="text/javascript">
 
     var widget = window.tvWidget = new TradingView.widget({
         // debug: true, // uncomment this line to see Library errors and warnings in the console
-        fullscreen: true,
-        symbol: 'BTC',
+        //fullscreen: true,
+        autosize: true,
+        symbol: '<?php echo $stock; ?>', // echo stock from server
         debug: true,
         interval: 'D',
         container_id: "tv_chart_container",
@@ -110,8 +172,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         library_path: "charting_library/",
         //  Regression Trend-related functionality is not implemented yet, so it's hidden for a while
         drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
-        disabled_features: [ "header_symbol_search", "header_compare", ""],
-        //enabled_features: ["study_templates"],
+        disabled_features: [ "header_symbol_search", "header_compare"],//"chart_scroll"
+        enabled_features: ["side_toolbar_in_fullscreen_mode"],
         charts_storage_url: 'http://saveload.tradingview.com',
         charts_storage_api_version: "1.1",
         client_id: 'tradingview.com',
@@ -169,6 +231,41 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
 
 	$(document).ready(function() {
 
+		/* Init */
+		$('#wrapper').removeClass("toggled");
+
+		/* Summer Note */
+		$('#summernote').summernote({
+			lang: 'zh-TW',
+			height: 450,
+			maxHeight: 450,
+			placeholder: '請輸入日誌內容...',
+
+			toolbar: [
+				['first', ['style']],
+				['style', ['bold', 'italic', 'underline', 'clear']],
+				['color',['color']],
+				['fontsize', ['fontsize']],
+				['para', ['paragraph',  'ul', 'ol', 'height']],
+				['ins',['hr', 'picture', 'link', 'video']],
+				['table',['table']],
+				['Misc', ['fullscreen', 'undo', 'redo', 'help']]
+			]
+		});
+
+		/* Datatable */
+		$('#record-table').dataTable({
+
+			// No search bar
+			searching: false,
+
+			// No page
+			paging: false,
+
+			// No info
+			info: true
+		});
+
 		/* Submit the form and save the chart to server*/
 		$('#save-btn').click(function(e){
 
@@ -211,20 +308,9 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
              });
 
 		});
-
-		/* Init */
-		$('#wrapper').removeClass("toggled");
-		$('#summernote').summernote({
-			lang: 'zh-TW',
-			minHeight: 300
-		});
 	});
 </script>
 
 <?php
 tail();
 ?>
-
-
-
-

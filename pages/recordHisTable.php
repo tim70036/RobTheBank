@@ -102,7 +102,7 @@ var table;
     	table  = $('#record-table').dataTable({
 
     		// Use rwd
-    		"responsive": true,
+    		//"responsive": true, not good 
 
     		// Column definition
     		"columnDefs": [
