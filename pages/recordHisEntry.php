@@ -96,8 +96,55 @@ else
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/datatables.js"></script>
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/dataTables.responsive.js"></script>
 
-<!-- Container -->
+<!-- Trans Record Table -->
 <div class="row">
+	<div class="col-lg-12" >
+		<caption> <h3> 交易明細 </h3> </caption>
+		<table id="record-table" class="display" style="width:100%">
+		    <thead>
+		        <tr>
+		        	<th>時間</th>
+		            <th>單類</th>
+		            <th>張數</th>
+		            <th>價格</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+
+		<?php
+		# Process the data from server into array
+		$dataArray = json_decode($record['transRecord'], true);
+
+		# Print out Data
+		foreach($dataArray as $data)
+		{
+			$time = $data['timestamp'];
+			$type = $data['type'];
+			$amount = $data['amount'];
+			$price = $data['price'];
+
+			$time = date('Y-m-d H:i',$time);
+			$type = ($type === "buy") ? "買進" : "賣出";
+
+			echo "
+				<tr>
+					<td> $time </td>
+		            <td> $type </td>
+		            <td> $amount </td>
+		            <td> $price </td>
+		        </tr>
+				"; 
+		}
+
+		?>
+
+		    </tbody>
+		</table>
+	</div>
+</div>
+
+<!-- Chart and UserRecord -->
+<div class="row" style="margin-top: 50px;">
 	<div class="col-lg-8">
 		<div id="tv_chart_container"></div>
 	</div>
@@ -113,7 +160,7 @@ else
 		<!-- /. row -->
 		<div class="row">
 			<div class="col-lg-12 center">
-				<button id="save-btn" name="singlebutton" class="btn btn-primary">確認提交</button>
+				<button id="save-btn" name="singlebutton" class="btn btn-primary">提交修改</button>
 			</div>
 		</div>
 		<!-- /. row -->
@@ -191,6 +238,70 @@ else
 		/* Load Content to Editor */
 		var contents = '<?php echo unicode_decode($record["userRecord"]); ?>';
 		$('#summernote').summernote('code', contents);
+
+
+		/* Datatable */
+		$('#record-table').dataTable({
+
+			// No search bar
+			searching: false,
+
+			// No page
+			paging: false,
+
+			// No info
+			info: true
+		});
+
+
+<?php 
+# Set js var 
+$user = $wrapper->getUser();
+echo 	'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
+?>
+
+
+		/* Submit the form and save the chart to server*/
+		$('#save-btn').click(function(e){
+
+			$("#save-btn").addClass("disabled");
+
+			/* Gather Data */
+			var postData = new Array();
+			postData.push(userRecord);
+			postData.push(<?php echo $id; ?>);
+			postData.push($("#record-form").serializeArray());
+			widget.save(function(state){
+				//console.log(state);
+				postData.push(state);
+			});
+			
+			/* Turn array into JSON string */
+			postData = JSON.stringify(postData);
+   			//console.log(postData);
+
+			$.ajax({
+               type: "POST",
+               contentType: "application/json; charset=utf-8",
+               url: '/charting_server/recordUpdate.php',
+               data: postData, // The data
+               // Redirect if success
+               success: function(data)
+               {
+                    window.location.replace('recordHisTable.php');
+               },
+               // Alert if error
+               error: function(result) 
+               {
+               		//console.log(result);
+               		var message = "status : " + result["status"] + " " + result["statusText"] + "\\n";
+               		message = message + "error : " + result["responseText"] + "\\n";
+			    	alert(message + "Please try later...");
+			    	$("#save-btn").removeClass("disabled");
+			  	}
+             });
+
+		});
 	});
 </script>
 

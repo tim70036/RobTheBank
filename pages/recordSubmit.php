@@ -131,6 +131,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	</div>
 </div>
 
+<!-- Chart and UserRecord -->
 <div class="row" style="margin-top: 50px;">
 	<div class="col-lg-8" >
 		<div id="tv_chart_container"></div>
@@ -289,12 +290,12 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
 			$.ajax({
                type: "POST",
                contentType: "application/json; charset=utf-8",
-               url: '/charting_server/record.php',
+               url: '/charting_server/recordCreate.php',
                data: postData, // The data
                // Redirect if success
                success: function(data)
                {
-                    window.location.replace('index.php');
+                    window.location.replace('recordHisTable.php');
                },
                // Alert if error
                error: function(result) 
