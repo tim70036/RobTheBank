@@ -47,8 +47,6 @@ catch(Exception $e)
 ?>
 
 
-
-
 <!-- HTML Content -->
 <!-- Datatable Library -->
 <link rel="stylesheet" type="text/css" href="../dist/css/datatable/datatables.css">
@@ -56,13 +54,15 @@ catch(Exception $e)
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/datatables.js"></script>
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/dataTables.responsive.js"></script>
 
+
 <table id="record-table" class="display" style="width:100%">
     <thead>
         <tr>
-        	<th>操作</th>
+        	<th></th>
             <th>日期</th>
             <th>股票</th>
             <th>最後修改時間</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -82,11 +82,12 @@ while($row = $result->fetch_assoc())
 	$stock = $row['stockId'];
 	
 	echo "
-		<tr>
+		<tr id=\"row$id\">
 			<td>	<a href=\"recordHisEntry.php?id=$id\" class=\"btn btn-info\">查看</a>		</td>
             <td> $date </td>
             <td> $stock </td>
             <td> $modifyTime </td>
+            <td>	<button id=\"btn$id\"onclick=\"DeleteRow($id, '$date', '$stock')\" class=\"btn btn-danger\">刪除</button>		</td>
         </tr>
 		"; 
 }
@@ -99,29 +100,25 @@ while($row = $result->fetch_assoc())
 <!-- Datatable Init -->
 <script type="text/javascript">
 
-
 var table;
 	$(document).ready( function () {
 
     	table  = $('#record-table').dataTable({
 
-    		// Use rwd
-    		//"responsive": true, not good 
-
     		// Column definition
     		"columnDefs": [
-				// {
-				// 	"targets": [ -1 ],
-				// 	"visible": false,
-				// 	"searchable": false
-				// },
 				{
 					"className": "dt-center", 
 					"targets": [0]
 				},
+				{
+					"className": "dt-right", 
+					"targets": [4]
+				},
 				{ "width": "10%", "targets": 0 },
-				{ "width": "20%", "targets": 1 },
-				{ "width": "10%", "targets": 2 },
+				{ "width": "30%", "targets": 1 },
+				{ "width": "20%", "targets": 2 },
+				{ "width": "30%", "targets": 3 },
 				{ responsivePriority: 2, targets: 0 },
 				{ responsivePriority: 1, targets: 1 },
 				{ responsivePriority: 3, targets: 2 },
@@ -131,6 +128,44 @@ var table;
 		});
     	
 	});
+</script>
+
+<!-- Delete row -->
+<script type="text/javascript">
+
+	function DeleteRow(id, date, stock)
+	{
+
+		// Double check
+		var result = confirm("確定刪除 " + date + " 股票代碼 " + stock + " 的日誌？");
+
+		if(result == true)
+		{
+			$("#btn" + id).addClass("disabled");
+
+			$.ajax({
+	               type: "GET",
+	               url: "charting_server/recordDelete.php?id=" + id,
+	               xhrFields: {
+				      withCredentials: true
+				   },
+	               // Delete that row if success
+	               success: function(data)
+	               {
+	               		$("#row" + id).fadeOut(550, function(){$(this).remove()}); // Remove after fade out
+	               },
+	               // Alert if error
+	               error: function(result) 
+	               {
+	                    var message = "status : " + result["status"] + " " + result["statusText"] + "\n";
+	               		message = message + "error : " + result["responseText"] + "\n";
+				    	alert(message + "Please try later...");
+				    	$("#btn" + id).removeClass("disabled");
+	               }
+	        });
+		}
+		
+	}
 </script>
 
 <?php

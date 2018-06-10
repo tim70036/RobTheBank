@@ -180,7 +180,7 @@ else
         interval: 'D',
         container_id: "tv_chart_container",
         //  BEWARE: no trailing slash is expected in feed URL
-        datafeed: new Datafeeds.UDFCompatibleDatafeed("/charting_server"),
+        datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server"),
         library_path: "charting_library/",
         //  Regression Trend-related functionality is not implemented yet, so it's hidden for a while
         drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
@@ -283,7 +283,7 @@ echo 	'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
 			$.ajax({
                type: "POST",
                contentType: "application/json; charset=utf-8",
-               url: '/charting_server/recordUpdate.php',
+               url: 'charting_server/recordUpdate.php',
                data: postData, // The data
                // Redirect if success
                success: function(data)
@@ -294,8 +294,8 @@ echo 	'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
                error: function(result) 
                {
                		//console.log(result);
-               		var message = "status : " + result["status"] + " " + result["statusText"] + "\\n";
-               		message = message + "error : " + result["responseText"] + "\\n";
+               		var message = "status : " + result["status"] + " " + result["statusText"] + "\n";
+               		message = message + "error : " + result["responseText"] + "\n";
 			    	alert(message + "Please try later...");
 			    	$("#save-btn").removeClass("disabled");
 			  	}

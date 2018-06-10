@@ -14,19 +14,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		
 		# Decode JSON string to array
 		$data = json_decode($json, true);
-		// var_dump($data);
+		var_dump($data);
 
 		# Take out each field in data array
 		$userName = $data[0]['user'];
-		$stockId = $data[1]['stockId'];
-		$transRecord = $data[2];
-		$userRecord = $data[3][0]['value'];
-		$chartRecord = $data[4];
+		$id = $data[1]; //int
+		$userRecord = $data[2][0]['value'];
+		$chartRecord = $data[3];
 
 		# Encode array into JSON string
 		$userName 		=  json_encode($userName);
-		$stockId 		=  json_encode($stockId);
-		$transRecord	=  json_encode($transRecord);
 		$userRecord 	=  json_encode($userRecord);
 		$chartRecord 	=  json_encode($chartRecord);
 
@@ -35,7 +32,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$userRecord = trim($userRecord, '"');
 
 		# Connect to database
-		include_once("../dbinfo.inc");
+		include_once("../../dbinfo.inc");
 		$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 		mysqli_query($connection, "SET NAMES utf8");
 
@@ -46,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		}
 
 		# Prepare query
-		$sql = "INSERT INTO UserRecords(userName, stockId, transRecord, userRecord, chartRecord) VALUES ('$userName', $stockId, '$transRecord', '$userRecord', '$chartRecord')";
+		$sql = "UPDATE UserRecords SET userRecord='$userRecord' , chartRecord='$chartRecord' WHERE id=$id AND userName='$userName'";
 
 		# Execute query
 		if($connection->query($sql) === TRUE)

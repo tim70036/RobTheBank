@@ -1,38 +1,26 @@
 <?php
 
+#Check if it is valid access
+require_once('authenticate.php');
+
 # Include some util functions
 require_once('util.php');
 
 # Save chart and record
-if($_SERVER['REQUEST_METHOD'] == 'POST')
+if($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 	
 	try
 	{
-		# Get JSON from this special place
-		$json = file_get_contents('php://input');
-		
-		# Decode JSON string to array
-		$data = json_decode($json, true);
-		var_dump($data);
+		# Get delete id
+		$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+		if(!$id) throw new Exception("Invalid id");
 
-		# Take out each field in data array
-		$userName = $data[0]['user'];
-		$id = $data[1]; //int
-		$userRecord = $data[2][0]['value'];
-		$chartRecord = $data[3];
-
-		# Encode array into JSON string
-		$userName 		=  json_encode($userName);
-		$userRecord 	=  json_encode($userRecord);
-		$chartRecord 	=  json_encode($chartRecord);
-
-		# Trim double quote
-		$userName = trim($userName, '"');
-		$userRecord = trim($userRecord, '"');
+		# Get user name
+		$userName = ($wrapper->getUser())['Username'];
 
 		# Connect to database
-		include_once("../dbinfo.inc");
+		include_once("../../dbinfo.inc");
 		$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 		mysqli_query($connection, "SET NAMES utf8");
 
@@ -43,7 +31,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		}
 
 		# Prepare query
-		$sql = "UPDATE UserRecords SET userRecord='$userRecord' , chartRecord='$chartRecord' WHERE id=$id AND userName='$userName'";
+		$sql = "DELETE FROM UserRecords WHERE id=$id AND userName='$userName'";
 
 		# Execute query
 		if($connection->query($sql) === TRUE)
