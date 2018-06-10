@@ -4,11 +4,11 @@
     <form method="post" id="login-form" action="login.php">
         <div class="form-group">
             <label for="InputAccount1">帳號</label>
-            <input class="form-control" name='account' id="InputAccount1" type="text" aria-describedby="accountHelp" placeholder="請輸入帳號">
+            <input class="form-control" name='account' id="InputAccount1" type="text" aria-describedby="accountHelp" placeholder="請輸入帳號" required>
         </div>
         <div class="form-group">
             <label for="InputPassword1">密碼</label>
-            <input class="form-control" name='password' autocomplete="off" id="InputPassword1" type="password" placeholder="請輸入密碼">
+            <input class="form-control" name='password' autocomplete="off" id="InputPassword1" type="password" placeholder="請輸入密碼" required>
         </div>
         <div class="form-group">
             <div class="form-check">
@@ -31,7 +31,7 @@
     <!-- Change to another content -->
     <div class="text-center" style="margin-top: 10px;">
         <a class="d-block small mt-3" onclick="LoadRegister()" style="margin: 0px 10px;">註冊帳號</a>
-        <a class="d-block small" href="forgot-password.html" style="margin: 0px 10px;">忘記密碼?</a>
+        <a class="d-block small" onclick="LoadForget()" style="margin: 0px 10px;">忘記密碼?</a>
     </div>
 </div>
 <!-- /.card-body -->

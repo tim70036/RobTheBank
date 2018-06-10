@@ -53,6 +53,21 @@
         });
     }
 
+    function LoadForget(){
+        $('.card').fadeOut(fadeDelay, function(){
+                $('.card-content').load('forget.html', function(){
+                    $('.card').fadeIn(fadeDelay);
+                });
+        });
+    }
+
+    function LoadReset(){
+        $('.card').fadeOut(fadeDelay, function(){
+                $('.card-content').load('reset.html', function(){
+                    $('.card').fadeIn(fadeDelay);
+                });
+        });
+    }
 
     /* Load page by checking demanding page in url query */
     <?php echo $loadMethod; ?>

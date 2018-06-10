@@ -1,21 +1,31 @@
-<!-- Confirm content for popup.html -->
-<div class="card-header" style="text-align: center; font-size: 1.4em;">確認信箱</div>
+<!-- Login content for popup.html -->
+<div class="card-header" style="text-align: center; font-size: 1.4em;">重設密碼</div>
 <div class="card-body">
-    <form method="post" id="confirm-form" action="confirm.php">
+    <form method="post" id="reset-form" action="reset.php">
+
         <div class="form-group">
-            <label >已發送認證碼至您的信箱</label>
+            <label >認證碼</label>
             <input class="form-control" name='confirmation' type="text" aria-describedby="accountHelp" placeholder="請輸入認證碼" required>
         </div>
 
         <!-- Fill by JS -->
         <input type='hidden' id="confirm-account" name='account' value="">
 
+        <div class="form-group">
+            <label for="InputPassword1">新密碼</label>
+            <input class="form-control" name='password' id="InputPassword1" type="password" placeholder="密碼必須 > 6 個字元" required>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword2">確認密碼</label>
+            <input class="form-control" name='password2' id="InputPassword2" type="password" placeholder="請再輸入相同密碼" required>
+        </div>
+
         <!-- For backend to recognize type of form -->
-        <input type='hidden' name='ProcessType' value='confirm'>
+        <input type='hidden' name='ProcessType' value='reset'>
 
         <!-- Show Alert message if any error happended in AJAX -->
         <div class="alert alert-danger word-wrap" id="alert-message" style="display: none;">
-            <strong>Error: </strong> <span id="alert-response"> Indicates a dangerous or potentially negative action. </span>
+            <strong>Error: </strong> <span id="response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
         <!-- Show Alert message if any error happended in AJAX -->
@@ -23,58 +33,55 @@
             <strong>Success: </strong> <span id="success-response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
-        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">確認</button>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">提交</button>
     </form>
 
     <!-- Resend -->
     <div class="text-center" style="margin-top: 10px;">
         <a id="resend-btn" class="d-block small" href="#" style="margin: 0px 10px;">沒收到認證碼？重送認證碼</a>
     </div>
+
 </div>
 <!-- /.card-body -->
 
-<!-- No redirect, so send form by using AJAX -->
 
+<!-- No redirect, so send form by using AJAX -->
 <script type="text/javascript">
     
     // Set the account value from global var(generated when registering)
     $("#confirm-account").attr("value", confirmAccount);
 
     // Invoke function when submit
-    $("#confirm-form").submit(function(e) {
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+    $("#reset-form").submit(function(e) {
 
         // Make sure that btn can't be click again and alert is hided
         $("#submit-btn").addClass("disabled");
-        $("#success-message").fadeOut(200);
         $("#alert-message").fadeOut(200);
-
+        
         var Url = "memberControl.php"; // the script where you handle the form input.
         $.ajax({
                type: "POST",
                url: Url,
-               data: $("#confirm-form").serialize(), // serializes the form's elements.
+               data: $("#reset-form").serialize(), // serializes the form's elements.
                // Load content if success
                success: function(data)
                {
-                    // If confirmation succeed, load login content to popup (popup.html)
                     LoadLogin();
                },
                // Alert if error
                error: function(result) 
                {
                     //console.log(result);
-                    var message = "認證錯誤...";
+                    var message = result["responseText"];
 
-                    $("#alert-response").html(message); // show response from the php script. used for error
+                    $("#response").html(message); // show response from the php script. used for error
                     $("#alert-message").fadeIn(550);
                     $("#submit-btn").removeClass("disabled");
                 }
              });
 
-        
+        e.preventDefault(); // avoid to execute the actual submit of the form.
     });
-
 
 
     $('#resend-btn').click(function(e){
@@ -90,7 +97,7 @@
         $.ajax({
                type: "POST",
                url: Url,
-               data: {"ProcessType" : "resendConfirm", "account" : confirmAccount},
+               data: {"ProcessType" : "forget", "account" : confirmAccount},
                // Redirect if success
                success: function(data)
                {
@@ -111,6 +118,5 @@
                 }
              });
     });
-
 
 </script>

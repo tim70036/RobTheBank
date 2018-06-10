@@ -22,7 +22,7 @@ try
 	if (mysqli_connect_errno())		throw new Exception("Failed to connect to MySQL: " . mysqli_connect_error());
 
 	# Prepare query
-	$sql = "SELECT id , stockId , time FROM UserRecords WHERE userName='$userName'";
+	$sql = "SELECT id , stockId , createTime, updateTime FROM UserRecords WHERE userName='$userName'";
 
 	# Execute query
 	$result = $connection->query($sql);
@@ -62,7 +62,7 @@ catch(Exception $e)
         	<th>操作</th>
             <th>日期</th>
             <th>股票</th>
-            <th>建立時間</th>
+            <th>最後修改時間</th>
         </tr>
     </thead>
     <tbody>
@@ -72,9 +72,13 @@ catch(Exception $e)
 while($row = $result->fetch_assoc())
 {
 	$id = $row['id'];
-	$dateObj = toTwTime($row['time']);
+
+	$dateObj = toTwTime($row['createTime']);
 	$date = $dateObj->format('Y / n / j');
-	$createTime = $dateObj->format('Y-m-d H:i:s');
+	
+	$dateObj = toTwTime($row['updateTime']);
+	$modifyTime = $dateObj->format('Y-m-d H:i:s');
+
 	$stock = $row['stockId'];
 	
 	echo "
@@ -82,7 +86,7 @@ while($row = $result->fetch_assoc())
 			<td>	<a href=\"recordHisEntry.php?id=$id\" class=\"btn btn-info\">查看</a>		</td>
             <td> $date </td>
             <td> $stock </td>
-            <td> $createTime </td>
+            <td> $modifyTime </td>
         </tr>
 		"; 
 }

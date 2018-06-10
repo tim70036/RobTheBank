@@ -65,10 +65,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['ProcessType']))
             /* Login through AWS */
             $error = $wrapper->authenticate($account, $password);
         }
+        else if($_POST['ProcessType'] === 'forget')
+        {
+            $account = filter_input(INPUT_POST, 'account');
+
+            /* Checking */
+            if(!$account) throw new Exception("Invalid Account!");
+
+            $error = $wrapper->sendPasswordResetMail($account);
+        }
+        else if($_POST['ProcessType'] === 'reset')
+        {
+            $confirmation = filter_input(INPUT_POST, 'confirmation');
+            $account = filter_input(INPUT_POST, 'account');
+            $password = filter_input(INPUT_POST, 'password');
+            $password2 = filter_input(INPUT_POST, 'password2');
+            
+
+            /* Checking */
+            if(!$confirmation) throw new Exception("Invalid Confirmation Code!");
+            if(!$account) throw new Exception("Invalid Account!");
+            if(!$password) throw new Exception("Invalid Password!");
+            if(strcmp($password, $password2) != 0) throw new Exception("Please Confirm Password!");
+
+            /* Register through AWS */
+            $error = $wrapper->resetPassword($confirmation, $password,$account);
+        }
         else if($_POST['ProcessType'] === 'logout')
         {
             $wrapper->logout();
         }
+        
 
         /* Check whether it is success*/
         if(empty($error)) 
