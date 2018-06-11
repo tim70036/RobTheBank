@@ -146,9 +146,6 @@ var table;
 			$.ajax({
 	               type: "GET",
 	               url: "charting_server/recordDelete.php?id=" + id,
-	               xhrFields: {
-				      withCredentials: true
-				   },
 	               // Delete that row if success
 	               success: function(data)
 	               {

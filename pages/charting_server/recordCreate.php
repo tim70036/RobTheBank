@@ -1,5 +1,8 @@
 <?php
 
+#Check if it is valid access
+require_once('authenticate.php');
+
 # Include some util functions
 require_once('util.php');
 
@@ -17,22 +20,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		// var_dump($data);
 
 		# Take out each field in data array
-		$userName = $data[0]['user'];
-		$stockId = $data[1]['stockId'];
-		$transRecord = $data[2];
-		$userRecord = $data[3][0]['value'];
-		$chartRecord = $data[4];
+		$stockId = $data[0]['stockId'];
+		$transRecord = $data[1];
+		$userRecord = $data[2][0]['value'];
+		$chartRecord = $data[3];
 
 		# Encode array into JSON string
-		$userName 		=  json_encode($userName);
 		$stockId 		=  json_encode($stockId);
 		$transRecord	=  json_encode($transRecord);
 		$userRecord 	=  json_encode($userRecord);
 		$chartRecord 	=  json_encode($chartRecord);
 
 		# Trim double quote
-		$userName = trim($userName, '"');
 		$userRecord = trim($userRecord, '"');
+
+		# Get user name
+		$userName = ($wrapper->getUser())['Username'];
 
 		# Connect to database
 		include_once("../../dbinfo.inc");
@@ -52,11 +55,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if($connection->query($sql) === TRUE)
 		{
 			# Debug usage
-			// print $userName;
-			// print $stockId;
-			// print $transRecord;
-			// print $userRecord;
-			// print $chartRecord;
+			print $userName;
+			print $stockId;
+			print $transRecord;
+			print $userRecord;
+			print $chartRecord;
 
 			# Return successful response
 			http_response_code(200);

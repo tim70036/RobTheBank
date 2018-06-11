@@ -224,8 +224,6 @@ foreach($dataArray as $data)
 
 <?php 
 # Set js var 
-$user = $wrapper->getUser();
-echo 'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
 echo 'var stockRecord = { "stockId" : ' . $stock . " }; \n";
 echo 'var transRecord = '. json_encode($dataArray) . " ; \n"; 
 ?>
@@ -274,7 +272,6 @@ echo 'var transRecord = '. json_encode($dataArray) . " ; \n";
 
 			/* Gather Data */
 			var postData = new Array();
-			postData.push(userRecord);
 			postData.push(stockRecord);
 			postData.push(transRecord);
 			postData.push($("#record-form").serializeArray());

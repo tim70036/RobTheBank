@@ -254,13 +254,6 @@ else
 		});
 
 
-<?php 
-# Set js var 
-$user = $wrapper->getUser();
-echo 	'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
-?>
-
-
 		/* Submit the form and save the chart to server*/
 		$('#save-btn').click(function(e){
 
@@ -268,7 +261,6 @@ echo 	'var userRecord = { "user" : "' . $user['Username'] . '" };' . "\n";
 
 			/* Gather Data */
 			var postData = new Array();
-			postData.push(userRecord);
 			postData.push(<?php echo $id; ?>);
 			postData.push($("#record-form").serializeArray());
 			widget.save(function(state){

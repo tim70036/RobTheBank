@@ -1,5 +1,8 @@
 <?php
 
+#Check if it is valid access
+require_once('authenticate.php');
+
 # Include some util functions
 require_once('util.php');
 
@@ -17,19 +20,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		var_dump($data);
 
 		# Take out each field in data array
-		$userName = $data[0]['user'];
-		$id = $data[1]; //int
-		$userRecord = $data[2][0]['value'];
-		$chartRecord = $data[3];
+		$id = $data[0]; //int
+		$userRecord = $data[1][0]['value'];
+		$chartRecord = $data[2];
 
 		# Encode array into JSON string
-		$userName 		=  json_encode($userName);
 		$userRecord 	=  json_encode($userRecord);
 		$chartRecord 	=  json_encode($chartRecord);
 
 		# Trim double quote
-		$userName = trim($userName, '"');
 		$userRecord = trim($userRecord, '"');
+
+		# Get user name
+		$userName = ($wrapper->getUser())['Username'];
 
 		# Connect to database
 		include_once("../../dbinfo.inc");

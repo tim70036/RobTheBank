@@ -1,6 +1,6 @@
 <?php
 require_once('credentials.php');
-require_once('../vendor/autoload.php');
+require_once('../../vendor/autoload.php');
 require_once('AWSCognitoWrapper.php');
 require_once('util.php');
 
