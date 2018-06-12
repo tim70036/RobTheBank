@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['symbol']))
 
 
 	$responseObj->name = $_GET['symbol'];
+	$responseObj->ticker =  $_GET['symbol'];
 
 	# Read JSON
 	$jsData = '';
@@ -26,8 +27,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['symbol']))
 		$symbol = strval($stock["symbol"]);
 		if($symbol ===  $_GET['symbol'])
 		{
-			$responseObj->description = $symbol;
-			$responseObj->exchange = $stock["name"] . "(" . $stock["industry"] .", " .  $stock["market"] . ")";
+			$responseObj->description = $stock["name"] . "(" . $stock["industry"] . ")";
+			$responseObj->exchange = $stock["market"];
 
 			#echo $description;
 			break;
