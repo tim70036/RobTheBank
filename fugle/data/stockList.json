@@ -1,0 +1,5492 @@
+[
+  {
+    "symbol": 1101,
+    "name": "台泥",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1102,
+    "name": "亞泥",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1103,
+    "name": "嘉泥",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1104,
+    "name": "環泥",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1108,
+    "name": "幸福",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1109,
+    "name": "信大",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1110,
+    "name": "東泥",
+    "market": "上市",
+    "industry": "水泥工業"
+  },
+  {
+    "symbol": 1201,
+    "name": "味全",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1203,
+    "name": "味王",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1210,
+    "name": "大成",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1213,
+    "name": "大飲",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1215,
+    "name": "卜蜂",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1216,
+    "name": "統一",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1217,
+    "name": "愛之味",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1218,
+    "name": "泰山",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1219,
+    "name": "福壽",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1220,
+    "name": "台榮",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1225,
+    "name": "福懋油",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1227,
+    "name": "佳格",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1229,
+    "name": "聯華",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1231,
+    "name": "聯華食",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1232,
+    "name": "大統益",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1233,
+    "name": "天仁",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1234,
+    "name": "黑松",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1235,
+    "name": "興泰",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1236,
+    "name": "宏亞",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1256,
+    "name": "鮮活果汁-KY",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1262,
+    "name": "綠悅-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 1301,
+    "name": "台塑",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1303,
+    "name": "南亞",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1304,
+    "name": "台聚",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1305,
+    "name": "華夏",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1307,
+    "name": "三芳",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1308,
+    "name": "亞聚",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1309,
+    "name": "台達化",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1310,
+    "name": "台苯",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1312,
+    "name": "國喬",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1313,
+    "name": "聯成",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1314,
+    "name": "中石化",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1315,
+    "name": "達新",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1316,
+    "name": "上曜",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1319,
+    "name": "東陽",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1321,
+    "name": "大洋",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1323,
+    "name": "永裕",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1324,
+    "name": "地球",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1325,
+    "name": "恆大",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1326,
+    "name": "台化",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1337,
+    "name": "再生-KY",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1338,
+    "name": "廣華-KY",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 1339,
+    "name": "昭輝",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1340,
+    "name": "勝悅-KY",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 1402,
+    "name": "遠東新",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1409,
+    "name": "新纖",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1410,
+    "name": "南染",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1413,
+    "name": "宏洲",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1414,
+    "name": "東和",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1416,
+    "name": "廣豐",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1417,
+    "name": "嘉裕",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1418,
+    "name": "東華",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1419,
+    "name": "新紡",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1423,
+    "name": "利華",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1432,
+    "name": "大魯閣",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 1434,
+    "name": "福懋",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1435,
+    "name": "中福",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 1436,
+    "name": "華友聯",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 1437,
+    "name": "勤益控",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 1438,
+    "name": "裕豐",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 1439,
+    "name": "中和",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1440,
+    "name": "南紡",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1441,
+    "name": "大東",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1442,
+    "name": "名軒",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 1443,
+    "name": "立益",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1444,
+    "name": "力麗",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1445,
+    "name": "大宇",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1446,
+    "name": "宏和",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1447,
+    "name": "力鵬",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1449,
+    "name": "佳和",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1451,
+    "name": "年興",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1452,
+    "name": "宏益",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1453,
+    "name": "大將",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1454,
+    "name": "台富",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1455,
+    "name": "集盛",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1456,
+    "name": "怡華",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1457,
+    "name": "宜進",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1459,
+    "name": "聯發",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1460,
+    "name": "宏遠",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1463,
+    "name": "強盛",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1464,
+    "name": "得力",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1465,
+    "name": "偉全",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1466,
+    "name": "聚隆",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1467,
+    "name": "南緯",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1468,
+    "name": "昶和",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1469,
+    "name": "理隆",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1470,
+    "name": "大統染",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1471,
+    "name": "首利",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 1472,
+    "name": "三洋紡",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1473,
+    "name": "台南",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1474,
+    "name": "弘裕",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1475,
+    "name": "本盟",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1476,
+    "name": "儒鴻",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1477,
+    "name": "聚陽",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 1503,
+    "name": "士電",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1504,
+    "name": "東元",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1506,
+    "name": "正道",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1507,
+    "name": "永大",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1512,
+    "name": "瑞利",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1513,
+    "name": "中興電",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1514,
+    "name": "亞力",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1515,
+    "name": "力山",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1516,
+    "name": "川飛",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 1517,
+    "name": "利奇",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1519,
+    "name": "華城",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1521,
+    "name": "大億",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1522,
+    "name": "堤維西",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1524,
+    "name": "耿鼎",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1525,
+    "name": "江申",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1526,
+    "name": "日馳",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1527,
+    "name": "鑽全",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1528,
+    "name": "恩德",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1529,
+    "name": "樂士",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1530,
+    "name": "亞崴",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1531,
+    "name": "高林股",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1532,
+    "name": "勤美",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1533,
+    "name": "車王電",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1535,
+    "name": "中宇",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1536,
+    "name": "和大",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1537,
+    "name": "廣隆",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1538,
+    "name": "正峰新",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1539,
+    "name": "巨庭",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1540,
+    "name": "喬福",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1541,
+    "name": "錩泰",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1558,
+    "name": "伸興",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1560,
+    "name": "中砂",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1568,
+    "name": "倉佑",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1582,
+    "name": "信錦",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 1583,
+    "name": "程泰",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1587,
+    "name": "吉茂",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1589,
+    "name": "永冠-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1590,
+    "name": "亞德客-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1592,
+    "name": "英瑞-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 1598,
+    "name": "岱宇",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1603,
+    "name": "華電",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1604,
+    "name": "聲寶",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1605,
+    "name": "華新",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1608,
+    "name": "華榮",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1609,
+    "name": "大亞",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1611,
+    "name": "中電",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1612,
+    "name": "宏泰",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1614,
+    "name": "三洋電",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1615,
+    "name": "大山",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1616,
+    "name": "億泰",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1617,
+    "name": "榮星",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1618,
+    "name": "合機",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1626,
+    "name": "艾美特-KY",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 1701,
+    "name": "中化",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1702,
+    "name": "南僑",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1704,
+    "name": "榮化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1707,
+    "name": "葡萄王",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1708,
+    "name": "東鹼",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1709,
+    "name": "和益",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1710,
+    "name": "東聯",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1711,
+    "name": "永光",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1712,
+    "name": "興農",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1713,
+    "name": "國化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1714,
+    "name": "和桐",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1717,
+    "name": "長興",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1718,
+    "name": "中纖",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1720,
+    "name": "生達",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1721,
+    "name": "三晃",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1722,
+    "name": "台肥",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1723,
+    "name": "中碳",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1724,
+    "name": "台硝",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1725,
+    "name": "元禎",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1726,
+    "name": "永記",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1727,
+    "name": "中華化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1730,
+    "name": "花仙子",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1731,
+    "name": "美吾華",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1732,
+    "name": "毛寶",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1733,
+    "name": "五鼎",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1734,
+    "name": "杏輝",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1735,
+    "name": "日勝化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1736,
+    "name": "喬山",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1737,
+    "name": "臺鹽",
+    "market": "上市",
+    "industry": "食品工業"
+  },
+  {
+    "symbol": 1760,
+    "name": "寶齡富錦",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1762,
+    "name": "中化生",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1773,
+    "name": "勝一",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1776,
+    "name": "展宇",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 1783,
+    "name": "和康生",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1786,
+    "name": "科妍",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1789,
+    "name": "神隆",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 1802,
+    "name": "台玻",
+    "market": "上市",
+    "industry": "玻璃陶瓷"
+  },
+  {
+    "symbol": 1805,
+    "name": "寶徠",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 1806,
+    "name": "冠軍",
+    "market": "上市",
+    "industry": "玻璃陶瓷"
+  },
+  {
+    "symbol": 1808,
+    "name": "潤隆",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 1809,
+    "name": "中釉",
+    "market": "上市",
+    "industry": "玻璃陶瓷"
+  },
+  {
+    "symbol": 1810,
+    "name": "和成",
+    "market": "上市",
+    "industry": "玻璃陶瓷"
+  },
+  {
+    "symbol": 1817,
+    "name": "凱撒衛",
+    "market": "上市",
+    "industry": "玻璃陶瓷"
+  },
+  {
+    "symbol": 1902,
+    "name": "台紙",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1903,
+    "name": "士紙",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1904,
+    "name": "正隆",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1905,
+    "name": "華紙",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1906,
+    "name": "寶隆",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1907,
+    "name": "永豐餘",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 1909,
+    "name": "榮成",
+    "market": "上市",
+    "industry": "造紙工業"
+  },
+  {
+    "symbol": 2002,
+    "name": "中鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2006,
+    "name": "東和鋼鐵",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2007,
+    "name": "燁興",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2008,
+    "name": "高興昌",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2009,
+    "name": "第一銅",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2010,
+    "name": "春源",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2012,
+    "name": "春雨",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2013,
+    "name": "中鋼構",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2014,
+    "name": "中鴻",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2015,
+    "name": "豐興",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2017,
+    "name": "官田鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2020,
+    "name": "美亞",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2022,
+    "name": "聚亨",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2023,
+    "name": "燁輝",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2024,
+    "name": "志聯",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2025,
+    "name": "千興",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2027,
+    "name": "大成鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2028,
+    "name": "威致",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2029,
+    "name": "盛餘",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2030,
+    "name": "彰源",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2031,
+    "name": "新光鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2032,
+    "name": "新鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2033,
+    "name": "佳大",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2034,
+    "name": "允強",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2038,
+    "name": "海光",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2049,
+    "name": "上銀",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 2059,
+    "name": "川湖",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2062,
+    "name": "橋椿",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 2069,
+    "name": "運錩",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 2101,
+    "name": "南港",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2102,
+    "name": "泰豐",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2103,
+    "name": "台橡",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2104,
+    "name": "中橡",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2105,
+    "name": "正新",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2106,
+    "name": "建大",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2107,
+    "name": "厚生",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2108,
+    "name": "南帝",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2109,
+    "name": "華豐",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2114,
+    "name": "鑫永銓",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2115,
+    "name": "六暉-KY",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 2201,
+    "name": "裕隆",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2204,
+    "name": "中華",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2206,
+    "name": "三陽工業",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2207,
+    "name": "和泰車",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2208,
+    "name": "台船",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2227,
+    "name": "裕日車",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2228,
+    "name": "劍麟",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 2231,
+    "name": "為升",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 2236,
+    "name": "百達-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 2239,
+    "name": "英利-KY",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2243,
+    "name": "宏旭-KY",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 2301,
+    "name": "光寶科",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2302,
+    "name": "麗正",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2303,
+    "name": "聯電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2305,
+    "name": "全友",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2308,
+    "name": "台達電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2312,
+    "name": "金寶",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2313,
+    "name": "華通",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2314,
+    "name": "台揚",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2316,
+    "name": "楠梓電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2317,
+    "name": "鴻海",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2321,
+    "name": "東訊",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2323,
+    "name": "中環",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2324,
+    "name": "仁寶",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2327,
+    "name": "國巨",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2328,
+    "name": "廣宇",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2329,
+    "name": "華泰",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2330,
+    "name": "台積電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2331,
+    "name": "精英",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2332,
+    "name": "友訊",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2337,
+    "name": "旺宏",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2338,
+    "name": "光罩",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2340,
+    "name": "光磊",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2342,
+    "name": "茂矽",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2344,
+    "name": "華邦電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2345,
+    "name": "智邦",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2347,
+    "name": "聯強",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 2348,
+    "name": "海悅",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 2349,
+    "name": "錸德",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2351,
+    "name": "順德",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2352,
+    "name": "佳世達",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2353,
+    "name": "宏碁",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2354,
+    "name": "鴻準",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2355,
+    "name": "敬鵬",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2356,
+    "name": "英業達",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2357,
+    "name": "華碩",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2358,
+    "name": "廷鑫",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 2359,
+    "name": "所羅門",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2360,
+    "name": "致茂",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2362,
+    "name": "藍天",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2363,
+    "name": "矽統",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2364,
+    "name": "倫飛",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2365,
+    "name": "昆盈",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2367,
+    "name": "燿華",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2368,
+    "name": "金像電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2369,
+    "name": "菱生",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2371,
+    "name": "大同",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 2373,
+    "name": "震旦行",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2374,
+    "name": "佳能",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2375,
+    "name": "智寶",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2376,
+    "name": "技嘉",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2377,
+    "name": "微星",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2379,
+    "name": "瑞昱",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2380,
+    "name": "虹光",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2382,
+    "name": "廣達",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2383,
+    "name": "台光電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2385,
+    "name": "群光",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2387,
+    "name": "精元",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2388,
+    "name": "威盛",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2390,
+    "name": "云辰",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2392,
+    "name": "正崴",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2393,
+    "name": "億光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2395,
+    "name": "研華",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2397,
+    "name": "友通",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2399,
+    "name": "映泰",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2401,
+    "name": "凌陽",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2402,
+    "name": "毅嘉",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2404,
+    "name": "漢唐",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2405,
+    "name": "浩鑫",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2406,
+    "name": "國碩",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2408,
+    "name": "南亞科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2409,
+    "name": "友達",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2412,
+    "name": "中華電",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2413,
+    "name": "環科",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2414,
+    "name": "精技",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 2415,
+    "name": "錩新",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2417,
+    "name": "圓剛",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2419,
+    "name": "仲琦",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2420,
+    "name": "新巨",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2421,
+    "name": "建準",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2423,
+    "name": "固緯",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2424,
+    "name": "隴華",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2425,
+    "name": "承啟",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2426,
+    "name": "鼎元",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2427,
+    "name": "三商電",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 2428,
+    "name": "興勤",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2429,
+    "name": "銘旺科",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2430,
+    "name": "燦坤",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 2431,
+    "name": "聯昌",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2433,
+    "name": "互盛電",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2434,
+    "name": "統懋",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2436,
+    "name": "偉詮電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2438,
+    "name": "翔耀",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2439,
+    "name": "美律",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2440,
+    "name": "太空梭",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2441,
+    "name": "超豐",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2442,
+    "name": "新美齊",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2443,
+    "name": "新利虹",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2444,
+    "name": "友旺",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2448,
+    "name": "晶電",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2449,
+    "name": "京元電子",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2450,
+    "name": "神腦",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2451,
+    "name": "創見",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2453,
+    "name": "凌群",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 2454,
+    "name": "聯發科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2455,
+    "name": "全新",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2456,
+    "name": "奇力新",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2457,
+    "name": "飛宏",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2458,
+    "name": "義隆",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2459,
+    "name": "敦吉",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 2460,
+    "name": "建通",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2461,
+    "name": "光群雷",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2462,
+    "name": "良得電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2464,
+    "name": "盟立",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2465,
+    "name": "麗臺",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 2466,
+    "name": "冠西電",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2467,
+    "name": "志聖",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2468,
+    "name": "華經",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 2471,
+    "name": "資通",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 2472,
+    "name": "立隆電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2474,
+    "name": "可成",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2475,
+    "name": "華映",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2476,
+    "name": "鉅祥",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2477,
+    "name": "美隆電",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2478,
+    "name": "大毅",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2480,
+    "name": "敦陽科",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 2481,
+    "name": "強茂",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 2482,
+    "name": "連宇",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2483,
+    "name": "百容",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2484,
+    "name": "希華",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2485,
+    "name": "兆赫",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2486,
+    "name": "一詮",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2488,
+    "name": "漢平",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2489,
+    "name": "瑞軒",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2491,
+    "name": "吉祥全",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2492,
+    "name": "華新科",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2493,
+    "name": "揚博",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 2495,
+    "name": "普安",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2496,
+    "name": "卓越",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2497,
+    "name": "怡利電",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 2498,
+    "name": "宏達電",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 2499,
+    "name": "東貝",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 2501,
+    "name": "國建",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2504,
+    "name": "國產",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2505,
+    "name": "國揚",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2506,
+    "name": "太設",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2509,
+    "name": "全坤建",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2511,
+    "name": "太子",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2514,
+    "name": "龍邦",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 2515,
+    "name": "中工",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2516,
+    "name": "新建",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2520,
+    "name": "冠德",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2524,
+    "name": "京城",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2527,
+    "name": "宏璟",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2528,
+    "name": "皇普",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2530,
+    "name": "華建",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2534,
+    "name": "宏盛",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2535,
+    "name": "達欣工",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2536,
+    "name": "宏普",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2537,
+    "name": "聯上發",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2538,
+    "name": "基泰",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2539,
+    "name": "櫻花建",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2540,
+    "name": "愛山林",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2542,
+    "name": "興富發",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2543,
+    "name": "皇昌",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2545,
+    "name": "皇翔",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2546,
+    "name": "根基",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2547,
+    "name": "日勝生",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2548,
+    "name": "華固",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2597,
+    "name": "潤弘",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2601,
+    "name": "益航",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2603,
+    "name": "長榮",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2605,
+    "name": "新興",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2606,
+    "name": "裕民",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2607,
+    "name": "榮運",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2608,
+    "name": "大榮",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2609,
+    "name": "陽明",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2610,
+    "name": "華航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2611,
+    "name": "志信",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2612,
+    "name": "中航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2613,
+    "name": "中櫃",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2614,
+    "name": "東森",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2615,
+    "name": "萬海",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2616,
+    "name": "山隆",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 2617,
+    "name": "台航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2618,
+    "name": "長榮航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2630,
+    "name": "亞航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2633,
+    "name": "台灣高鐵",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2634,
+    "name": "漢翔",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2636,
+    "name": "台驊投控",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2637,
+    "name": "慧洋-KY",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2642,
+    "name": "宅配通",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 2701,
+    "name": "萬企",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2702,
+    "name": "華園",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2704,
+    "name": "國賓",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2705,
+    "name": "六福",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2706,
+    "name": "第一店",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2707,
+    "name": "晶華",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2712,
+    "name": "遠雄來",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2722,
+    "name": "夏都",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2723,
+    "name": "美食-KY",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2727,
+    "name": "王品",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2731,
+    "name": "雄獅",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2739,
+    "name": "寒舍",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2748,
+    "name": "雲品",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 2801,
+    "name": "彰銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2809,
+    "name": "京城銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2812,
+    "name": "台中銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2816,
+    "name": "旺旺保",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2820,
+    "name": "華票",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2823,
+    "name": "中壽",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2832,
+    "name": "台產",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2834,
+    "name": "臺企銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2836,
+    "name": "高雄銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2838,
+    "name": "聯邦銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2841,
+    "name": "台開",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2845,
+    "name": "遠東銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2849,
+    "name": "安泰銀",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2850,
+    "name": "新產",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2851,
+    "name": "中再保",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2852,
+    "name": "第一保",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2855,
+    "name": "統一證",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2856,
+    "name": "元富證",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2867,
+    "name": "三商壽",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2880,
+    "name": "華南金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2881,
+    "name": "富邦金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2882,
+    "name": "國泰金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2883,
+    "name": "開發金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2884,
+    "name": "玉山金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2885,
+    "name": "元大金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2886,
+    "name": "兆豐金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2887,
+    "name": "台新金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2888,
+    "name": "新光金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2889,
+    "name": "國票金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2890,
+    "name": "永豐金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2891,
+    "name": "中信金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2892,
+    "name": "第一金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2897,
+    "name": "王道銀行",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 2901,
+    "name": "欣欣",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2903,
+    "name": "遠百",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2904,
+    "name": "匯僑",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 2905,
+    "name": "三商",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2906,
+    "name": "高林",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2908,
+    "name": "特力",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2910,
+    "name": "統領",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2911,
+    "name": "麗嬰房",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2912,
+    "name": "統一超",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2913,
+    "name": "農林",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2915,
+    "name": "潤泰全",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2923,
+    "name": "鼎固-KY",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 2929,
+    "name": "淘帝-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2936,
+    "name": "客思達-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 2939,
+    "name": "凱羿-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 3002,
+    "name": "歐格",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3003,
+    "name": "健和興",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3004,
+    "name": "豐達科",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 3005,
+    "name": "神基",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3006,
+    "name": "晶豪科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3008,
+    "name": "大立光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3010,
+    "name": "華立",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3011,
+    "name": "今皓",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3013,
+    "name": "晟銘電",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3014,
+    "name": "聯陽",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3015,
+    "name": "全漢",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3016,
+    "name": "嘉晶",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3017,
+    "name": "奇鋐",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3018,
+    "name": "同開",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3019,
+    "name": "亞光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3021,
+    "name": "鴻名",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3022,
+    "name": "威強電",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3023,
+    "name": "信邦",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3024,
+    "name": "憶聲",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3025,
+    "name": "星通",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3026,
+    "name": "禾伸堂",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3027,
+    "name": "盛達",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3028,
+    "name": "增你強",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3029,
+    "name": "零壹",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 3030,
+    "name": "德律",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3031,
+    "name": "佰鴻",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3032,
+    "name": "偉訓",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3033,
+    "name": "威健",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3034,
+    "name": "聯詠",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3035,
+    "name": "智原",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3036,
+    "name": "文曄",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3037,
+    "name": "欣興",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3038,
+    "name": "全台",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3040,
+    "name": "遠見",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 3041,
+    "name": "揚智",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3042,
+    "name": "晶技",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3043,
+    "name": "科風",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3044,
+    "name": "健鼎",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3045,
+    "name": "台灣大",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3046,
+    "name": "建碁",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3047,
+    "name": "訊舟",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3048,
+    "name": "益登",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3049,
+    "name": "和鑫",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3050,
+    "name": "鈺德",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3051,
+    "name": "力特",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3052,
+    "name": "夆典",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 3054,
+    "name": "立萬利",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3055,
+    "name": "蔚華科",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3056,
+    "name": "總太",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 3057,
+    "name": "喬鼎",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3058,
+    "name": "立德",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3059,
+    "name": "華晶科",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3060,
+    "name": "銘異",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3062,
+    "name": "建漢",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3090,
+    "name": "日電貿",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3094,
+    "name": "聯傑",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3130,
+    "name": "一零四",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 3149,
+    "name": "正達",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3164,
+    "name": "景岳",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 3167,
+    "name": "大量",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 3189,
+    "name": "景碩",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3209,
+    "name": "全科",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3229,
+    "name": "晟鈦",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3231,
+    "name": "緯創",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3257,
+    "name": "虹冠電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3266,
+    "name": "昇陽",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 3296,
+    "name": "勝德",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3305,
+    "name": "昇貿",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3308,
+    "name": "聯德",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3311,
+    "name": "閎暉",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3312,
+    "name": "弘憶股",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3321,
+    "name": "同泰",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3338,
+    "name": "泰碩",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3346,
+    "name": "麗清",
+    "market": "上市",
+    "industry": "汽車工業"
+  },
+  {
+    "symbol": 3356,
+    "name": "奇偶",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3376,
+    "name": "新日興",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3380,
+    "name": "明泰",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3383,
+    "name": "新世紀",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3406,
+    "name": "玉晶光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3413,
+    "name": "京鼎",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3416,
+    "name": "融程電",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3419,
+    "name": "譁裕",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3432,
+    "name": "台端",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3437,
+    "name": "榮創",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3443,
+    "name": "創意",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3450,
+    "name": "聯鈞",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3454,
+    "name": "晶睿",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3481,
+    "name": "群創",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3494,
+    "name": "誠研",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3501,
+    "name": "維熹",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3504,
+    "name": "揚明光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3514,
+    "name": "昱晶",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3515,
+    "name": "華擎",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3518,
+    "name": "柏騰",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3519,
+    "name": "綠能",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3528,
+    "name": "安馳",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3532,
+    "name": "台勝科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3533,
+    "name": "嘉澤",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3535,
+    "name": "晶彩科",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3536,
+    "name": "誠創",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3545,
+    "name": "敦泰",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3550,
+    "name": "聯穎",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3557,
+    "name": "嘉威",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3561,
+    "name": "昇陽光電",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3576,
+    "name": "新日光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3579,
+    "name": "尚志",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3583,
+    "name": "辛耘",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3588,
+    "name": "通嘉",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3591,
+    "name": "艾笛森",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3593,
+    "name": "力銘",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3596,
+    "name": "智易",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3605,
+    "name": "宏致",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3607,
+    "name": "谷崧",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3617,
+    "name": "碩天",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3622,
+    "name": "洋華",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3645,
+    "name": "達邁",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3653,
+    "name": "健策",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3661,
+    "name": "世芯-KY",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3665,
+    "name": "貿聯-KY",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 3669,
+    "name": "圓展",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3673,
+    "name": "TPK-KY",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3679,
+    "name": "新至陞",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 3682,
+    "name": "亞太電",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3686,
+    "name": "達能",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 3694,
+    "name": "海華",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3698,
+    "name": "隆達",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 3701,
+    "name": "大眾控",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3702,
+    "name": "大聯大",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 3703,
+    "name": "欣陸",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 3704,
+    "name": "合勤控",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 3705,
+    "name": "永信",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 3706,
+    "name": "神達",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 3708,
+    "name": "上緯投控",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 3711,
+    "name": "日月光投控",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 4104,
+    "name": "佳醫",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4106,
+    "name": "雃博",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4108,
+    "name": "懷特",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4119,
+    "name": "旭富",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4133,
+    "name": "亞諾法",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4137,
+    "name": "麗豐-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4141,
+    "name": "龍燈-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4142,
+    "name": "國光生",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4144,
+    "name": "康聯-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4148,
+    "name": "全宇生技-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4155,
+    "name": "訊映",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4164,
+    "name": "承業醫",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4190,
+    "name": "佐登-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4306,
+    "name": "炎洲",
+    "market": "上市",
+    "industry": "塑膠工業"
+  },
+  {
+    "symbol": 4414,
+    "name": "如興",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 4426,
+    "name": "利勤",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 4438,
+    "name": "廣越",
+    "market": "上市",
+    "industry": "紡織纖維"
+  },
+  {
+    "symbol": 4526,
+    "name": "東台",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4532,
+    "name": "瑞智",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4536,
+    "name": "拓凱",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 4545,
+    "name": "銘鈺",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4551,
+    "name": "智伸科",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4552,
+    "name": "力達-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4555,
+    "name": "氣立",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4557,
+    "name": "永新-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4560,
+    "name": "強信-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4562,
+    "name": "穎漢",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4566,
+    "name": "時碩工業",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 4720,
+    "name": "德淵",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4722,
+    "name": "國精化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4725,
+    "name": "信昌化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4737,
+    "name": "華廣",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4739,
+    "name": "康普",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4746,
+    "name": "台耀",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 4755,
+    "name": "三福化",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4763,
+    "name": "材料-KY",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4764,
+    "name": "雙鍵",
+    "market": "上市",
+    "industry": "化學工業"
+  },
+  {
+    "symbol": 4807,
+    "name": "日成-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 4904,
+    "name": "遠傳",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 4906,
+    "name": "正文",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 4912,
+    "name": "聯德控股-KY",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4915,
+    "name": "致伸",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4916,
+    "name": "事欣科",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 4919,
+    "name": "新唐",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 4927,
+    "name": "泰鼎-KY",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4930,
+    "name": "燦星網",
+    "market": "上市",
+    "industry": "電器電纜"
+  },
+  {
+    "symbol": 4934,
+    "name": "太極",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4935,
+    "name": "茂林-KY",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4938,
+    "name": "和碩",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 4942,
+    "name": "嘉彰",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4943,
+    "name": "康控-KY",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4952,
+    "name": "凌通",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 4956,
+    "name": "光鋐",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4958,
+    "name": "臻鼎-KY",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 4960,
+    "name": "奇美材",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4968,
+    "name": "立積",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 4976,
+    "name": "佳凌",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 4977,
+    "name": "眾達-KY",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 4984,
+    "name": "科納-KY",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 4994,
+    "name": "傳奇",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 4999,
+    "name": "鑫禾",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 5007,
+    "name": "三星",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 5203,
+    "name": "訊連",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 5215,
+    "name": "科嘉-KY",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 5225,
+    "name": "東科-KY",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 5234,
+    "name": "達興材料",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 5243,
+    "name": "乙盛-KY",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 5258,
+    "name": "虹堡",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 5259,
+    "name": "清惠",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 5264,
+    "name": "鎧勝-KY",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 5269,
+    "name": "祥碩",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 5284,
+    "name": "jpp-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 5285,
+    "name": "界霖",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 5288,
+    "name": "豐祥-KY",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 5305,
+    "name": "敦南",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 5388,
+    "name": "中磊",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 5434,
+    "name": "崇越",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 5469,
+    "name": "瀚宇博",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 5471,
+    "name": "松翰",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 5484,
+    "name": "慧友",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 5515,
+    "name": "建國",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5519,
+    "name": "隆大",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5521,
+    "name": "工信",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5522,
+    "name": "遠雄",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5525,
+    "name": "順天",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5531,
+    "name": "鄉林",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5533,
+    "name": "皇鼎",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5534,
+    "name": "長虹",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 5538,
+    "name": "東明-KY",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  },
+  {
+    "symbol": 5607,
+    "name": "遠雄港",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 5608,
+    "name": "四維航",
+    "market": "上市",
+    "industry": "航運業"
+  },
+  {
+    "symbol": 5706,
+    "name": "鳳凰",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 5871,
+    "name": "中租-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 5880,
+    "name": "合庫金",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 5906,
+    "name": "台南-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 5907,
+    "name": "大洋-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 6005,
+    "name": "群益證",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 6024,
+    "name": "群益期",
+    "market": "上市",
+    "industry": "金融保險業"
+  },
+  {
+    "symbol": 6108,
+    "name": "競國",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6112,
+    "name": "聚碩",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 6115,
+    "name": "鎰勝",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6116,
+    "name": "彩晶",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6117,
+    "name": "迎廣",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6120,
+    "name": "達運",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6128,
+    "name": "上福",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6131,
+    "name": "悠克",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6133,
+    "name": "金橋",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6136,
+    "name": "富爾特",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6139,
+    "name": "亞翔",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6141,
+    "name": "柏承",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6142,
+    "name": "友勁",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6145,
+    "name": "勁永",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 6152,
+    "name": "百一",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6153,
+    "name": "嘉聯益",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6155,
+    "name": "鈞寶",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6164,
+    "name": "華興",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6165,
+    "name": "捷泰",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6166,
+    "name": "凌華",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6168,
+    "name": "宏齊",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6172,
+    "name": "互億",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6176,
+    "name": "瑞儀",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6177,
+    "name": "達麗",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 6183,
+    "name": "關貿",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 6184,
+    "name": "大豐電",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 6189,
+    "name": "豐藝",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 6191,
+    "name": "精成科",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6192,
+    "name": "巨路",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6196,
+    "name": "帆宣",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6197,
+    "name": "佳必琪",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6201,
+    "name": "亞弘電",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6202,
+    "name": "盛群",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6205,
+    "name": "詮欣",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6206,
+    "name": "飛捷",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6209,
+    "name": "今國光",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6213,
+    "name": "聯茂",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6214,
+    "name": "精誠",
+    "market": "上市",
+    "industry": "資訊服務業"
+  },
+  {
+    "symbol": 6215,
+    "name": "和椿",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6216,
+    "name": "居易",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6224,
+    "name": "聚鼎",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6225,
+    "name": "天瀚",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6226,
+    "name": "光鼎",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6230,
+    "name": "超眾",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6235,
+    "name": "華孚",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6239,
+    "name": "力成",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6243,
+    "name": "迅杰",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6251,
+    "name": "定穎",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6257,
+    "name": "矽格",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6269,
+    "name": "台郡",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6271,
+    "name": "同欣電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6277,
+    "name": "宏正",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6278,
+    "name": "台表科",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6281,
+    "name": "全國電",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 6282,
+    "name": "康舒",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6283,
+    "name": "淳安",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6285,
+    "name": "啟碁",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6289,
+    "name": "華上",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6405,
+    "name": "悅城",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6409,
+    "name": "旭隼",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 6412,
+    "name": "群電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6414,
+    "name": "樺漢",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6415,
+    "name": "矽力-KY",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6416,
+    "name": "瑞祺電通",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6422,
+    "name": "君耀-KY",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6431,
+    "name": "光麗-KY",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6442,
+    "name": "光聖",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 6443,
+    "name": "元晶",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6449,
+    "name": "鈺邦",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 6451,
+    "name": "訊芯-KY",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6452,
+    "name": "康友-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 6456,
+    "name": "GIS-KY",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6464,
+    "name": "台數科",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 6477,
+    "name": "安集",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 6504,
+    "name": "南六",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 6505,
+    "name": "台塑化",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 6525,
+    "name": "捷敏-KY",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6531,
+    "name": "愛普",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6533,
+    "name": "晶心科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6541,
+    "name": "泰福-KY",
+    "market": "上市",
+    "industry": "生技醫療業"
+  },
+  {
+    "symbol": 6552,
+    "name": "易華電",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6573,
+    "name": "虹揚-KY",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 6579,
+    "name": "研揚",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6581,
+    "name": "鋼聯",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 6582,
+    "name": "申豐",
+    "market": "上市",
+    "industry": "橡膠工業"
+  },
+  {
+    "symbol": 6591,
+    "name": "動力-KY",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 6605,
+    "name": "帝寶",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 6625,
+    "name": "必應",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8011,
+    "name": "台通",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 8016,
+    "name": "矽創",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8021,
+    "name": "尖點",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 8033,
+    "name": "雷虎",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8039,
+    "name": "台虹",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 8046,
+    "name": "南電",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 8070,
+    "name": "長華",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 8072,
+    "name": "陞泰",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 8081,
+    "name": "致新",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8101,
+    "name": "華冠",
+    "market": "上市",
+    "industry": "通信網路業"
+  },
+  {
+    "symbol": 8103,
+    "name": "瀚荃",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 8105,
+    "name": "凌巨",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 8110,
+    "name": "華東",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8112,
+    "name": "至上",
+    "market": "上市",
+    "industry": "電子通路業"
+  },
+  {
+    "symbol": 8114,
+    "name": "振樺電",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 8131,
+    "name": "福懋科",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8150,
+    "name": "南茂",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8163,
+    "name": "達方",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 8201,
+    "name": "無敵",
+    "market": "上市",
+    "industry": "其他電子業"
+  },
+  {
+    "symbol": 8210,
+    "name": "勤誠",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 8213,
+    "name": "志超",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 8215,
+    "name": "明基材",
+    "market": "上市",
+    "industry": "光電業"
+  },
+  {
+    "symbol": 8222,
+    "name": "寶一",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 8249,
+    "name": "菱光",
+    "market": "上市",
+    "industry": "電子零組件業"
+  },
+  {
+    "symbol": 8261,
+    "name": "富鼎",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8271,
+    "name": "宇瞻",
+    "market": "上市",
+    "industry": "半導體業"
+  },
+  {
+    "symbol": 8341,
+    "name": "日友",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8374,
+    "name": "羅昇",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 8404,
+    "name": "百和興業-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8411,
+    "name": "福貞-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8422,
+    "name": "可寧衛",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8427,
+    "name": "基勝-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8429,
+    "name": "金麗-KY",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 8442,
+    "name": "威宏-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8443,
+    "name": "阿瘦",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 8454,
+    "name": "富邦媒",
+    "market": "上市",
+    "industry": "貿易百貨業"
+  },
+  {
+    "symbol": 8463,
+    "name": "潤泰材",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8464,
+    "name": "億豐",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8466,
+    "name": "美?-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8467,
+    "name": "波力-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8473,
+    "name": "山林水",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8478,
+    "name": "東哥遊艇",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8480,
+    "name": "泰昇-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8481,
+    "name": "政伸",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8488,
+    "name": "吉源-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8497,
+    "name": "聯廣",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8499,
+    "name": "鼎炫-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 8926,
+    "name": "台汽電",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 8940,
+    "name": "新天地",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 8996,
+    "name": "高力",
+    "market": "上市",
+    "industry": "電機機械"
+  },
+  {
+    "symbol": 9802,
+    "name": "鈺齊-KY",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9902,
+    "name": "台火",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9904,
+    "name": "寶成",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9905,
+    "name": "大華",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9906,
+    "name": "欣巴巴",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 9907,
+    "name": "統一實",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9908,
+    "name": "大台北",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 9910,
+    "name": "豐泰",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9911,
+    "name": "櫻花",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9912,
+    "name": "偉聯",
+    "market": "上市",
+    "industry": "電腦及週邊設備業"
+  },
+  {
+    "symbol": 9914,
+    "name": "美利達",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9917,
+    "name": "中保",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9918,
+    "name": "欣天然",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 9919,
+    "name": "康那香",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9921,
+    "name": "巨大",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9924,
+    "name": "福興",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9925,
+    "name": "新保",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9926,
+    "name": "新海",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 9927,
+    "name": "泰銘",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9928,
+    "name": "中視",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9929,
+    "name": "秋雨",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9930,
+    "name": "中聯資源",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9931,
+    "name": "欣高",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 9933,
+    "name": "中鼎",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9934,
+    "name": "成霖",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9935,
+    "name": "慶豐富",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9937,
+    "name": "全國",
+    "market": "上市",
+    "industry": "油電燃氣業"
+  },
+  {
+    "symbol": 9938,
+    "name": "百和",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9939,
+    "name": "宏全",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9940,
+    "name": "信義",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9941,
+    "name": "裕融",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9942,
+    "name": "茂順",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9943,
+    "name": "好樂迪",
+    "market": "上市",
+    "industry": "觀光事業"
+  },
+  {
+    "symbol": 9944,
+    "name": "新麗",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9945,
+    "name": "潤泰新",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9946,
+    "name": "三發地產",
+    "market": "上市",
+    "industry": "建材營造業"
+  },
+  {
+    "symbol": 9955,
+    "name": "佳龍",
+    "market": "上市",
+    "industry": "其他業"
+  },
+  {
+    "symbol": 9958,
+    "name": "世紀鋼",
+    "market": "上市",
+    "industry": "鋼鐵工業"
+  }
+]

@@ -2,3 +2,5 @@ credentials.php
 /datafeeds
 /pages/charting_library
 dbinfo.inc
+fugle/node_modules
+credential.js

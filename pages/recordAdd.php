@@ -101,7 +101,7 @@ head(true);
 		            <div class="form-group">
 		                <div class="row">
 		                	<div class="center">
-		                        <button type="button" class="add-one btn btn-success">新增交易</button>
+		                		<button type="button" class="add-one btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></button>
 		                    </div>
 		                </div>
 		                <!-- /.row -->
