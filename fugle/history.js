@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const credential = require('./credential');
 const mysql = require('mysql');
 
+/* Fugle API */
 const { api, socket } = fugleRealtime({
     version: 'latest', 
 	token: credential.token, 
@@ -10,193 +11,185 @@ const { api, socket } = fugleRealtime({
 	fetch: fetch, 
 });
 
+/* DB connection */
 const connection = mysql.createConnection({
     host: credential.dbhost,
     user: credential.dbuser,
-    password: credential.dbpassword
+    password: credential.dbpassword,
+    database: credential.dbname 
 });
 
-var oneDayTime = 86400 * 1000;
-var oneMinTime = 60 * 1000;
-var numDay = 0;
+/* Read vacation data */
+const fs = require('fs');
+let rawData = fs.readFileSync('data/vacation.json'); 
+var vacationData = JSON.parse(rawData);
+//console.log(vacationData);
 
-var tarDate = new Date(Date.now() - oneDayTime*numDay);
-var tarDateStr = DateToStr(tarDate);
+/* The most past data -> 2017/11/29, no data before this day */
+//api.meta({ symbolId: "6180" , date: "20171124"}).then(console.log);
+var minDate = new Date("2017-11-29T00:00:00Z");
 
 
+/* Used for async function */
+var asyncDone = 0;
+var allAsyncNum = 0;
+
+/* Global arr for stock records */
+var records = [];
+
+requestStockData('6141');
+
+function requestStockData(symbol)
+{
 
 
+    /* Reset for each stock request */
+    records = [];
+    asyncDone = 0;
+    allAsyncDone = 0;
 
-api.tick({ symbolId: '3026' , date: tarDateStr}).then(processStock);
+    /* Making valid date array, start from yesterday to minDate */
+    var oneDayTime = 86400 * 1000;
+    var dateArr = [];
+    for(var i=1 ; ; i++)
+    {
+        var tarDate = new Date(Date.now() - oneDayTime*i);
 
+        /* Stop at minDate, there is no data before this day */
+        if(tarDate < minDate)
+            break;
+
+
+        /* Skip Saturday and Sunday */
+        var weekDay = tarDate.getDay();
+        if(weekDay === 0 || weekDay === 6)
+            continue;
+
+        /* Skip vacation */
+        var dateStr = DateToStr(tarDate);
+        var curYearVacations = vacationData[(tarDate.getFullYear()).toString()]; // get all vacations date string in this year 
+        if(curYearVacations.indexOf(dateStr) != -1) // if dateStr exist in curYearVacation, skip it
+            continue;
+
+        /* This date is a valid trading day */
+        dateArr.push(dateStr);        
+    }
+
+    console.log("=============================");
+    console.log("Processing " + symbol + " from " + dateArr[dateArr.length-1] + " ~ " + dateArr[0]);
+    console.log("Total " + dateArr.length + " days will be processed...");
+
+    /* Number of all async api calls <- we will have a async api call for each day */
+    allAsyncNum = dateArr.length;
+
+    /* Call api for each day */
+    for(var i=0 ; i<dateArr.length ; i++)
+    {
+            
+
+            // var errHandler = (function(){ return (function(e){ var a = dateArr[i]; console.log(a); }) })();
+            // //console.log(errHandler);
+            // errHandler(1);
+            // // call back
+            // api.meta({ symbolId: symbol , date: dateArr[i]}).then(processDailyData).catch(errHandler);
+
+            api.meta({ symbolId: symbol , date: dateArr[i]}).then(processDailyData);
+        
+    }
+}
 
 /* Call back that deal with stock data */
-function processStock(obj){
+function processDailyData(obj){
+
+    //console.log(obj);
 
     /* Convert current day to date obj */
     var Yr = obj['date'] / 10000 ;
     var Mn = (obj['date'] % 10000) / 100;
     var Dy = obj['date'] % 100 ;
-    var date = new Date(Date.UTC(Yr, Mn-1, Dy));
-    //console.log('Current day : ' + date);
-
-
-    /* Create a start time for session */
-    var startTime = new Date(date);
+    var startTime = new Date(Date.UTC(Yr, Mn-1, Dy));
     startTime.setUTCHours(1);
     startTime.setUTCMinutes(0);
     startTime.setUTCSeconds(0);
     startTime.setUTCMilliseconds(0);
-    //console.log('session start : ' + startTime);
+    //console.log('Current day : ' + obj['date']);
 
-    /* Create an end time for session */
-    var endTime = new Date(date);
-    endTime.setUTCHours(5);
-    endTime.setUTCMinutes(30);
-    endTime.setUTCSeconds(0);
-    endTime.setUTCMilliseconds(0);
-    //console.log('session end : ' + endTime);
+    var symbol = obj['symbol']['id'];
 
-    var timestamp = [];
-    var close = [];
-    var open = [];
-    var high = [];
-    var low = [];
-    var volume = [];
+    /* Gather data into global array */
+    var timestamp = startTime.getTime() / 1000;
+    var close = obj['price']['close'];
+    var open = obj['price']['open'];
+    var high = obj['price']['highest'];
+    var low = obj['price']['lowest'];
+    var vol = obj['volume']['total'];
+    records.push([timestamp, close, open, high, low, vol]);
 
-    var tmpClose = -1;
-    var tmpOpen = -1;
-    var tmpHigh = -1;
-    var tmpLow = 999999;
-    var tmpVol = 0;
-    var prePrice = 0;
+    /* One async call back is done */ 
+    asyncDone = asyncDone+1;
 
-    var curTickTime;
-    var curTime = new Date(startTime);
-    var nextTime = new Date(startTime);
-    nextTime.setUTCMinutes(nextTime.getUTCMinutes()+1);
-    
-    var first = true;    // used for checking if it is the first tick data (special case of out of interval)
-    var hasData = false; // used for checking if there is any data not yet been output after the for loop
-
-    /* Tick data */
-    var ticks = obj['ticks'];
-
-    
-    
-    /* For each tick's data */
-    for(var i=0 ; i<ticks.length ; i++)
+    /* If all async is done , insert data to DB */
+    if(asyncDone >= allAsyncNum)
     {
-        /* Ignore trial */
-        if(!(ticks[i]['status'][0] === 'trial'))
-        {
-            /* Get time */
-            curTickTime = new Date(ticks[i]['time']);
+        console.log("\n");
+        console.log("All " + asyncDone + " records is received : ");
+        console.log(records);
 
-            /* First, decide whether it is time to output previous data */
-            /* Out of current interval special case: adjust first interval to a valid interval and don't output */
-            if(first)
-            {
-                first = false;
-                while(curTickTime >= nextTime)
-                {
-                    curTime.setUTCMinutes(curTime.getUTCMinutes()+1);
-                    nextTime.setUTCMinutes(nextTIme.getUTCMinutes()+1);
-                }
-            }
-            /* Out of current interval general case: collect previous data */
-            else if(curTickTime >= nextTime)
-            {
-
-                /* Summarize data */
-                tmpClose = prePrice;
-
-                console.log('Cur tick : ' + curTickTime + ' out of interval');
-                console.log('Interval : ' + curTime + ' ~ ' + nextTime);
-                console.log('Close : ' + tmpClose);
-                console.log('Open : ' + tmpOpen);
-                console.log('High : ' + tmpHigh);
-                console.log('Low : ' + tmpLow);
-                console.log('Vol : ' + tmpVol);
-                console.log('Timestamp : ' + curTime.getTime()/1000);
-
-
-                /* Reset */
-                tmpClose = -1;
-                tmpOpen = -1;
-                tmpHigh = -1;
-                tmpLow = 999999;
-                tmpVol = 0;
-                hasData = false; // All data are outputed
-
-                /* Adjuest interval to a valid interval */
-                while(curTickTime >= nextTime)
-                {
-                    curTime.setUTCMinutes(curTime.getUTCMinutes()+1);
-                    nextTime.setUTCMinutes(nextTime.getUTCMinutes()+1);
-                }
-
-                /* Check if next interval is valid */
-                if(curTime > endTime)
-                {
-                    break;
-                }
-            }
-            
-            /* Second, start processing this tick */
-            /* In current interval */
-            if(curTickTime >= curTime && curTickTime < nextTime)
-            {
-
-                var curTickPrice = ticks[i]['value'][0];
-                var curTickVol = ticks[i]['value'][1];
-
-                if(tmpOpen === -1) 
-                    tmpOpen = curTickPrice;
-
-                if(curTickPrice > tmpHigh)
-                    tmpHigh = curTickPrice;
-                if(curTickPrice < tmpLow)
-                    tmpLow = curTickPrice;
-
-                tmpVol += curTickVol;
-                prePrice = curTickPrice;
-
-                /* Now we are accumulating data */
-                hasData = true;
-            }
-            /* curTickTime < curTime */
-            else
-            {
-                // ????? No such case
-            }
-
-            //console.log(ticks[i]);
-        }
+        /* Put all records into DB */
+        InsertRecords(symbol, records);
     }
 
-    /* Now we check whether there is any data not yet output */
-    /* The last data might be 13:30, but there is no chance to output this data*/
-    if(hasData)
-    {
-         /* Summarize data */
-        tmpClose = prePrice;
 
-        console.log('Cur tick : ' + curTickTime + ' out of interval');
-        console.log('Interval : ' + curTime + ' ~ ' + nextTime);
-        console.log('Close : ' + tmpClose);
-        console.log('Open : ' + tmpOpen);
-        console.log('High : ' + tmpHigh);
-        console.log('Low : ' + tmpLow);
-        console.log('Vol : ' + tmpVol);
-        console.log('Timestamp : ' + curTime.getTime()/1000);
-    }
-    
+
+}
+
+function InsertRecords(symbol, records)
+{
+    /* Connect to db */
+    connection.connect(function(err) {
+        if (err) throw err;
+        console.log("\n");
+        console.log("DB connected -> now searching table " + symbol);
+
+        var sql = "CREATE TABLE IF NOT EXISTS `RobTheBank`.`" + symbol + "` (\
+                  `id` INT NOT NULL AUTO_INCREMENT,\
+                  `timestamp` INT NULL,\
+                  `close` INT NULL,\
+                  `open` INT NULL,\
+                  `high` INT NULL,\
+                  `low` INT NULL,\
+                  `volume` INT NULL,\
+                  PRIMARY KEY (`id`),\
+                  UNIQUE INDEX `timestamp_UNIQUE` (`timestamp` ASC));\
+                ";
+        
+        /* Create table if not exist */
+        connection.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("\n")
+            console.log("Result of create" + symbol + " table if not exist : ")
+            console.log(result);
+
+            /* Start inserting */
+            var sql = "INSERT IGNORE INTO `" + symbol + "` (timestamp, close, open, high, low, volume) VALUES ?";
+            connection.query(sql, [records], function (err, result) {
+                if (err) throw err;
+                console.log("\n");
+                console.log("Finish insert...")
+                console.log("Number of records inserted: " + result.affectedRows);
+                console.log("Finish processing for " + symbol + "...");
+                console.log("=============================\n\n\n");
+
+            });
+        });
+
+    });
 }
 
 /* Convert date obj to fugle desired format */
 function DateToStr(tarDate)
 {
+
     var Yr = (tarDate.getFullYear()).toString();
     var Mn = (tarDate.getMonth()+1 < 10) ? "0" + (tarDate.getMonth()+1).toString() : (tarDate.getMonth()+1).toString();
     var Dy = (tarDate.getDate()  < 10) ? "0" + (tarDate.getDate()).toString()  : (tarDate.getDate()).toString();
