@@ -41,6 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['symbol']))
 	$responseObj->session = '0900-1330'; // Trading hours :  Mo-Fr 09:00-13:30
 	$responseObj->timezone = 'Asia/Taipei';
 	$responseObj->supported_resolutions = ["1D"];
+	$responseObj->has_empty_bars = true;
 
 	echo json_encode($responseObj);
 }

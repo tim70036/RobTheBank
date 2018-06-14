@@ -178,9 +178,10 @@ else
         symbol: '<?php echo $record["stockId"]; ?>',
         debug: true,
         interval: 'D',
+        timeframe: '60D',
         container_id: "tv_chart_container",
         //  BEWARE: no trailing slash is expected in feed URL
-        datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server"),
+        datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server", 100*1000),
         library_path: "charting_library/",
         //  Regression Trend-related functionality is not implemented yet, so it's hidden for a while
         drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },

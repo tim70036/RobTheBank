@@ -1,4 +1,2 @@
-
-var records = [];
-records.push([1,2,3]);
-console.log(records);
+var records = {"close" : 1};
+console.log(!records["open"]);
