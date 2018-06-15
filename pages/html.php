@@ -112,10 +112,6 @@ echo <<<HTML
                             <li>
                                 <a href="index.php" id="main" class="sidebar-link"><i class="fa fa-home fa-fw"></i> 首頁 </a>
                             </li>
-                            <!-- 帳號管理 -->
-                            <li>
-                                <a href="#" id="account" class="sidebar-link"><i class="fa fa-user fa-fw"></i> 帳號管理 </a>
-                            </li>
                             <!-- 交易日誌 -->
                             <li>
                                 <a href="#"><i class="fa fa-book fa-fw"></i> 交易日誌 <span class="fa arrow"></span></a>

@@ -167,7 +167,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         symbol: '<?php echo $stock; ?>', // echo stock from server
         debug: true,
         interval: 'D',
-        timeframe: '60D',
+        timeframe: '180D',
         container_id: "tv_chart_container",
         //  BEWARE: no trailing slash is expected in feed URL
         datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server", 100*1000),
@@ -195,14 +195,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 foreach($dataArray as $data)
 {
 	$backgroundColor = ($data['type'] === 'sell') ? '#00e600' : '#e60000';
-
+	$text = ($data['type'] === 'sell') ? '賣出 ' : '買進 ';
+	$text = $text . $data["price"] . " " . $data["amount"] . "張";
+	$time = $data["timestamp"] - 86400*10;
 	echo "
-	    	chart.createShape(
-	    		{time: {$data["timestamp"]}, price: {$data["price"]} },
+	    	chart.createMultipointShape(
+	    		[{time: {$data["timestamp"]}, price: {$data["price"]} }],
 	    		{
 	    			shape: 'price_label',
 	                lock: true,
-	                disableSelection: true,
+	                disableSelection: false,
 					disableUndo: true,
 					zOrder: 'top',
 					overrides: 
@@ -210,12 +212,14 @@ foreach($dataArray as $data)
 						backgroundColor: '{$backgroundColor}' ,
 						color: '#ffffff',
 						borderColor	:  '#8c8c8c',
-						fontsize: 13
+						fontsize: 10,
+						transparency: 75
 					}
 	    		}
 	    		);
     	";
 }
+
 ?>
 
     });
