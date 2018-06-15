@@ -118,12 +118,15 @@ else
 		# Print out Data
 		foreach($dataArray as $data)
 		{
-			$time = $data['timestamp'];
 			$type = $data['type'];
 			$amount = $data['amount'];
 			$price = $data['price'];
 
-			$time = date('Y-m-d H:i',$time);
+			$timezone = 'Asia/Taipei';
+			$time = new DateTime();
+			$time->setTimestamp($data['timestamp']);
+			$time->setTimezone(new DateTimeZone($timezone));
+			$time = $time->format('Y-m-d H:i');
 			$type = ($type === "buy") ? "買進" : "賣出";
 
 			echo "
@@ -185,7 +188,7 @@ else
         library_path: "charting_library/",
         //  Regression Trend-related functionality is not implemented yet, so it's hidden for a while
         drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
-        disabled_features: [ "header_symbol_search", "header_compare", ""],
+        disabled_features: [ "header_symbol_search", "header_compare", "use_localstorage_for_settings"],
         enabled_features: ["side_toolbar_in_fullscreen_mode"],
         charts_storage_url: 'http://saveload.tradingview.com',
         charts_storage_api_version: "1.1",

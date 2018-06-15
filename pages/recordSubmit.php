@@ -57,7 +57,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			#var_dump($timeStr);
 
 			# Conver time into Unix timestamp
-			$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr);
+			$timezone = 'Asia/Taipei';
+			$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone);
 
 			$data['type'] = $_POST['buyOrSell' . $key];
 			$data['amount'] = $_POST['amount' . $key];
@@ -106,12 +107,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		# Print out Data
 		foreach($dataArray as $data)
 		{
-			$time = $data['timestamp'];
+			
 			$type = $data['type'];
 			$amount = $data['amount'];
 			$price = $data['price'];
 
-			$time = date('Y-m-d H:i',$time);
+			$timezone = 'Asia/Taipei';
+			$time = new DateTime();
+			$time->setTimestamp($data['timestamp']);
+			$time->setTimezone(new DateTimeZone($timezone));
+			$time = $time->format('Y-m-d H:i');
 			$type = ($type === "buy") ? "買進" : "賣出";
 
 			echo "
@@ -174,7 +179,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         library_path: "charting_library/",
         //  Regression Trend-related functionality is not implemented yet, so it's hidden for a while
         drawings_access: { type: 'black', tools: [ { name: "Regression Trend" } ] },
-        disabled_features: [ "header_symbol_search", "header_compare"],//"chart_scroll"
+        disabled_features: [ "header_symbol_search", "header_compare", "use_localstorage_for_settings"],//"chart_scroll"
         enabled_features: ["side_toolbar_in_fullscreen_mode"],
         charts_storage_url: 'http://saveload.tradingview.com',
         charts_storage_api_version: "1.1",
@@ -194,29 +199,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 # Create price label 
 foreach($dataArray as $data)
 {
-	$backgroundColor = ($data['type'] === 'sell') ? '#00e600' : '#e60000';
-	$text = ($data['type'] === 'sell') ? '賣出 ' : '買進 ';
-	$text = $text . $data["price"] . " " . $data["amount"] . "張";
-	$time = $data["timestamp"] - 86400*10;
-	echo "
-	    	chart.createMultipointShape(
-	    		[{time: {$data["timestamp"]}, price: {$data["price"]} }],
+	$backgroundColor = ($data['type'] === 'sell') ? '#00cc00' : '#e60000';
+	echo "chart.createShape(
+	    		{time : {$data["timestamp"]} , price : {$data["price"]} } ,
 	    		{
 	    			shape: 'price_label',
 	                lock: true,
-	                disableSelection: false,
+	                disableSelection: true,
 					disableUndo: true,
 					zOrder: 'top',
 					overrides: 
 					{
 						backgroundColor: '{$backgroundColor}' ,
-						color: '#ffffff',
+						color: '#0073e6',
 						borderColor	:  '#8c8c8c',
 						fontsize: 10,
-						transparency: 75
+						transparency: 80
 					}
-	    		}
-	    		);
+	    		});
     	";
 }
 

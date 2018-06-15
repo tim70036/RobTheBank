@@ -4,7 +4,7 @@
     <form method="post" id="confirm-form" action="confirm.php">
         <div class="form-group">
             <label >已發送認證碼至您的信箱</label>
-            <input class="form-control" name='confirmation' type="text" aria-describedby="accountHelp" placeholder="請輸入認證碼" required>
+            <input class="form-control" name='confirmation' type="text" aria-describedby="accountHelp" placeholder="請輸入認證碼" autocomplete="off" required>
         </div>
 
         <!-- Fill by JS -->
@@ -23,7 +23,7 @@
             <strong>Success: </strong> <span id="success-response"> Indicates a dangerous or potentially negative action. </span>
         </div>
 
-        <button type="submit" id="submit-btn" class="btn btn-primary btn-block">確認</button>
+        <button type="submit" id="submit-btn" class="btn btn-primary btn-block btn-popup">確認</button>
     </form>
 
     <!-- Resend -->

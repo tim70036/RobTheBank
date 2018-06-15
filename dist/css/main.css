@@ -41,6 +41,9 @@ a.disabled {
     pointer-events: none;
 }
 
+.btn-popup{
+  margin-top: 25px;
+}
 
 
 .form-radio {

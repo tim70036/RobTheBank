@@ -54,7 +54,6 @@ catch(Exception $e)
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/datatables.js"></script>
 <script type="text/javascript" charset="utf8" src="../dist/js/datatable/dataTables.responsive.js"></script>
 
-
 <table id="record-table" class="display" style="width:100%">
     <thead>
         <tr>
@@ -126,7 +125,6 @@ var table;
         	]
 
 		});
-    	
 	});
 </script>
 
