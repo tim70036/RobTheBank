@@ -104,6 +104,11 @@ var table;
 
     	table  = $('#record-table').dataTable({
 
+    		// Message
+    		"language": {
+		        "emptyTable":     "沒有交易日誌...請建立一筆交易日誌"
+		    },
+
     		// Column definition
     		"columnDefs": [
 				{

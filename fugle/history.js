@@ -38,8 +38,8 @@ var records = [];
 var minDate = new Date("2017-11-28T00:00:00Z");
 
 /* Process all stock */
-//var stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
-var stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
+var stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
+//var stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
 var stockDataIndex = (process.argv[2] !== undefined) ? parseInt(process.argv[2]) : 0; 
 // SEM skip :  93 94 136 183 440 452 453 498 506 546 577 640 668 677 729 735 746 760 802 822 824 826 872 889 896 897 899
 // OTC skip :  18 27 48 55 72 74 78 85 123 161 191 204 211 232 250 256 277 280 281 282 285 287 311 330 367 372 374 389 407 413 415 416 424 430 435 442 453 459 464 465 467 480 482 499 501 516 530 531 543 551 554 576 591 611 614 618 620 622 630 633 634 635 640 655 661 669 696 719 734 735 736 753

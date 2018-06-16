@@ -141,6 +141,7 @@ $('.add-one').click(function(){
 		    clearBtn: true,
 		    //calendarWeeks: true,
 		    todayHighlight: true,
+		    daysOfWeekDisabled: [0,6],
 		    language: 'zh-TW'
   });
 

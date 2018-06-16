@@ -233,9 +233,9 @@ else
 				['color',['color']],
 				['fontsize', ['fontsize']],
 				['para', ['paragraph',  'ul', 'ol', 'height']],
-				['ins',['hr', 'picture', 'link', 'video']],
+				['ins',['hr', 'link']],
 				['table',['table']],
-				['Misc', ['fullscreen', 'undo', 'redo', 'help']]
+				['Misc', ['undo', 'redo', 'help']]
 			]
 		});
 
