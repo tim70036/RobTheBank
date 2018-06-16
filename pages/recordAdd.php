@@ -73,7 +73,7 @@ head(true);
 		<!-- END OF HIDDEN ELEMENT -->
 
 	    <div class="form-container">
-		    <form class="form-horizontal" action="recordSubmit.php" method="post">
+		    <form class="form-horizontal"  id="trans-form" action="recordSubmit.php" method="post">
 		        <fieldset>
 		        	<!-- Form Name -->
 		            <legend class="title">輸入交易明細</legend>
@@ -185,6 +185,38 @@ function attach_delete(){
 }
 </script>
 
+<!-- JS submit form, validate before really sumbit -->
+<script type="text/javascript">
+    
+    // Invoke function when submit
+    $("#singlebutton").click(function(e) {
+
+    	e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        // Make sure that btn can't be click again and alert is hided
+        $("#singlebutton").addClass("disabled");
+        
+        var Url = "charting_server/symbolExist.php?symbol=" + $("#stock-id").val(); // the script where you handle the form input.
+        $.ajax({
+               type: "GET",
+               url: Url,
+               // Submit the form if success
+               success: function(data)
+               {
+                    $("#trans-form").submit();
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    alert('這是無效的股票代碼');
+                    $("#singlebutton").removeClass("disabled");
+                }
+             });
+
+        
+    });
+
+</script>
 
 <?php
 tail();

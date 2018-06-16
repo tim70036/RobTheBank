@@ -1,10 +1,10 @@
 <?php
-# Check login, if not, exit
-require_once('authenticate.php');
+# Index page -> no need to login
+// require_once('authenticate.php');
 
 # Print HTML content
 require_once('html.php');
-head(true);
+head(false);
 ?>
 
 

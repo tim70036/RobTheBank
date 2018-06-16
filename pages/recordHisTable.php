@@ -152,7 +152,10 @@ var table;
 	               // Delete that row if success
 	               success: function(data)
 	               {
-	               		$("#row" + id).fadeOut(550, function(){$(this).remove()}); // Remove after fade out
+	               		$("#row" + id).fadeOut(550, function(){
+	               			table.fnDeleteRow($(this));
+	               			//$(this).remove()
+	               		}); // Remove after fade out
 	               },
 	               // Alert if error
 	               error: function(result) 
