@@ -1,10 +1,18 @@
 <?php
 # Index page -> no need to login
-// require_once('authenticate.php');
+require_once('credentials.php');
+require_once('../vendor/autoload.php');
+require_once('AWSCognitoWrapper.php');
+
+use AWSCognitoApp\AWSCognitoWrapper;
+
+$wrapper = new AWSCognitoWrapper();
+$wrapper->initialize();
+
 
 # Print HTML content
 require_once('html.php');
-head(false);
+head($wrapper->isAuthenticated());
 ?>
 
 

@@ -2,7 +2,7 @@
 if($_SERVER['REQUEST_METHOD'] == 'GET')
 {
 	$responseObj = new stdClass();
-	$responseObj->supported_resolutions = ['1D'];
+	$responseObj->supported_resolutions = ['1D', '1W', '1M'];
 	$responseObj->supports_group_request = false;
 	$responseObj->supports_marks = false;
 	$responseObj->supports_search = true;

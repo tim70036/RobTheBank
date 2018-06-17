@@ -174,7 +174,7 @@ class AWSCognitoWrapper
     {
         if(isset($_COOKIE[$this->COOKIE_NAME])) {
             unset($_COOKIE[$this->COOKIE_NAME]);
-            setcookie($this->COOKIE_NAME, '', time() - 36000);
+            setcookie($this->COOKIE_NAME, '', time() - 3600000);
         }
     }
 
@@ -186,7 +186,7 @@ class AWSCognitoWrapper
          * application as easy as possible. Read the AWS docs for more info:
          * http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html
         */
-        setcookie($this->COOKIE_NAME, $accessToken, time() + 36000);
+        setcookie($this->COOKIE_NAME, $accessToken, time() + 3600000);
     }
 
     private function getAuthenticationCookie()
