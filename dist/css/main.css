@@ -10,6 +10,9 @@ body {
   width: 100%;
 }
 
+.dt-table{
+  width: 100% !important;
+}
 
 
 .word-wrap{

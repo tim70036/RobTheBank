@@ -27,7 +27,7 @@ head($wrapper->isAuthenticated());
     <div class="row center">
       <a class="btn btn-warning btn-lg" href="recordAdd.php" style="margin: 0px 30px;"> 建立交易日誌 </a>
       <h4>或者</h4>
-      <a class="btn btn-warning btn-lg" href="#"style="margin: 0px 30px;"> 查看自選股 </a>
+      <a class="btn btn-warning btn-lg" href="selfSelectedStock.php"style="margin: 0px 30px;"> 查看自選股 </a>
     </div>
     <!-- /.row -->
 

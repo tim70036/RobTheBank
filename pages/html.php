@@ -130,10 +130,7 @@ echo <<<HTML
                                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> 自選股 <span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="#" id="stockList" class="sidebar-link">自選股清單</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" id="stockSet" class="sidebar-link">設定</a>
+                                        <a href="selfSelectedStock.php" id="stockList" class="sidebar-link">自選股清單</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
