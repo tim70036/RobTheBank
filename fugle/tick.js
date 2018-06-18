@@ -43,21 +43,28 @@ function processStock(obj){
 
     console.log(obj);
 
-    /* Create a start time for session */
-    var startTime = new Date(date);
-    startTime.setUTCHours(1);
-    startTime.setUTCMinutes(0);
-    startTime.setUTCSeconds(0);
-    startTime.setUTCMilliseconds(0);
-    //console.log('session start : ' + startTime);
+    var time = (function(){
+        /* Create a start time for session */
+        var startTime = new Date(date);
+        startTime.setUTCHours(1);
+        startTime.setUTCMinutes(0);
+        startTime.setUTCSeconds(0);
+        startTime.setUTCMilliseconds(0);
+        //console.log('session start : ' + startTime);
 
-    /* Create an end time for session */
-    var endTime = new Date(date);
-    endTime.setUTCHours(5);
-    endTime.setUTCMinutes(30);
-    endTime.setUTCSeconds(0);
-    endTime.setUTCMilliseconds(0);
-    //console.log('session end : ' + endTime);
+        /* Create an end time for session */
+        var endTime = new Date(date);
+        endTime.setUTCHours(5);
+        endTime.setUTCMinutes(30);
+        endTime.setUTCSeconds(0);
+        endTime.setUTCMilliseconds(0);
+        //console.log('session end : ' + endTime);
+
+        return {
+            start: startTime,
+            end: endTime
+        }
+    })();
 
     var records = [];
     var record;
@@ -70,8 +77,8 @@ function processStock(obj){
     var prePrice = 0;
 
     var curTickTime;
-    var curTime = new Date(startTime);
-    var nextTime = new Date(startTime);
+    var curTime = new Date(time.start);
+    var nextTime = new Date(time.start);
     nextTime.setUTCMinutes(nextTime.getUTCMinutes()+1);
     
     var first = true;    // used for checking if it is the first tick data (special case of out of interval)

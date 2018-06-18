@@ -22,25 +22,38 @@ const connection = mysql.createConnection({
 /* Read vacation data */
 const fs = require('fs');
 let rawData = fs.readFileSync('data/vacation.json'); 
-var vacationData = JSON.parse(rawData);
+
+
+var vacationData,
+    asyncDone,
+    allAsyncNum,
+    records,
+    minDate,
+    stockData,
+    stockDataIndex;
+
+
+
+
+vacationData = JSON.parse(rawData);
 //console.log(vacationData);
 
 /* Used for async function */
-var asyncDone = 0;
-var allAsyncNum = 0;
+asyncDone = 0;
+allAsyncNum = 0;
 
 /* Global arr for stock records */
-var records = [];
+records = [];
 
 
 /* The most past data -> 2017/11/29, no data before this day */
 //api.meta({ symbolId: "1470" , date: "20180614"}).then(console.log);
-var minDate = new Date("2017-11-28T00:00:00Z");
+minDate = new Date("2017-11-28T00:00:00Z");
 
 /* Process all stock */
-var stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
-//var stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
-var stockDataIndex = (process.argv[2] !== undefined) ? parseInt(process.argv[2]) : 0; 
+stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
+//stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
+stockDataIndex = (process.argv[2] !== undefined) ? parseInt(process.argv[2]) : 0; 
 // SEM skip :  93 94 136 183 440 452 453 498 506 546 577 640 668 677 729 735 746 760 802 822 824 826 872 889 896 897 899
 // OTC skip :  18 27 48 55 72 74 78 85 123 161 191 204 211 232 250 256 277 280 281 282 285 287 311 330 367 372 374 389 407 413 415 416 424 430 435 442 453 459 464 465 467 480 482 499 501 516 530 531 543 551 554 576 591 611 614 618 620 622 630 633 634 635 640 655 661 669 696 719 734 735 736 753
 requestStockData(stockData[stockDataIndex]["symbol"].toString());
@@ -48,6 +61,14 @@ requestStockData(stockData[stockDataIndex]["symbol"].toString());
 function requestStockData(symbol)
 {
 
+    var i,
+        oneDayTime,
+        dateArr,
+        tarDate,
+        weekDay,
+        dateStr,
+        curYearVacations;
+        
 
     /* Reset for each stock request */
     records = [];
@@ -55,11 +76,11 @@ function requestStockData(symbol)
     allAsyncDone = 0;
 
     /* Making valid date array, start from yesterday to minDate */
-    var oneDayTime = 86400 * 1000;
-    var dateArr = [];
-    for(var i=1 ; ; i++)
+    oneDayTime = 86400 * 1000;
+    dateArr = [];
+    for(i=1 ; ; i++)
     {
-        var tarDate = new Date(Date.now() - oneDayTime*i);
+        tarDate = new Date(Date.now() - oneDayTime*i);
 
         /* Stop at minDate, there is no data before this day */
         if(tarDate < minDate)
@@ -67,13 +88,13 @@ function requestStockData(symbol)
 
 
         /* Skip Saturday and Sunday */
-        var weekDay = tarDate.getDay();
+        weekDay = tarDate.getDay();
         if(weekDay === 0 || weekDay === 6)
             continue;
 
         /* Skip vacation */
-        var dateStr = DateToStr(tarDate);
-        var curYearVacations = vacationData[(tarDate.getFullYear()).toString()]; // get all vacations date string in this year 
+        dateStr = DateToStr(tarDate);
+        curYearVacations = vacationData[(tarDate.getFullYear()).toString()]; // get all vacations date string in this year 
         if(curYearVacations.indexOf(dateStr) != -1) // if dateStr exist in curYearVacation, skip it
             continue;
 
@@ -90,7 +111,7 @@ function requestStockData(symbol)
     allAsyncNum = dateArr.length;
 
     /* Call api for each day */
-    for(var i=0 ; i<dateArr.length ; i++)
+    for(i=0 ; i<dateArr.length ; i++)
     {
             
 
