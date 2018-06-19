@@ -157,7 +157,7 @@ var stockRef = {};
 		if(remindTable.column(0).visible()){
 			remindTable.column(0).visible(false);
 			$("#update-stock-reminder").css({'display':'none'});
-			remindTable.ajax.reload(null, false);
+			remindTable.ajax.reload(null,false);
 		}else{
 			remindTable.column(0).visible(true);
 			$("#update-stock-reminder").css({'display':'block'});
@@ -204,8 +204,10 @@ var stockRef = {};
 				userName:userName
 			},
 			success:function(response){
+				console.log(response);
+				console.log(response.length);
+				if(response.length == 0){
 
-				if(response.length == 1){
 					stockList.push(stockSymbol);
 					if(ticks[stockSymbol] == undefined){
 						var r = {"stockId":stockSymbol,
@@ -225,7 +227,7 @@ var stockRef = {};
 			    			stockRef[id] = element;
 			    		});
 
-    		
+    					refreshStockData();
 					}else{
 						refreshStockData();
 					}
@@ -900,7 +902,7 @@ function refreshStockData(){
 	//console.log(reminderSet);
 	if(remindTable){
 		if(!remindTable.column(0).visible()){
-			remindTable.ajax.reload(null, false);
+			remindTable.ajax.reload(null,false);
 		}
 		
 	}else{
@@ -908,7 +910,7 @@ function refreshStockData(){
 	}
 	    		
 	if(table){
-		table.ajax.reload(null, false);
+		table.ajax.reload(null,false);
 	}else{
 		console.log("table doesn't exist");
 	}
