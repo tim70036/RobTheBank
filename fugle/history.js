@@ -30,6 +30,7 @@ var vacationData,
     records,
     minDate,
     stockData,
+    stockSkipData,
     stockDataIndex;
 
 
@@ -48,11 +49,17 @@ records = [];
 
 /* The most past data -> 2017/11/29, no data before this day */
 //api.meta({ symbolId: "1470" , date: "20180614"}).then(console.log);
-minDate = new Date("2017-11-28T00:00:00Z");
+minDate = new Date("2018-06-14T00:00:00Z");
 
 /* Process all stock */
-stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
-//stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
+stockSkipData = JSON.parse(fs.readFileSync('data/skip.json'));
+
+// stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
+// stockSkipData = stockSkipData["SEM"];
+
+stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
+stockSkipData = stockSkipData["OTC"];
+
 stockDataIndex = (process.argv[2] !== undefined) ? parseInt(process.argv[2]) : 0; 
 // SEM skip :  93 94 136 183 440 452 453 498 506 546 577 640 668 677 729 735 746 760 802 822 824 826 872 889 896 897 899
 // OTC skip :  18 27 48 55 72 74 78 85 123 161 191 204 211 232 250 256 277 280 281 282 285 287 311 330 367 372 374 389 407 413 415 416 424 430 435 442 453 459 464 465 467 480 482 499 501 516 530 531 543 551 554 576 591 611 614 618 620 622 630 633 634 635 640 655 661 669 696 719 734 735 736 753
@@ -62,6 +69,7 @@ function requestStockData(symbol)
 {
 
     var i,
+        j,
         oneDayTime,
         dateArr,
         tarDate,
@@ -93,7 +101,7 @@ function requestStockData(symbol)
             continue;
 
         /* Skip vacation */
-        dateStr = DateToStr(tarDate);
+        dateStr = DateToStr(minDate);
         curYearVacations = vacationData[(tarDate.getFullYear()).toString()]; // get all vacations date string in this year 
         if(curYearVacations.indexOf(dateStr) != -1) // if dateStr exist in curYearVacation, skip it
             continue;
@@ -111,7 +119,7 @@ function requestStockData(symbol)
     allAsyncNum = dateArr.length;
 
     /* Call api for each day */
-    for(i=0 ; i<dateArr.length ; i++)
+    for(j=0 ; j<dateArr.length ; j++)
     {
             
 
@@ -212,8 +220,15 @@ function InsertRecords(symbol, records, callback)
             console.log("Finish processing for " + symbol + "...");
             console.log("=============================\n\n\n");
 
-            /* Do next Stock */
+            /* Do next stock */
             stockDataIndex++;
+
+            /* Skip invalid stock */
+            while(stockSkipData.indexOf(stockDataIndex) > -1 )
+            {
+                console.log("Skiping " + stockDataIndex + " , not a valid stock in fugle...");
+                stockDataIndex++;
+            }
             if(stockDataIndex<stockData.length)
             {
                 callback(stockData[stockDataIndex]["symbol"].toString())

@@ -53,7 +53,26 @@ Notification.requestPermission().then(function(result) {
 var userName = "<?php echo $userName; ?>";
 var table, remindTable;		
 var stockSet = [], reminderSet = [], supResPrices = [];  
-var stockRef = {};
+
+
+	/*$('#stock-select').keyup(function(){
+			var txt = $(this).val();
+			if(txt != ''){
+
+			}else{
+				$('#result').html('');
+				$.ajax({
+					url:"fetchStock.php",
+					method:"post",
+					data:{search:txt},
+					dataType:"text",
+					success:function(data){
+						$('#stock-select-result').html(data);
+					}
+
+				});
+			}
+	});*/
 
 
 	$(document).on('click', '#rename-group', function(){ 
@@ -157,7 +176,7 @@ var stockRef = {};
 		if(remindTable.column(0).visible()){
 			remindTable.column(0).visible(false);
 			$("#update-stock-reminder").css({'display':'none'});
-			remindTable.ajax.reload(null, false);
+			remindTable.ajax.reload();
 		}else{
 			remindTable.column(0).visible(true);
 			$("#update-stock-reminder").css({'display':'block'});
@@ -205,32 +224,7 @@ var stockRef = {};
 			},
 			success:function(response){
 
-				if(response.length == 1){
-					stockList.push(stockSymbol);
-					if(ticks[stockSymbol] == undefined){
-						var r = {"stockId":stockSymbol,
-									"sup1":0,
-									"sup2":0,
-									"sup3":0,
-									"res1":0,
-									"res2":0,
-									"res3":0};
-						supResPrices.push(r);
-						join({symbolId: stockSymbol}, refreshStockData);
-						api.meta({ symbolId: stockSymbol, date:20180615 }).then(function(data){
-			    			var element = {};
-			    			var id = data.symbol.id;
-			    			element.symbol = id;
-			    			element.ref = data.price.close;
-			    			stockRef[id] = element;
-			    		});
-
-    		
-					}else{
-						refreshStockData();
-					}
-				}
-				//location.reload();
+				location.reload();
 				$("#stock-group-content").html(response);
 			},
 			fail: function(response){
@@ -778,36 +772,15 @@ function refreshStockData(){
 
 	checkReminderTable();
 	var t = [];
-	//console.log("ticks");
-	//console.log(ticks);
+
 	//console.log("refresh stockList:" + stockList);
-	console.log("supResPrices");
-	console.log(supResPrices);
+	//console.log(supResPrices);
 	for (var key in stockList){
 		if(ticks[stockList[key]] != undefined){
 			if(ticks[stockList[key]].ticks.length > 0){
 				var tickLen = ticks[stockList[key]].ticks.length;
-				/*if(ticks[stockList[key]].price.hasOwnProperty('ref')){
-					var ref = ticks[stockList[key]].price.ref;
-					var num = (ticks[stockList[key]].ticks[tickLen-1].value[0] - ticks[stockList[key]].price.ref) / ticks[stockList[key]].price.ref*100;
-					var percent = num.toFixed(2) + "%";
-				}else{
-					var ref = "";
-					var num = "";
-					var percent = "";
-				}*/
-				if(stockRef[stockList[key]] != undefined){
-					var ref = stockRef[stockList[key]].ref;
-					var num = (ticks[stockList[key]].ticks[tickLen-1].value[0] - ref) / ref*100;
-					var percent = num.toFixed(2) + "%";
-				}else{
-					var ref = "";
-					var num = "";
-					var percent = "";
-				}
-				
-				
-				
+				var num = (ticks[stockList[key]].ticks[tickLen-1].value[0] - ticks[stockList[key]].price.ref) / ticks[stockList[key]].price.ref*100;
+				var percent = num.toFixed(2) + "%";
 				var buy5 = ticks[stockList[key]].buy5.length ? ticks[stockList[key]].buy5[0][0] : "";
 				var sell5 = ticks[stockList[key]].sell5.length ? ticks[stockList[key]].sell5[0][0] : "";
 				var open = ticks[stockList[key]].price.hasOwnProperty('open') ? ticks[stockList[key]].price.open : "";
@@ -820,20 +793,13 @@ function refreshStockData(){
 								sell5,
 								percent,
 								ticks[stockList[key]].ticks[tickLen-1].total[1],
-								ref,
+								ticks[stockList[key]].price.ref,
 								open,
 								highest,
 								lowest];
 
 				t.push(element);			
 			}else{
-				if(ticks[stockList[key]].price.hasOwnProperty('ref')){
-					var ref = ticks[stockList[key]].price.ref;
-					
-				}else{
-					var ref = "";
-
-				}
 				var element = [	"",
 								stockList[key],
 								"",
@@ -841,7 +807,7 @@ function refreshStockData(){
 								"",
 								"",
 								"",
-								ref,
+								ticks[stockList[key]].price.ref,
 								"",
 								"",
 								""];
@@ -850,6 +816,7 @@ function refreshStockData(){
 
 			}
 		}
+
 	}
 	stockSet = t;
 	t = [];
@@ -900,7 +867,7 @@ function refreshStockData(){
 	//console.log(reminderSet);
 	if(remindTable){
 		if(!remindTable.column(0).visible()){
-			remindTable.ajax.reload(null, false);
+			remindTable.ajax.reload();
 		}
 		
 	}else{
@@ -908,7 +875,7 @@ function refreshStockData(){
 	}
 	    		
 	if(table){
-		table.ajax.reload(null, false);
+		table.ajax.reload();
 	}else{
 		console.log("table doesn't exist");
 	}
@@ -967,21 +934,11 @@ function checkReminderTable(){
     });
 
 
-    const { join, leave, ticks, meta} = socket;
+    const { join, leave, ticks} = socket;
 				    
     for(i = 0; i < stockList.length; i++){
     		join({symbolId: stockList[i]}, refreshStockData);
-
-    		api.meta({ symbolId: stockList[i], date:20180615 }).then(function(data){
-    			var element = {};
-    			var id = data.symbol.id;
-    			element.symbol = id;
-    			element.ref = data.price.close;
-
-    			stockRef[id] = element;
-    		})
     }
-
 
 
 </script>
