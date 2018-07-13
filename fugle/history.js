@@ -187,10 +187,10 @@ function InsertRecords(symbol, records, callback)
     var sql = "CREATE TABLE IF NOT EXISTS `RobTheBank`.`" + tableName + "` (\
               `id` MEDIUMINT(9) UNSIGNED NOT NULL AUTO_INCREMENT,\
               `timestamp` INT UNSIGNED NULL,\
-              `close` SMALLINT(6) UNSIGNED NULL,\
-              `open` SMALLINT(6) UNSIGNED NULL,\
-              `high` SMALLINT(6) UNSIGNED NULL,\
-              `low` SMALLINT(6) UNSIGNED NULL,\
+              `close` FLOAT UNSIGNED NULL,\
+              `open` FLOAT UNSIGNED NULL,\
+              `high` FLOAT UNSIGNED NULL,\
+              `low` FLOAT UNSIGNED NULL,\
               `volume` INT UNSIGNED NULL,\
               PRIMARY KEY (`id`),\
               UNIQUE INDEX `timestamp_UNIQUE` (`timestamp` ASC));\

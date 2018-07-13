@@ -102,12 +102,20 @@ function ProcessTickData(obj){
     /* Tick data */
     var ticks = obj['ticks'];
     
+
     /* For each tick's data */
     for(var i=0 ; i<ticks.length ; i++)
     {
+        var valid = true;
         /* Ignore trial */
-        if(!(ticks[i]['status'][0] === 'trial'))
+        for(var k=0 ; k < ticks[i]['status'].length ; k++)
+            if(ticks[i]['status'][k] === 'trial')
+                valid = false;
+
+        if(valid)
         {
+            //console.log(ticks[i]);
+
             /* Get time */
             curTickTime = new Date(ticks[i]['time']);
 
@@ -121,6 +129,7 @@ function ProcessTickData(obj){
                     curTime.setUTCMinutes(curTime.getUTCMinutes()+1);
                     nextTime.setUTCMinutes(nextTime.getUTCMinutes()+1);
                 }
+
             }
             /* Out of current interval general case: collect previous data */
             else if(curTickTime >= nextTime)
@@ -242,10 +251,10 @@ function InsertRecords(symbol, records, callback)
     var sql = "CREATE TABLE IF NOT EXISTS `RobTheBank`.`" + tableName + "` (\
               `id` MEDIUMINT(9) UNSIGNED NOT NULL AUTO_INCREMENT,\
               `timestamp` INT UNSIGNED NULL,\
-              `close` SMALLINT(6) UNSIGNED NULL,\
-              `open` SMALLINT(6) UNSIGNED NULL,\
-              `high` SMALLINT(6) UNSIGNED NULL,\
-              `low` SMALLINT(6) UNSIGNED NULL,\
+              `close` FLOAT UNSIGNED NULL,\
+              `open` FLOAT UNSIGNED NULL,\
+              `high` FLOAT UNSIGNED NULL,\
+              `low` FLOAT UNSIGNED NULL,\
               `volume` INT UNSIGNED NULL,\
               PRIMARY KEY (`id`),\
               UNIQUE INDEX `timestamp_UNIQUE` (`timestamp` ASC));\
