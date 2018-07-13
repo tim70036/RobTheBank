@@ -38,7 +38,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 		}
 		
 		# Prepare query
-		$sql = "SELECT * FROM `$symbol` WHERE timestamp >= $from AND timestamp <= $to ORDER BY timestamp ASC ;";
+		$tableName = $symbol . "_Min";
+		$sql = "SELECT * FROM `$tableName` WHERE timestamp >= $from AND timestamp <= $to ORDER BY timestamp ASC ;";
 
 		# Execute query
 		$result = $connection->query($sql);
@@ -102,5 +103,4 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 		exit;
 	}
 }
-//echo $responseStr;
 ?>

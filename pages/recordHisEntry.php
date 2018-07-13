@@ -180,8 +180,8 @@ else
         autosize: true,
         symbol: '<?php echo $record["stockId"]; ?>',
         debug: true,
-        interval: 'D',
-        timeframe: '180D',
+        interval: '5',
+        //timeframe: '5D',
         container_id: "tv_chart_container",
         //  BEWARE: no trailing slash is expected in feed URL
         datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server", 100*1000),

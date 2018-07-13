@@ -11,12 +11,13 @@ $userName = ($wrapper->getUser())['Username'];
 ?>
 <head>
 
-	<link rel="stylesheet" type="text/css" href="../dist/css/selfSelectedStock.css">
+	
 	<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.5/css/select.dataTables.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.dataTables.min.css">
 	<link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.10/css/dataTables.checkboxes.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../dist/css/selfSelectedStock.css">
 
 	
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
@@ -53,21 +54,37 @@ Notification.requestPermission().then(function(result) {
 var userName = "<?php echo $userName; ?>";
 var table, remindTable;		
 var stockSet = [], reminderSet = [], supResPrices = [];  
-var stockRef = {};
 
+/*
+Date.prototype.yyyymmdd = function() {
+  var mm = this.getMonth() + 1; // getMonth() is zero-based
+  var dd = this.getDate();
+
+  return [this.getFullYear(),
+          (mm>9 ? '' : '0') + mm,
+          (dd>9 ? '' : '0') + dd
+         ].join('');
+};
+
+var date = new Date();
+var dateNumFormat = date.yyyymmdd();*/
 
 	$(document).on('click', '#rename-group', function(){ 
 		var stockGroup = $('#categories :selected').val();
-		console.log(stockGroup);
+		//console.log(stockGroup);
 		if(stockGroup === "請選自選組合"){
 			alert("請選股票群組");
 			return;
 		}
+		cancelAddGroup();
+		cancelAddStock();
 		$("#rename-group-area").css({'display':'block'});
 
 	});
 
 	$(document).on('click', '#add-group', function(){
+		cancelAddStock();
+		cancelRenameGroup();
 		$("#add-group-area").css({'display':'block'});
 	});
 
@@ -77,6 +94,8 @@ var stockRef = {};
 			alert("請選股票群組");
 			return;
 		}
+		cancelRenameGroup();
+		cancelAddGroup();
 		$("#add-stock-area").css({'display':'block'});
 	});
 
@@ -115,7 +134,6 @@ var stockRef = {};
 			$.ajax({
 				url:"deleteGroup.php",
 				method:"POST",
-				//processData: false,
 				data:{
 					stockGroup:stockGroup,
 					stockSymbol: stockList,
@@ -192,6 +210,7 @@ var stockRef = {};
 	});
 
 	$(document).on('click', '.add-stock-filter-result', function(){
+		//$(this).addClass("disabledbutton");
 		var stockSymbol = $(this).attr("id");
 		var groupId = $('#categories :selected').val();
 
@@ -204,10 +223,8 @@ var stockRef = {};
 				userName:userName
 			},
 			success:function(response){
-				console.log(response);
-				console.log(response.length);
-				if(response.length == 0){
 
+				if(response.length < 5){
 					stockList.push(stockSymbol);
 					if(ticks[stockSymbol] == undefined){
 						var r = {"stockId":stockSymbol,
@@ -216,23 +233,16 @@ var stockRef = {};
 									"sup3":0,
 									"res1":0,
 									"res2":0,
-									"res3":0};
+									"res3":0,
+									"comment":""};
 						supResPrices.push(r);
 						join({symbolId: stockSymbol}, refreshStockData);
-						api.meta({ symbolId: stockSymbol, date:20180615 }).then(function(data){
-			    			var element = {};
-			    			var id = data.symbol.id;
-			    			element.symbol = id;
-			    			element.ref = data.price.close;
-			    			stockRef[id] = element;
-			    		});
-
     					refreshStockData();
 					}else{
 						refreshStockData();
 					}
 				}
-				//location.reload();
+				
 				$("#stock-group-content").html(response);
 			},
 			fail: function(response){
@@ -240,6 +250,7 @@ var stockRef = {};
             }
 
 		})
+		//$(this).removeClass("disabledbutton");
 	});
 
 	$(document).on('click', '#delete-stock-submit', function(){
@@ -289,7 +300,7 @@ var stockRef = {};
 		var t=[], element=[];
 		var rows_selected = remindTable.column(0).$('tr.selected');
 		$.each(rows_selected, function(index){
-
+			
 			var stockId = rows_selected[index].childNodes[1].childNodes[0].data;
 			var sup1 = rows_selected[index].childNodes[5].childNodes[0].children[0].value;
 			var sup2 = rows_selected[index].childNodes[6].childNodes[0].children[0].value;
@@ -297,21 +308,24 @@ var stockRef = {};
 			var res1 = rows_selected[index].childNodes[8].childNodes[0].children[0].value;
 			var res2 = rows_selected[index].childNodes[9].childNodes[0].children[0].value;
 			var res3 = rows_selected[index].childNodes[10].childNodes[0].children[0].value;
-			if($.isNumeric(sup1) && $.isNumeric(sup2) && $.isNumeric(sup3) && $.isNumeric(res1) && $.isNumeric(res2) && $.isNumeric(res3)){
+			var comment = rows_selected[index].childNodes[11].childNodes[0].children[0].value;
+			if($.isNumeric(sup1) && $.isNumeric(sup2) && $.isNumeric(sup3) && $.isNumeric(res1) && $.isNumeric(res2) && $.isNumeric(res3) && comment.length < 20){
 				element = [stockId,
 							sup1,
 							sup2,
 							sup3,
 							res1,
 							res2,
-							res3];
+							res3,
+							comment];
 				t.push(element);
+				
 			}else{
-				alert("請輸入正確數字");
+				alert("請輸入正確數字且備註不超過20個字元");
 				return;
 			}
 		});
-
+		
 		$.ajax({
 			url:"updateReminder.php",
 			method:"POST",
@@ -343,6 +357,7 @@ var stockRef = {};
 			var res1Html = "<div class=\"reminder-input-field\" ><input class=\" form-control\" id=\"input-res1\" type=\"text\"></div>";
 			var res2Html = "<div class=\"reminder-input-field\" ><input class=\" form-control\" id=\"input-res2\" type=\"text\"></div>";
 			var res3Html = "<div class=\"reminder-input-field\" ><input class=\" form-control\" id=\"input-res3\" type=\"text\"></div>";
+			var commentHtml = "<div class=\"reminder-input-field\" ><input class=\" form-control\" id=\"input-comment\" type=\"text\"></div>";
 			$(this).parents('tr').children(".reminder-area").html('');
 			$(sup1Html).appendTo($(this).parents('tr').children(".reminder-sup1"));
 			$(sup2Html).appendTo($(this).parents('tr').children(".reminder-sup2"));
@@ -350,12 +365,14 @@ var stockRef = {};
 			$(res1Html).appendTo($(this).parents('tr').children(".reminder-res1"));
 			$(res2Html).appendTo($(this).parents('tr').children(".reminder-res2"));
 			$(res3Html).appendTo($(this).parents('tr').children(".reminder-res3"));
+			$(commentHtml).appendTo($(this).parents('tr').children(".reminder-comment"));
 			$(this).parents('tr').children(".reminder-sup1").children("div").children("input").val(data[5]);
 			$(this).parents('tr').children(".reminder-sup2").children("div").children("input").val(data[6]);
 			$(this).parents('tr').children(".reminder-sup3").children("div").children("input").val(data[7]);
 			$(this).parents('tr').children(".reminder-res1").children("div").children("input").val(data[8]);
 			$(this).parents('tr').children(".reminder-res2").children("div").children("input").val(data[9]);
 			$(this).parents('tr').children(".reminder-res3").children("div").children("input").val(data[10]);
+			$(this).parents('tr').children(".reminder-comment").children("div").children("input").val(data[11]);
 		}else{
 			$(this).parents('tr').children(".reminder-area").html('');
 			$(this).parents('tr').children(".reminder-sup1").text(data[5]);
@@ -364,6 +381,7 @@ var stockRef = {};
 			$(this).parents('tr').children(".reminder-res1").text(data[8]);
 			$(this).parents('tr').children(".reminder-res2").text(data[9]);
 			$(this).parents('tr').children(".reminder-res3").text(data[10]);
+			$(this).parents('tr').children(".reminder-comment").text(data[11]);
 		}
 
 		//console.log(data);
@@ -399,6 +417,7 @@ var stockRef = {};
 
 
 	function addGroup(){
+		$('#add-group-btn').attr('disabled', 'disabled');
 		var groupName = $('#groupName').val();
 		$.ajax({
 			url:"addGroup.php",
@@ -420,6 +439,7 @@ var stockRef = {};
 	}
 
 	function renameGroup(){
+		$('#rename-group-btn').attr('disabled', 'disabled');
 		var groupId = $('#categories :selected').val();
 		var newGroupName = $('#rename-group-text').val();
 
@@ -619,7 +639,7 @@ var stockRef = {};
 								<div class="input-group input-group-sm input-group-bar col-xs-4 col-sm-4 col-md-4 col-lg-3">\
 											<input class="form-control" id = "rename-group-text" type="text" placeholder="更改名稱">\
 											<span class="input-group-btn">\
-												<button type="button" class="btn btn-secondary btn-rename" onclick="renameGroup()">確認</button>\
+												<button id = "rename-group-btn" type="button" class="btn btn-secondary btn-rename" onclick="renameGroup()">確認</button>\
 											</span>\
 											<span class="input-group-btn" onclick="cancelRenameGroup()">\
 												<button class="btn btn-secondary">取消</button>\
@@ -631,7 +651,7 @@ var stockRef = {};
 								<div class="input-group input-group-sm input-group-bar col-xs-4 col-sm-4 col-md-4 col-lg-3">\
 											<input class="form-control" id="groupName" autocomplete="off" placeholder="新增組合名稱" type="text">\
 											<span class="input-group-btn">\
-												<button type="button" class="btn btn-secondary" onclick="addGroup()">新增</button>\
+												<button id = "add-group-btn" type="button" class="btn btn-secondary" onclick="addGroup()">新增</button>\
 											</span>\
 											<span class="input-group-btn" >\
 												<button type="button" class="btn btn-secondary" onclick="cancelAddGroup()">取消</button>\
@@ -707,6 +727,10 @@ var stockRef = {};
 	        	className: 'reminder-res3 reminder-area',
 	        	defualtContent:"",
 	        	targets: 10
+	        },{
+	        	className: 'reminder-comment reminder-area',
+	        	defualtContent:"",
+	        	targets: 11
 	        }],
 	        select: {
 	            style:    'multi',
@@ -726,7 +750,8 @@ var stockRef = {};
             	{ "title": "支撐3" },
 	            { "title": "壓力1" },
 	            { "title": "壓力2" },
-	            { "title": "壓力3" }
+	            { "title": "壓力3" },
+	            { "title": "備註"}
 
 
     		],
@@ -783,13 +808,13 @@ function refreshStockData(){
 	//console.log("ticks");
 	//console.log(ticks);
 	//console.log("refresh stockList:" + stockList);
-	console.log("supResPrices");
-	console.log(supResPrices);
+	//console.log("supResPrices");
+	//console.log(supResPrices);
 	for (var key in stockList){
 		if(ticks[stockList[key]] != undefined){
 			if(ticks[stockList[key]].ticks.length > 0){
 				var tickLen = ticks[stockList[key]].ticks.length;
-				/*if(ticks[stockList[key]].price.hasOwnProperty('ref')){
+				if(ticks[stockList[key]].price.hasOwnProperty('ref')){
 					var ref = ticks[stockList[key]].price.ref;
 					var num = (ticks[stockList[key]].ticks[tickLen-1].value[0] - ticks[stockList[key]].price.ref) / ticks[stockList[key]].price.ref*100;
 					var percent = num.toFixed(2) + "%";
@@ -797,17 +822,8 @@ function refreshStockData(){
 					var ref = "";
 					var num = "";
 					var percent = "";
-				}*/
-				if(stockRef[stockList[key]] != undefined){
-					var ref = stockRef[stockList[key]].ref;
-					var num = (ticks[stockList[key]].ticks[tickLen-1].value[0] - ref) / ref*100;
-					var percent = num.toFixed(2) + "%";
-				}else{
-					var ref = "";
-					var num = "";
-					var percent = "";
 				}
-				
+
 				
 				
 				var buy5 = ticks[stockList[key]].buy5.length ? ticks[stockList[key]].buy5[0][0] : "";
@@ -878,7 +894,8 @@ function refreshStockData(){
 				    				supResPrices[key].sup3,
 				    				supResPrices[key].res1,
 				    				supResPrices[key].res2,
-				    				supResPrices[key].res3];
+				    				supResPrices[key].res3,
+				    				supResPrices[key].comment];
 				    t.push(element);
 				}else{
 					var element = [ "",
@@ -891,7 +908,8 @@ function refreshStockData(){
 				    				supResPrices[key].sup3,
 				    				supResPrices[key].res1,
 				    				supResPrices[key].res2,
-				    				supResPrices[key].res3];
+				    				supResPrices[key].res3,
+				    				supResPrices[key].comment];
 				    t.push(element);
 				}
 			}
@@ -910,7 +928,10 @@ function refreshStockData(){
 	}
 	    		
 	if(table){
-		table.ajax.reload(null,false);
+		if(!table.column(0).visible()){
+			table.ajax.reload(null,false);
+		}
+		
 	}else{
 		console.log("table doesn't exist");
 	}
@@ -927,28 +948,28 @@ function checkReminderTable(){
 					var tickLen = ticks[stockId].ticks.length;
 				    var close = ticks[stockId].ticks[tickLen-1].value[0];
 				    if(close < supResPrices[key].sup1 && supResPrices[key].sup1 != 0){
-				    	message = message + stockId + " 跌破 " + supResPrices[key].sup1 + "\n";
+				    	message = message + stockId + " 跌破 " + supResPrices[key].sup1 + " 提醒: " + supResPrices[key].comment + "\n";
 				    }if(close < supResPrices[key].sup2 && supResPrices[key].sup2 != 0){
-				    	message = message + stockId +" 跌破 " + supResPrices[key].sup2 + "\n";
+				    	message = message + stockId +" 跌破 " + supResPrices[key].sup2 + " 提醒: " + supResPrices[key].comment + "\n";
 				    }if(close > supResPrices[key].sup3 && supResPrices[key].sup3 != 0){
-				    	message = message + stockId +" 跌破 " + supResPrices[key].sup3 + "\n";
+				    	message = message + stockId +" 跌破 " + supResPrices[key].sup3 + " 提醒: " + supResPrices[key].comment + "\n";
 				    }if(close > supResPrices[key].res1 && supResPrices[key].res1 != 0){
-				    	message = message + stockId +" 突破 " + supResPrices[key].res1 + "\n";
+				    	message = message + stockId +" 突破 " + supResPrices[key].res1 +" 提醒: " + supResPrices[key].comment + "\n";
 				    }if(close > supResPrices[key].res2 && supResPrices[key].res2 != 0){
-				    	message = message + stockId +" 突破 " + supResPrices[key].res2 + "\n";
+				    	message = message + stockId +" 突破 " + supResPrices[key].res2 +" 提醒: " + supResPrices[key].comment + "\n";
 				    }if(close > supResPrices[key].res3 && supResPrices[key].res3 != 0){
-				    	message = message + stockId +" 突破 " + supResPrices[key].res3 + "\n";
+				    	message = message + stockId +" 突破 " + supResPrices[key].res3 + " 提醒: " + supResPrices[key].comment + "\n";
 				    } 
 			}		    
 		}
 	}
 	if(message != ""){
+		console.log(message);
 		Notification.requestPermission().then(function(result) {
 
-		if(window.Notification.permission == "granted") {
-			var notification = new Notification('到價提醒通知', {
-			body: message,
-        });                   
+		if(result == "granted") {
+			var notification = new Notification('到價提醒通知', {body: message});
+
         //setTimeout(function() { notification.close(); }, 5000);
         } else {
             alert('提醒失敗');
@@ -971,17 +992,9 @@ function checkReminderTable(){
 
     const { join, leave, ticks, meta} = socket;
 				    
+
     for(i = 0; i < stockList.length; i++){
     		join({symbolId: stockList[i]}, refreshStockData);
-
-    		api.meta({ symbolId: stockList[i], date:20180615 }).then(function(data){
-    			var element = {};
-    			var id = data.symbol.id;
-    			element.symbol = id;
-    			element.ref = data.price.close;
-
-    			stockRef[id] = element;
-    		})
     }
 
 

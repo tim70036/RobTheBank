@@ -49,23 +49,23 @@ records = [];
 
 /* The most past data -> 2017/11/29, no data before this day */
 //api.meta({ symbolId: "1470" , date: "20180614"}).then(console.log);
-minDate = new Date("2018-06-14T00:00:00Z");
+minDate = new Date("2017-11-28T00:00:00Z");
 
 /* Process all stock */
 stockSkipData = JSON.parse(fs.readFileSync('data/skip.json'));
 
-// stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
-// stockSkipData = stockSkipData["SEM"];
-
-stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
-stockSkipData = stockSkipData["OTC"];
+/* Read stock data */
+stockData = JSON.parse(fs.readFileSync('data/stockListSEM.json'));
+stockSkipData = stockSkipData["SEM"];
+// stockData = JSON.parse(fs.readFileSync('data/stockListOTC.json'));
+// stockSkipData = stockSkipData["OTC"];
 
 stockDataIndex = (process.argv[2] !== undefined) ? parseInt(process.argv[2]) : 0; 
 // SEM skip :  93 94 136 183 440 452 453 498 506 546 577 640 668 677 729 735 746 760 802 822 824 826 872 889 896 897 899
 // OTC skip :  18 27 48 55 72 74 78 85 123 161 191 204 211 232 250 256 277 280 281 282 285 287 311 330 367 372 374 389 407 413 415 416 424 430 435 442 453 459 464 465 467 480 482 499 501 516 530 531 543 551 554 576 591 611 614 618 620 622 630 633 634 635 640 655 661 669 696 719 734 735 736 753
-requestStockData(stockData[stockDataIndex]["symbol"].toString());
+RequestStockData(stockData[stockDataIndex]["symbol"].toString());
 
-function requestStockData(symbol)
+function RequestStockData(symbol)
 {
 
     var i,
@@ -101,7 +101,7 @@ function requestStockData(symbol)
             continue;
 
         /* Skip vacation */
-        dateStr = DateToStr(minDate);
+        dateStr = DateToStr(tarDate);
         curYearVacations = vacationData[(tarDate.getFullYear()).toString()]; // get all vacations date string in this year 
         if(curYearVacations.indexOf(dateStr) != -1) // if dateStr exist in curYearVacation, skip it
             continue;
@@ -111,7 +111,7 @@ function requestStockData(symbol)
     }
 
     console.log("=============================");
-    console.log(stockDataIndex + "/" + (stockData.length-1) +" of stock data...");
+    console.log(stockDataIndex + "/" + (stockData.length-1) +" of all stocks...");
     console.log("Processing " + symbol + " from " + dateArr[dateArr.length-1] + " ~ " + dateArr[0]);
     console.log("Total " + dateArr.length + " days will be processed...");
 
@@ -121,21 +121,12 @@ function requestStockData(symbol)
     /* Call api for each day */
     for(j=0 ; j<dateArr.length ; j++)
     {
-            
-
-            // var errHandler = (function(){ return (function(e){ var a = dateArr[i]; console.log(a); }) })();
-            // //console.log(errHandler);
-            // errHandler(1);
-            // // call back
-            // api.meta({ symbolId: symbol , date: dateArr[i]}).then(processDailyData).catch(errHandler);
-
-            api.meta({ symbolId: symbol , date: dateArr[i]}).then(processDailyData);
-        
+            api.meta({ symbolId: symbol , date: dateArr[i]}).then(ProcessDailyData);   
     }
 }
 
 /* Call back that deal with stock data */
-function processDailyData(obj){
+function ProcessDailyData(obj){
 
     //console.log(obj);
 
@@ -178,7 +169,8 @@ function processDailyData(obj){
         console.log(records);
 
         /* Put all records into DB */
-        InsertRecords(symbol, records, requestStockData);
+        console.log("\nStart inserting records...");
+        InsertRecords(symbol, records, RequestStockData);
     }
 
 
@@ -188,17 +180,18 @@ function processDailyData(obj){
 function InsertRecords(symbol, records, callback)
 {
     /* Ready to insert */
+    var tableName = symbol + "_Day";
     console.log("\n");
-    console.log("Now searching table " + symbol);
+    console.log("Now searching table " + tableName);
 
-    var sql = "CREATE TABLE IF NOT EXISTS `RobTheBank`.`" + symbol + "` (\
-              `id` INT NOT NULL AUTO_INCREMENT,\
-              `timestamp` INT NULL,\
-              `close` INT NULL,\
-              `open` INT NULL,\
-              `high` INT NULL,\
-              `low` INT NULL,\
-              `volume` INT NULL,\
+    var sql = "CREATE TABLE IF NOT EXISTS `RobTheBank`.`" + tableName + "` (\
+              `id` MEDIUMINT(9) UNSIGNED NOT NULL AUTO_INCREMENT,\
+              `timestamp` INT UNSIGNED NULL,\
+              `close` SMALLINT(6) UNSIGNED NULL,\
+              `open` SMALLINT(6) UNSIGNED NULL,\
+              `high` SMALLINT(6) UNSIGNED NULL,\
+              `low` SMALLINT(6) UNSIGNED NULL,\
+              `volume` INT UNSIGNED NULL,\
               PRIMARY KEY (`id`),\
               UNIQUE INDEX `timestamp_UNIQUE` (`timestamp` ASC));\
             ";
@@ -207,11 +200,11 @@ function InsertRecords(symbol, records, callback)
     connection.query(sql, function (err, result) {
         if (err) throw err;
         console.log("\n")
-        console.log("Result of create " + symbol + " table if not exist : ")
+        console.log("Result of create " + tableName + " table if not exist : ")
         console.log(result);
 
         /* Start inserting */
-        var sql = "INSERT IGNORE INTO `" + symbol + "` (timestamp, close, open, high, low, volume) VALUES ?";
+        var sql = "INSERT IGNORE INTO `" + tableName + "` (timestamp, close, open, high, low, volume) VALUES ?";
         connection.query(sql, [records], function (err, result) {
             if (err) throw err;
             console.log("\n");

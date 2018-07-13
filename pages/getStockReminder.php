@@ -8,7 +8,7 @@
 		mysqli_query($connection, "SET NAMES utf8");
 
 
-		$sql = "SELECT stockId, sup1, sup2, sup3, res1, res2, res3 FROM UserStock WHERE userName = '$userName'";
+		$sql = "SELECT stockId, sup1, sup2, sup3, res1, res2, res3, comment FROM UserStock WHERE userName = '$userName'";
 		$result = mysqli_query($connection,$sql);
 
 		$data = array();
@@ -21,7 +21,8 @@
 								'sup3'=>$row['sup3'],
 								'res1'=>$row['res1'],
 								'res2'=>$row['res2'],
-								'res3'=>$row['res3']
+								'res3'=>$row['res3'],
+								'comment'=>$row['comment']
 						);
 		}
 

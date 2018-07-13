@@ -52,12 +52,21 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['symbol']))
 		}
 	}
 
-	
+	# Symbol's information
 	$responseObj->type = 'stock'; // Possible Val : stock, index, forex, futures, bitcoin, expression, spread, cfd
 	$responseObj->session = '0900-1330'; // Trading hours :  Mo-Fr 09:00-13:30
 	$responseObj->timezone = 'Asia/Taipei';
-	$responseObj->supported_resolutions = ["1D", '1W', '1M'];
-	//$responseObj->has_empty_bars = true;
+
+	# Symbol's resolution
+	$responseObj->supported_resolutions = ['1', '5', '15', '30', '60', '1D', '1W', '1M'];
+
+	# Symbol has minute data
+	$responseObj->has_intraday = true;
+	# Minute's data is 1 min
+	$responseObj->intraday_multipliers = ['1'];
+
+	# Symbol's other setting
+	$responseObj->has_empty_bars = true;
 	$responseObj->minmov = 1;
 	$responseObj->pricescale = 100;
 
