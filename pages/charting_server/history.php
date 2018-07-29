@@ -80,10 +80,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 			while($row = $result->fetch_assoc())
 			{
 				$responseObj->t[] = (int)$row['timestamp'];
-				$responseObj->c[] = (float)$row['close'];
-				$responseObj->o[] = (float)$row['open'];
-				$responseObj->h[] = (float)$row['high'];
-				$responseObj->l[] = (float)$row['low'];
+				$responseObj->c[] = (int)$row['close'];
+				$responseObj->o[] = (int)$row['open'];
+				$responseObj->h[] = (int)$row['high'];
+				$responseObj->l[] = (int)$row['low'];
 				$responseObj->v[] = (int)$row['volume'];
 			}
 		}

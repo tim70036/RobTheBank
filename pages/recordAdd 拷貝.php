@@ -1,7 +1,21 @@
 <?php
+# Check login, if not, exit
 require_once('authenticate.php');
+
+# Print HTML content
+require_once('html.php');
+head(true);
 ?>
 
+<!-- Load Datepicker -->
+<script src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="../vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js"></script>
+<link rel="stylesheet" href="../vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
+
+<!-- Timepicker JS file -->
+<script src="../dist/js/jquery.timepicker.js"></script>
+<!-- Timepicker CSS file -->
+<link rel="stylesheet" href="../dist/css/jquery.timepicker.min.css">
 
 
 <!-- recordAdd.html -->
@@ -11,46 +25,67 @@ require_once('authenticate.php');
 	<div class="col-lg-12">
 
 	    <!-- HIDDEN DYNAMIC ELEMENT TO BE CLONED -->
-		<div class="form-group dynamic-element form-element" style="display:none">
+		<div class="form-group dynamic-element form-element form-trans" style="display:none">
+			<!-- Delete btn-->
+			<button type="button" class="btn btn-danger delete" style="">X</button>
 			<!-- Date -->
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
 				    <label for="date">日期</label>
-			        <input class="form-control" id="date" name="date" placeholder="YYYY-MM-DD" type="text"/>
+			        <input class="form-control" id="date" name="date" placeholder="請點選日期" type="text" autocomplete="off" required/>
 	        	</div>
-	        	<div class="col-xs-0 col-sm-1 col-md-5 col-lg-6"></div>
-	        	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-	        		<button type="button" class="btn btn-danger delete" style="margin-top:27px;">刪除此筆交易</button>
+	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+	        		<label for="date">時間</label>
+			        <input class="form-control timepicker" id="time"  name="time" placeholder="HH:MM" type="text" required/>
+	        	</div>
+	        	<div class="col-xs-0 col-sm-0 col-md-0 col-lg-4">
 	        	</div>
 	        </div>
-	        <!-- Transaction -->
-	        <div class="row">
-	        	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			        <label>成交明細</label>
-		            <textarea class="form-control" name="transaction" rows="5"></textarea>
-            	</div>
+	        <!-- Type -->
+	        <div class="row row-margin-top">
+	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+			        <label>交易類型</label>
+		            <div class="form-radio">
+		            	<input class="radio-btn" type="radio" name="notSetRadios" value="buy" checked="checked">買進
+		            	<input class="radio-btn" type="radio" name="notSetRadios" value="sell">賣出
+		        	</div>
+		        </div>
             </div>
+
+            <!-- Amount -->
+            <div class="row row-margin-top">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+	        		<label>張數</label>
+			        <input class="form-control" name="amount" type="number" min="1" step="1" placeholder="請輸入成交張數" required/>
+	        	</div>
+            </div>
+
+            <!-- Price -->
+	        <div class="row row-margin-top">
+	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			        <label>成交價格</label>
+		            <input class="form-control" name="price" type="number" min="0" step="0.01" placeholder="請輸入成交價格" required/>
+		        </div>
+            </div>
+            <!-- Transaction ID -->
+            <input type="hidden" name="id">
 		</div>
 		<!-- END OF HIDDEN ELEMENT -->
 
 	    <div class="form-container">
-		    <form class="form-horizontal" method="post">
+		    <form class="form-horizontal"  id="trans-form" action="recordSubmit.php" method="post">
 		        <fieldset>
 		        	<!-- Form Name -->
 		            <legend class="title">輸入交易明細</legend>
 
-		            <!-- Select broker -->
+		            <!-- Select Stock -->
 		            <div class="form-element">
 		            	<div class="row">
 		            		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-					            <label>券商格式選擇</label>
-					            <select class="form-control">
-					                <option>凱基</option>
-					                <option>日盛</option>
-					                <option>群益</option>
-					                <option>麥當勞</option>
-					                <option>肯德基</option>
-					            </select>
+								<!-- Indicate which type of input is this -->
+								<input type="hidden" name="action" value="manual"/>
+					            <label>股票代碼</label>
+					            <input class="form-control" id="stock-id" name="stock" placeholder="請輸入股票代碼(四碼)" type="number" min="1000" max="9999" step="1" required/>
 				        	</div>
 				        	<!-- /.col-lg-6 -->
 			            </div>
@@ -68,7 +103,7 @@ require_once('authenticate.php');
 		            <div class="form-group">
 		                <div class="row">
 		                	<div class="center">
-		                        <button type="button" class="add-one btn btn-success">新增交易</button>
+		                		<button type="button" class="add-one btn btn-success btn-circle btn-lg"><i class="glyphicon glyphicon-plus"></i></button>
 		                    </div>
 		                </div>
 		                <!-- /.row -->
@@ -92,17 +127,12 @@ require_once('authenticate.php');
 </div> 
 <!-- /.row -->
 
-<!-- Load Datepicker -->
-<script src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="../vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.zh-TW.js"></script>
-<link rel="stylesheet" href="../vendor/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css" />
-
 <!-- JS for clicking button -->
 <script type="text/javascript">
 var clickNum = 0;
 $('.add-one').click(function(){
   // Clone the hidden element and shows it
-  $('.dynamic-element').first().clone().appendTo('.dynamic-stuff').show();
+  $('.dynamic-element').first().clone().appendTo('.dynamic-stuff').fadeIn(400);
 
   // Init date picker
   $('input[name="date"]').datepicker({
@@ -113,14 +143,33 @@ $('.add-one').click(function(){
 		    clearBtn: true,
 		    //calendarWeeks: true,
 		    todayHighlight: true,
+		    daysOfWeekDisabled: [0,6],
 		    language: 'zh-TW'
-			});
+  });
+
+
+
+  $('.timepicker').timepicker({
+  	    timeFormat: 'HH:mm',
+	    interval: 1,
+	    minTime: '9:00',
+	    maxTime: '13:30',
+	    defaultTime: '9',
+	    startTime: '10:00',
+	    dropdown: true,
+	    scrollbar: true
+
+  });
 
 	// Set name for each field, so that server can parse data one by one
 	clickNum = clickNum + 1;
 	//console.log('buyOrSell'+clickNum);
 	$('.dynamic-element').last().find("input[name='date']").attr('name','date'+clickNum);
-	$('.dynamic-element').last().find("textarea[name='transaction']").attr('name','transaction'+clickNum);
+	$('.dynamic-element').last().find("input[name='time']").attr('name','time'+clickNum);
+	$('.dynamic-element').last().find("input[name='notSetRadios']").attr('name','buyOrSell'+clickNum);
+	$('.dynamic-element').last().find("input[name='amount']").attr('name','amount'+clickNum);
+	$('.dynamic-element').last().find("input[name='price']").attr('name','price'+clickNum);
+	$('.dynamic-element').last().find("input[name='id']").attr('name',clickNum);
   	attach_delete();
 });
 
@@ -130,8 +179,47 @@ $('.add-one').click();
 function attach_delete(){
   $('.delete').off();
   $('.delete').click(function(){
-    console.log("click");
-    $(this).closest('.form-group').remove();
+    //console.log("click");
+    $(this).closest('.form-group').fadeOut(400, function(){
+    	$(this).closest('.form-group').remove();
+    });
   });
 }
 </script>
+
+<!-- JS submit form, validate before really sumbit -->
+<script type="text/javascript">
+    
+    // Invoke function when submit
+    $("#singlebutton").click(function(e) {
+
+    	e.preventDefault(); // avoid to execute the actual submit of the form.
+
+        // Make sure that btn can't be click again and alert is hided
+        $("#singlebutton").addClass("disabled");
+        
+        var Url = "charting_server/symbolExist.php?symbol=" + $("#stock-id").val(); // the script where you handle the form input.
+        $.ajax({
+               type: "GET",
+               url: Url,
+               // Submit the form if success
+               success: function(data)
+               {
+                    $("#trans-form").submit();
+               },
+               // Alert if error
+               error: function(result) 
+               {
+                    alert('這是無效的股票代碼');
+                    $("#singlebutton").removeClass("disabled");
+                }
+             });
+
+        
+    });
+
+</script>
+
+<?php
+tail();
+?>

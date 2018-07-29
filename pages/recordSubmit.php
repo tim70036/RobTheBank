@@ -2,6 +2,9 @@
 # Check login, if not, exit
 require_once('authenticate.php');
 
+# Include some util func for chking file
+require_once('util.php');
+
 # Print HTML content
 require_once('html.php');
 head(true);
@@ -17,55 +20,111 @@ $stock = 8787;
 # Receive form data and Process it
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-	
 	$stock = filter_input (INPUT_POST, 'stock', FILTER_SANITIZE_NUMBER_INT);
 
-	# Read each transaction's data out into $dataArray
-	for($i=1 ; $i<$maxTrans ; $i++)
-	{
-		
-		$key = strval($i);
+    # Process data, 2 types of input
+    # File input
+    if($_POST["action"] === "file")
+    {
 
-		# Check whether exists data by checking hidden input value
-		if(isset($_POST[$key]))
-		{
-			$data = array();
+		# Read each transaction's data out into $dataArray
+        for($i=1 ; $i<$maxTrans ; $i++)
+        {
+            
+            $key = strval($i);
 
-			
-			$dateStr = $_POST['date' . $key];
-			$timeStr = $_POST['time' . $key];
+            # Check whether exists data by checking hidden input value
+            if(isset($_POST[$key]))
+            {
+				$data = array();
 
-			# Validation, prevent shit time
-			$dateObj = DateTime::createFromFormat('d.m.Y H:i', "10.10.2010 " . $timeStr);
-		    if ( !($dateObj !== false && $dateObj && $dateObj->format('G') == intval($timeStr)) )
-		    {
-		    	# Set it to the start time of trading session, if it is invalid time
-				$timeStr = "09:00";
-		    }
+				$fileName = "recordFile" . $key;
+				$dateStr = $_POST['date' . $key];
 
-			$hour = intval(substr($timeStr, 0 , 2));
-			$min = intval(substr($timeStr, 3, 2));
+				# Validation , avoid dangerous file
+				$errorMsg = "";
+				if (checkFileUpload($fileName, $errorMsg) == false)
+				{
+					echo "Error: " . $errorMsg;
+				}
+				# Validation Succeed 
+				else
+				{
+					echo "日期: " . $dateStr  ."<br/>";
+					echo "編號: " . $fileName ."<br/>";
+					echo "檔案名稱: " . $_FILES[$fileName]["name"]."<br/>";
+					echo "檔案類型: " . $_FILES[$fileName]["type"]."<br/>";
+					echo "檔案大小: " . ($_FILES[$fileName]["size"] / 1024)." Kb<br />";
+					echo "暫存名稱: " . $_FILES[$fileName]["tmp_name"];
 
-			# Validation, trading session is from 9:00 ~ 13:30
-			if($hour > 13)
-				$timeStr = "13:30";
-			else if($hour < 9)
-				$timeStr = "09:00";
-			else if($hour === 13 && $min > 30)
-				$timeStr = "13:30";
-			
-			#var_dump($timeStr);
+					$csv = array_map('str_getcsv', file($_FILES[$fileName]['tmp_name']));
 
-			# Conver time into Unix timestamp
-			$timezone = 'Asia/Taipei';
-			$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone);
+					# Convert big5 -> utf8, since excel use big5
+					arrayBig5ToUtf8($csv);
 
-			$data['type'] = $_POST['buyOrSell' . $key];
-			$data['amount'] = $_POST['amount' . $key];
-			$data['price'] = $_POST['price' . $key];
-			array_push($dataArray, $data);
+					//var_dump($csv);
+
+					# Gather data into dataArray
+					foreach($csv as $key=>$row)
+					{
+						# Skip the first row, since it is column header
+						if($key === 0) continue;
+						
+						# Extract time, we need only hour : minute
+						$timeStr = $row[0];
+						$timeStr = substr($timeStr, 0, 5);
+						
+						# Validate the time
+						$timeStr = checkRecordTime($timeStr);
+
+						# Gather data into dataArray
+						$timezone = 'Asia/Taipei';
+						$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
+						$data['type'] = ($row[2][0] === '+') ? 'buy' : 'sell';
+						$data['amount'] = $row[6];
+						$data['price'] = $row[7];
+						array_push($dataArray, $data);
+					}
+					
+				}
+			}
 		}
+        
+    }
+    # Manual input
+    else
+    {
+        # Read each transaction's data out into $dataArray
+        for($i=1 ; $i<$maxTrans ; $i++)
+        {
+            
+            $key = strval($i);
+
+            # Check whether exists data by checking hidden input value
+            if(isset($_POST[$key]))
+            {
+                $data = array();
+
+                $dateStr = $_POST['date' . $key];
+                $timeStr = $_POST['time' . $key];
+
+                # Validate the time
+				$timeStr = checkRecordTime($timeStr);
+
+				# Gather data into dataArray
+                $timezone = 'Asia/Taipei';
+                $data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
+                $data['type'] = $_POST['buyOrSell' . $key];
+                $data['amount'] = $_POST['amount' . $key];
+                $data['price'] = $_POST['price' . $key];
+                array_push($dataArray, $data);
+            }
+        }
 	}
+	
+	# Testing
+	// var_dump($dataArray);
+	// exit;
 }
 
 ?>

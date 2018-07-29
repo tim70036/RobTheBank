@@ -35,55 +35,51 @@ head(true);
 			        <input class="form-control" id="date" name="date" placeholder="請點選日期" type="text" autocomplete="off" required/>
 	        	</div>
 	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
-	        		<label for="date">時間</label>
-			        <input class="form-control timepicker" id="time"  name="time" placeholder="HH:MM" type="text" required/>
 	        	</div>
 	        	<div class="col-xs-0 col-sm-0 col-md-0 col-lg-4">
 	        	</div>
 	        </div>
-	        <!-- Type -->
-	        <div class="row row-margin-top">
-	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
-			        <label>交易類型</label>
-		            <div class="form-radio">
-		            	<input class="radio-btn" type="radio" name="notSetRadios" value="buy" checked="checked">買進
-		            	<input class="radio-btn" type="radio" name="notSetRadios" value="sell">賣出
-		        	</div>
-		        </div>
-            </div>
-
-            <!-- Amount -->
+            <!-- File -->
             <div class="row row-margin-top">
 				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-	        		<label>張數</label>
-			        <input class="form-control" name="amount" type="number" min="1" step="1" placeholder="請輸入成交張數" required/>
+                    <label>選擇檔案</label>
+                    <input type="file" accept="" name="recordFile" id="recordFile"/>
 	        	</div>
             </div>
 
-            <!-- Price -->
-	        <div class="row row-margin-top">
-	        	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			        <label>成交價格</label>
-		            <input class="form-control" name="price" type="number" min="0" step="0.01" placeholder="請輸入成交價格" required/>
-		        </div>
-            </div>
             <!-- Transaction ID -->
             <input type="hidden" name="id">
 		</div>
 		<!-- END OF HIDDEN ELEMENT -->
 
 	    <div class="form-container">
-		    <form class="form-horizontal"  id="trans-form" action="recordSubmit.php" method="post">
+		    <form class="form-horizontal"  id="trans-form" action="recordSubmit.php" method="post" enctype="multipart/form-data">
 		        <fieldset>
 		        	<!-- Form Name -->
 		            <legend class="title">輸入交易明細</legend>
 
-		            <!-- Select broker -->
+		            <!-- Select Stock & Broker -->
 		            <div class="form-element">
 		            	<div class="row">
 		            		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+								<!-- Indicate which type of input is this -->
+								<input type="hidden" name="action" value="file"/>
 					            <label>股票代碼</label>
 					            <input class="form-control" id="stock-id" name="stock" placeholder="請輸入股票代碼(四碼)" type="number" min="1000" max="9999" step="1" required/>
+				        	</div>
+				        	<!-- /.col-lg-6 -->
+			            </div>
+			            <!-- /.row -->
+                        <div class="row row-margin-top">
+		            		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                                <label>券商格式選擇</label>
+                                <select name="type" class="form-control">
+                                    <option>凱基</option>
+                                    <option>日盛</option>
+                                    <option>群益</option>
+                                    <option>麥當勞</option>
+                                    <option>肯德基</option>
+                                </select>
 				        	</div>
 				        	<!-- /.col-lg-6 -->
 			            </div>
@@ -163,10 +159,7 @@ $('.add-one').click(function(){
 	clickNum = clickNum + 1;
 	//console.log('buyOrSell'+clickNum);
 	$('.dynamic-element').last().find("input[name='date']").attr('name','date'+clickNum);
-	$('.dynamic-element').last().find("input[name='time']").attr('name','time'+clickNum);
-	$('.dynamic-element').last().find("input[name='notSetRadios']").attr('name','buyOrSell'+clickNum);
-	$('.dynamic-element').last().find("input[name='amount']").attr('name','amount'+clickNum);
-	$('.dynamic-element').last().find("input[name='price']").attr('name','price'+clickNum);
+    $('.dynamic-element').last().find("input[name='recordFile']").attr('name','recordFile'+clickNum);
 	$('.dynamic-element').last().find("input[name='id']").attr('name',clickNum);
   	attach_delete();
 });
