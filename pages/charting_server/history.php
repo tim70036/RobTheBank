@@ -55,15 +55,15 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 		{
 			$responseObj->s = "no_data";
 
-			// $sql = "SELECT MAX(timestamp) AS maxtime, MIN(timestamp) AS mintime FROM `3026`";
-			// $result = $connection->query($sql);
-			// if(!$result)	throw new Exception("MIN MAX query failed.");
+			$sql = "SELECT MAX(timestamp) AS maxtime, MIN(timestamp) AS mintime FROM `$tableName`";
+			$result = $connection->query($sql);
+			if(!$result)	throw new Exception("MIN MAX query failed.");
 
-			// $row = $result->fetch_assoc();
-			// if($from > $row['maxtime'])
-			// 	$responseObj->nextTime = (int)$row['maxtime'];
-			// else // $to < min time
-			// 	$responseObj->nextTime = (int)$row['mintime'];
+			$row = $result->fetch_assoc();
+			if($from > $row['maxtime'])
+				$responseObj->nextTime = (int)$row['maxtime'];
+			else // $to < min time
+				$responseObj->nextTime = (int)$row['mintime'];
 
 		}
 		# If there is data
@@ -80,10 +80,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 			while($row = $result->fetch_assoc())
 			{
 				$responseObj->t[] = (int)$row['timestamp'];
-				$responseObj->c[] = (int)$row['close'];
-				$responseObj->o[] = (int)$row['open'];
-				$responseObj->h[] = (int)$row['high'];
-				$responseObj->l[] = (int)$row['low'];
+				$responseObj->c[] = (float)$row['close'];
+				$responseObj->o[] = (float)$row['open'];
+				$responseObj->h[] = (float)$row['high'];
+				$responseObj->l[] = (float)$row['low'];
 				$responseObj->v[] = (int)$row['volume'];
 			}
 		}

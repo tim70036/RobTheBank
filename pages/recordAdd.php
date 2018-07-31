@@ -74,12 +74,13 @@ head(true);
 		            		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
                                 <label>券商格式選擇</label>
                                 <select name="type" class="form-control">
-                                    <option>凱基</option>
-                                    <option>日盛</option>
-                                    <option>群益</option>
+                                    <option>元富</option>
                                     <option>麥當勞</option>
                                     <option>肯德基</option>
                                 </select>
+                                <div class="row-margin-top" >
+                                    <a href="recordAddMan.php">找不到券商? 手動輸入</a>
+                                </div>
 				        	</div>
 				        	<!-- /.col-lg-6 -->
 			            </div>

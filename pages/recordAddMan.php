@@ -86,6 +86,9 @@ head(true);
 								<input type="hidden" name="action" value="manual"/>
 					            <label>股票代碼</label>
 					            <input class="form-control" id="stock-id" name="stock" placeholder="請輸入股票代碼(四碼)" type="number" min="1000" max="9999" step="1" required/>
+								<div class="row-margin-top" >
+                                    <a href="recordAdd.php"> 有券商交易明細? 上傳檔案 </a>
+                                </div>
 				        	</div>
 				        	<!-- /.col-lg-6 -->
 			            </div>

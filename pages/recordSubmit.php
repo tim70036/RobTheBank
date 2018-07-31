@@ -17,116 +17,130 @@ $dataArray = array();
 $maxTrans = 1000; # default at most 1000 transaction
 $stock = 8787;
 
+
 # Receive form data and Process it
-if($_SERVER['REQUEST_METHOD'] == 'POST')
+try
 {
-	$stock = filter_input (INPUT_POST, 'stock', FILTER_SANITIZE_NUMBER_INT);
+	if($_SERVER['REQUEST_METHOD'] == 'POST')
+	{
+		$stock = filter_input (INPUT_POST, 'stock', FILTER_SANITIZE_NUMBER_INT);
 
-    # Process data, 2 types of input
-    # File input
-    if($_POST["action"] === "file")
-    {
+		# Process data, 2 types of input
+		# File input
+		if($_POST["action"] === "file")
+		{
 
-		# Read each transaction's data out into $dataArray
-        for($i=1 ; $i<$maxTrans ; $i++)
-        {
-            
-            $key = strval($i);
+			# Read each transaction's data out into $dataArray
+			for($i=1 ; $i<$maxTrans ; $i++)
+			{
+				
+				$key = strval($i);
 
-            # Check whether exists data by checking hidden input value
-            if(isset($_POST[$key]))
-            {
-				$data = array();
-
-				$fileName = "recordFile" . $key;
-				$dateStr = $_POST['date' . $key];
-
-				# Validation , avoid dangerous file
-				$errorMsg = "";
-				if (checkFileUpload($fileName, $errorMsg) == false)
+				# Check whether exists data by checking hidden input value
+				if(isset($_POST[$key]))
 				{
-					echo "Error: " . $errorMsg;
+					$data = array();
+
+					$fileName = "recordFile" . $key;
+					$dateStr = $_POST['date' . $key];
+
+					# Validation , avoid dangerous file
+					$errorMsg = "";
+					if (checkFileUpload($fileName, $errorMsg) == false)
+					{
+						throw new Exception($errorMsg);
+					}
+					# Validation Succeed 
+					else
+					{
+						// echo "日期: " . $dateStr  ."<br/>";
+						// echo "編號: " . $fileName ."<br/>";
+						// echo "檔案名稱: " . $_FILES[$fileName]["name"]."<br/>";
+						// echo "檔案類型: " . $_FILES[$fileName]["type"]."<br/>";
+						// echo "檔案大小: " . ($_FILES[$fileName]["size"] / 1024)." Kb<br />";
+						// echo "暫存名稱: " . $_FILES[$fileName]["tmp_name"];
+
+						$csv = array_map('str_getcsv', file($_FILES[$fileName]['tmp_name']));
+
+						# Convert big5 -> utf8, since excel use big5
+						arrayBig5ToUtf8($csv);
+
+						# Iter each row data
+						foreach($csv as $key=>$row)
+						{
+							# Skip the first row, since it is column header
+							if($key === 0) continue;
+
+							# Skip the undesired stocks
+							$stockNum = substr($row[3], 0, 4);
+							if(!is_numeric($stockNum)) 	throw new Exception("Wrong data foramt in csv.");
+							if($stockNum !== $stock)	continue;
+
+							# Extract time, we need only hour : minute
+							$timeStr = $row[0];
+							$timeStr = substr($timeStr, 0, 5);
+							
+							# Validate  time
+							$timeStr = checkRecordTime($timeStr);
+
+							# Validate
+							if($row[2][0] !== '+' && ($row[2][0] !== '-'))		throw new Exception("Wrong data foramt in csv.");
+							if(!is_numeric($row[6]) || !is_numeric($row[7]))	throw new Exception("Wrong data foramt in csv.");
+							
+							# Gather data into dataArray
+							$timezone = 'Asia/Taipei';
+							$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
+							$data['type'] = ($row[2][0] === '+') ? 'buy' : 'sell';
+							$data['amount'] = $row[6];
+							$data['price'] = $row[7];
+							array_push($dataArray, $data);
+						}
+						
+					}
 				}
-				# Validation Succeed 
-				else
+			}
+			
+		}
+		# Manual input
+		else
+		{
+			# Read each transaction's data out into $dataArray
+			for($i=1 ; $i<$maxTrans ; $i++)
+			{
+				
+				$key = strval($i);
+
+				# Check whether exists data by checking hidden input value
+				if(isset($_POST[$key]))
 				{
-					echo "日期: " . $dateStr  ."<br/>";
-					echo "編號: " . $fileName ."<br/>";
-					echo "檔案名稱: " . $_FILES[$fileName]["name"]."<br/>";
-					echo "檔案類型: " . $_FILES[$fileName]["type"]."<br/>";
-					echo "檔案大小: " . ($_FILES[$fileName]["size"] / 1024)." Kb<br />";
-					echo "暫存名稱: " . $_FILES[$fileName]["tmp_name"];
+					$data = array();
 
-					$csv = array_map('str_getcsv', file($_FILES[$fileName]['tmp_name']));
+					$dateStr = $_POST['date' . $key];
+					$timeStr = $_POST['time' . $key];
 
-					# Convert big5 -> utf8, since excel use big5
-					arrayBig5ToUtf8($csv);
-
-					//var_dump($csv);
+					# Validate the time
+					$timeStr = checkRecordTime($timeStr);
 
 					# Gather data into dataArray
-					foreach($csv as $key=>$row)
-					{
-						# Skip the first row, since it is column header
-						if($key === 0) continue;
-						
-						# Extract time, we need only hour : minute
-						$timeStr = $row[0];
-						$timeStr = substr($timeStr, 0, 5);
-						
-						# Validate the time
-						$timeStr = checkRecordTime($timeStr);
-
-						# Gather data into dataArray
-						$timezone = 'Asia/Taipei';
-						$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
-						$data['type'] = ($row[2][0] === '+') ? 'buy' : 'sell';
-						$data['amount'] = $row[6];
-						$data['price'] = $row[7];
-						array_push($dataArray, $data);
-					}
-					
+					$timezone = 'Asia/Taipei';
+					$data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
+					$data['type'] = $_POST['buyOrSell' . $key];
+					$data['amount'] = $_POST['amount' . $key];
+					$data['price'] = $_POST['price' . $key];
+					array_push($dataArray, $data);
 				}
 			}
 		}
-        
-    }
-    # Manual input
-    else
-    {
-        # Read each transaction's data out into $dataArray
-        for($i=1 ; $i<$maxTrans ; $i++)
-        {
-            
-            $key = strval($i);
-
-            # Check whether exists data by checking hidden input value
-            if(isset($_POST[$key]))
-            {
-                $data = array();
-
-                $dateStr = $_POST['date' . $key];
-                $timeStr = $_POST['time' . $key];
-
-                # Validate the time
-				$timeStr = checkRecordTime($timeStr);
-
-				# Gather data into dataArray
-                $timezone = 'Asia/Taipei';
-                $data['timestamp'] = strtotime($dateStr . ' ' . $timeStr . $timezone); # Conver time into Unix timestamp
-                $data['type'] = $_POST['buyOrSell' . $key];
-                $data['amount'] = $_POST['amount' . $key];
-                $data['price'] = $_POST['price' . $key];
-                array_push($dataArray, $data);
-            }
-        }
+		
+		# Testing
+		// var_dump($dataArray);
+		// exit;
 	}
-	
-	# Testing
-	// var_dump($dataArray);
-	// exit;
 }
-
+catch(Exception  $e)
+{
+	echo "Error: " . $e->getMessage();
+}
 ?>
 
 <!-- HTML Content -->
@@ -230,8 +244,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         autosize: true,
         symbol: '<?php echo $stock; ?>', // echo stock from server
         debug: true,
-        interval: '1',
-        //timeframe: '5D',
+        interval: '5',
+        timeframe: '5D',
         container_id: "tv_chart_container",
         //  BEWARE: no trailing slash is expected in feed URL
         datafeed: new Datafeeds.UDFCompatibleDatafeed("charting_server", 100*1000),

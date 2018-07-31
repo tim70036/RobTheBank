@@ -15,7 +15,7 @@ function toTwTime($dateStr)
 	return $date;
 }
 
-
+# Set time to valid trading session 9:00~13:30
 function checkRecordTime($timeStr)
 {
     # Validation, prevent shit time
@@ -36,10 +36,11 @@ function checkRecordTime($timeStr)
         $timeStr = "09:00";
     else if($hour === 13 && $min > 30)
         $timeStr = "13:30";
-        
+
     return $timeStr;
 }
 
+# Check the upload file for safety
 function checkFileUpload($filename, &$errorMsg)
 {
     try {
