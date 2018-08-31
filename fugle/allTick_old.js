@@ -21,6 +21,7 @@ const fs = require('fs');
 
 var tarDate = new Date(Date.now()),
     tarDateStr = DateToStr(tarDate),
+    //tarDateStr = "20180817",
     stockData,
     stockSkipData,
     stockDataIndex;
@@ -35,6 +36,8 @@ stockSkipData = stockSkipData["TICK"];
 // OTC [281, 348, 482]
 // SEC [746]
 // All [746, 1196, 1263, 1397]
+
+
 
 RequestStockData(stockData[stockDataIndex]["symbol"].toString());
 
